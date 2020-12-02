@@ -14,6 +14,7 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
     do //Do while foi utilizado para repetir para o usuário o procedimento de construção da piramide caso o mesmo queira ou caso tenha errado e queria fazer certo.
     {
         int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n"); //Pergunta para o usuário a altura da piramide.
+        printf("%i", AlturaPiramide);
         system("clear || cls"); //Comando de limpar a tela.
         SubtratorHorizontal = AlturaPiramide - 1;
         SomadorHorizontal1 = 1;
@@ -44,17 +45,17 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                 system("sleep 0.5"); //delay na construção da piramide pra ficar legal KAKAKA.
                 SomadorHorizontal2 = SomadorHorizontal2 + 1; //SomadorHorizontal2 deve aumentar, imprimir hashes e ficar alinhado à esquerda.
             }
-            printf("\nDeseja escolher a altura novamente? Se sim pressione 0, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
+            printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
             scanf("%i", &Resposta); //Resposta do usuário.
             system("clear || cls");
         }
         else //Else para as alturas inválidas.
         {
-            printf("Não foi inserido uma altura válida.\nDeseja escolher a altura novamente? Se sim pressione 0, se deseja sair pressione qualquer outra tecla.\n");
+            printf("Não foi inserido uma altura válida.\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
             scanf("%i", &Resposta);
             system("clear || cls");
         }
     }
-    while (Resposta == 0); //Condição para que a repetição continue.
+    while (Resposta == 1); //Condição para que a repetição continue.
     return 0;
 }
