@@ -14,13 +14,12 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
     do //Do while foi utilizado para repetir para o usuário o procedimento de construção da piramide caso o mesmo queira ou caso tenha errado e queria fazer certo.
     {
         int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n"); //Pergunta para o usuário a altura da piramide.
-        printf("%i", AlturaPiramide);
         system("clear || cls"); //Comando de limpar a tela.
         SubtratorHorizontal = AlturaPiramide - 1;
         SomadorHorizontal1 = 1;
         SomadorHorizontal2 = 1;
         
-        if (AlturaPiramide >= 1 && AlturaPiramide <= 8) //If que varia de acordo com a escolha do usuário.
+        if (AlturaPiramide >= 0 && AlturaPiramide <= 9) //If que varia de acordo com a escolha do usuário.
         {
             printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", AlturaPiramide); //Prinft para mostrar a altura escolhida.
 
