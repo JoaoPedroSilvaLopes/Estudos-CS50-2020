@@ -14,7 +14,6 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
     do //Do while foi utilizado para repetir para o usuário o procedimento de construção da piramide caso o mesmo queira ou caso tenha errado e queria fazer certo.
     {
         int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n"); //Pergunta para o usuário a altura da piramide.
-        system("clear || cls"); //Comando de limpar a tela.
         SubtratorHorizontal = AlturaPiramide - 1;
         SomadorHorizontal1 = 1;
         SomadorHorizontal2 = 1;
@@ -33,9 +32,10 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                 {
                     printf("#"); //Printf para imprimir as hashes da primeira piramide.
                 }
+                printf("  "); //Printf para fazer o espaçamento entre as duas piramides.
                 SomadorHorizontal1 = SomadorHorizontal1 + 1; //SomadorHorizontal deve aumentar, imprimir hashes e ficar alinhado à direita.
                 SubtratorHorizontal = SubtratorHorizontal - 1; //SubtratorHorizontal deve diminuir e imprimir espaços vazios.
-                printf("  "); //Printf para fazer o espaçamento entre as duas piramides.
+                
                 for (int Linha = 0; Linha < SomadorHorizontal2; Linha++)
                 {
                     printf("#"); //Printf para imprimir as hashes da segunda piramide.
@@ -46,13 +46,11 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
             }
             printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
             scanf("%i", &Resposta); //Resposta do usuário.
-            system("clear || cls");
         }
         else //Else para as alturas inválidas.
         {
             printf("Não foi inserido uma altura válida.\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
             scanf("%i", &Resposta);
-            system("clear || cls");
         }
     }
     while (Resposta == 1); //Condição para que a repetição continue.
