@@ -19,7 +19,7 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
         SomadorHorizontal1 = 1;
         SomadorHorizontal2 = 1;
         
-        if (AlturaPiramide >= 0 && AlturaPiramide <= 9) //If que varia de acordo com a escolha do usuário.
+        if (AlturaPiramide >= 1 && AlturaPiramide <= 8) //If que varia de acordo com a escolha do usuário.
         {
             printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", AlturaPiramide); //Prinft para mostrar a altura escolhida.
 
@@ -35,7 +35,7 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                 }
                 SomadorHorizontal1 = SomadorHorizontal1 + 1; //SomadorHorizontal deve aumentar, imprimir hashes e ficar alinhado à direita.
                 SubtratorHorizontal = SubtratorHorizontal - 1; //SubtratorHorizontal deve diminuir e imprimir espaços vazios.
-                printf(" "); //Printf para fazer o espaçamento entre as duas piramides.
+                printf("  "); //Printf para fazer o espaçamento entre as duas piramides.
                 for (int Linha = 0; Linha < SomadorHorizontal2; Linha++)
                 {
                     printf("#"); //Printf para imprimir as hashes da segunda piramide.
