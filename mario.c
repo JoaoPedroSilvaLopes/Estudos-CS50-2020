@@ -41,7 +41,6 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                     printf("#"); //Printf para imprimir as hashes da segunda piramide.
                 }
                 printf("\n"); //Printf para quebrar a linha.
-                system("sleep 0.5"); //delay na construção da piramide pra ficar legal KAKAKA.
                 SomadorHorizontal2 = SomadorHorizontal2 + 1; //SomadorHorizontal2 deve aumentar, imprimir hashes e ficar alinhado à esquerda.
             }
             printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
