@@ -4,39 +4,63 @@
 
 int main(void)
 {
-    int SomadorHorizontal1, SomadorHorizontal2, SubtratorHorizontal;
     int Resposta = 1;
     
     while (Resposta == 1)
     {
-        int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n");
+        int Altura = get_int("Digite a altura da piramide entre 1 e 8.\n");
         
-        if (AlturaPiramide > 0 && AlturaPiramide < 9)
+        if (Altura > 0 && Altura < 9)
         {
-            SubtratorHorizontal = AlturaPiramide - 1;
-            SomadorHorizontal1 = 1;
-            SomadorHorizontal2 = 1;
-            printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", AlturaPiramide);
-            for (int Coluna = 0; Coluna < AlturaPiramide; Coluna++)
+            int Y = Altura - 1;
+            int X1 = 1;
+            int X2 = 1;
+            printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", Altura);
+            
+            
+            
+            
+            
+            
+            for (int Coluna = 0; Coluna < Altura; Coluna++)
             {
-                for (int Linha = 0; Linha < SubtratorHorizontal; Linha++)
+             
+             
+             
+             
+             
+                for (int Linha = 0; Linha < Y; Linha++)
                 {
                     printf(" ");
                 }
-                SubtratorHorizontal--;
-                for (int Linha = 0; Linha < SomadorHorizontal1; Linha++)
+                Y--;
+                for (int Linha = 0; Linha < X1; Linha++)
                 {
                     printf("#");
                 }
-                SomadorHorizontal1++;
+                X1++;
                 printf("  ");
-                for (int Linha = 0; Linha < SomadorHorizontal2; Linha++)
+                for (int Linha = 0; Linha < X2; Linha++)
                 {
                     printf("#");
                 }
-                SomadorHorizontal2++;
+                X2++;
                 printf("\n"); 
+                
+                
+                
+           
+           
+           
+                
+                
             }
+            
+            
+            
+            
+            
+            
             printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
             scanf("%i", &Resposta); 
         }
