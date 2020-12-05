@@ -29,7 +29,7 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                 {
                     printf(" "); //Printf para imprimir os espaços vazios da piramide.
                 }
-                for (int Linha = 0; Linha < SomadorHorizontal1; Linha++)
+                for (int Linha1 = 0; Linha1 < SomadorHorizontal1; Linha1++)
                 {
                     printf("#"); //Printf para imprimir as hashes da primeira piramide.
                 }
@@ -37,7 +37,7 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                 SomadorHorizontal1++; //SomadorHorizontal deve aumentar, imprimir hashes e ficar alinhado à direita.
                 SubtratorHorizontal--; //SubtratorHorizontal deve diminuir e imprimir espaços vazios.
                 
-                for (int Linha = 0; Linha < SomadorHorizontal2; Linha++)
+                for (int Linha2 = 0; Linha2 < SomadorHorizontal2; Linha2++)
                 {
                     printf("#"); //Printf para imprimir as hashes da segunda piramide.
                 }
