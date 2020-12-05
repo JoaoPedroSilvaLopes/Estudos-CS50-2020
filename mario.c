@@ -23,7 +23,7 @@ int main(void)
                     printf(" "); 
                 }
                 Y--;
-                for (int Linha = 0; Linha < X; Linha++)
+                for (int Linha1 = 0; Linha1 < X; Linha1++)
                 {
                     printf("#");
                 }
