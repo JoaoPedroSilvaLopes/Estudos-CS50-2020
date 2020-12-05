@@ -12,22 +12,21 @@ int main(void)
 
         if (Altura > 0 && Altura < 9) 
         {
-            int Y = Altura - 1;
-            int X = 1;
+;
             printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", Altura); 
 
-            for (int Coluna = 0; Coluna < Altura; Coluna++) 
+            for (int Coluna = 1; Coluna <= Altura; Coluna++) 
             {
-                for (int Linha = 0; Linha < Y; Linha++)
+                for (int Linha = Altura - Coluna; Linha >= 0; Linha--)
                 {
                     printf(" "); 
                 }
-                Y--;
-                for (int Linha1 = 0; Linha1 < X; Linha1++)
+
+                for (int Linha = 1; Linha < Coluna + 1; Linha++)
                 {
                     printf("#");
                 }
-                X++;
+
                 printf("\n"); 
                 
             }
