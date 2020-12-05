@@ -1,54 +1,50 @@
-//MATRÍCULA: 20201045050643
-//NOME: João Pedro Silva Lopes
-//USUÁRIO: JoãoPedroSilvaLopes
-//EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h>
 #include <cs50.h>
 #include <stdlib.h>
 
-int main(void) //Usei o mesmo código do Mario Less, mas com algumas alterações.
+int main(void)
 {
-    int SomadorHorizontal1, SomadorHorizontal2, SubtratorHorizontal, Resposta; //Declaração de variáveis.
+    int SomadorHorizontal1, SomadorHorizontal2, SubtratorHorizontal;
+    int Resposta = 1;
     
-
+    while (Resposta == 1)
     {
-        int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n"); //Pergunta para o usuário a altura da piramide.
-        SubtratorHorizontal = AlturaPiramide - 1;
-        SomadorHorizontal1 = 1;
-        SomadorHorizontal2 = 1;
+        int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n");
         
-        if (AlturaPiramide >= 1 && AlturaPiramide <= 8) //If que varia de acordo com a escolha do usuário.
+        if (AlturaPiramide > 0 && AlturaPiramide < 9)
         {
-            printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", AlturaPiramide); //Prinft para mostrar a altura escolhida.
-            for (int Coluna = 0; Coluna < AlturaPiramide; Coluna++) //Laço For utilizado para determinar a altura da piramide.
+            SubtratorHorizontal = AlturaPiramide - 1;
+            SomadorHorizontal1 = 1;
+            SomadorHorizontal2 = 1;
+            printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", AlturaPiramide);
+            for (int Coluna = 0; Coluna < AlturaPiramide; Coluna++)
             {
                 for (int Linha = 0; Linha < SubtratorHorizontal; Linha++)
                 {
-                    printf(" "); //Printf para imprimir os espaços vazios da piramide.
+                    printf(" ");
                 }
-                SubtratorHorizontal--; //SubtratorHorizontal deve diminuir e imprimir espaços vazios.
+                SubtratorHorizontal--;
                 for (int Linha = 0; Linha < SomadorHorizontal1; Linha++)
                 {
-                    printf("#"); //Printf para imprimir as hashes da primeira piramide.
+                    printf("#");
                 }
-                SomadorHorizontal1++; //SomadorHorizontal deve aumentar, imprimir hashes e ficar alinhado à direita.
-                printf("  "); //Printf para fazer o espaçamento entre as duas piramides.
+                SomadorHorizontal1++;
+                printf("  ");
                 for (int Linha = 0; Linha < SomadorHorizontal2; Linha++)
                 {
-                    printf("#"); //Printf para imprimir as hashes da segunda piramide.
+                    printf("#");
                 }
-                SomadorHorizontal2++; //SomadorHorizontal2 deve aumentar, imprimir hashes e ficar alinhado à esquerda.
-                printf("\n"); //Printf para quebrar a linha.
+                SomadorHorizontal2++;
+                printf("\n"); 
             }
-            printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
-            scanf("%i", &Resposta); //Resposta do usuário.
+            printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
+            scanf("%i", &Resposta); 
         }
-        else //Else para as alturas inválidas.
+        else
         {
             printf("Não foi inserido uma altura válida. Deseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
             scanf("%i", &Resposta);
         }
     }
- //Condição para que a repetição continue.
     return 0;
 }
