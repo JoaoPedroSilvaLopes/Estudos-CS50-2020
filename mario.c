@@ -28,22 +28,21 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                 for (int Linha = 0; Linha < SubtratorHorizontal; Linha++)
                 {
                     printf(" "); //Printf para imprimir os espaços vazios da piramide.
+                    SubtratorHorizontal--; //SubtratorHorizontal deve diminuir e imprimir espaços vazios.
                 }
-                for (int Linha1 = 0; Linha1 < SomadorHorizontal1; Linha1++)
+                for (int Linha = 0; Linha < SomadorHorizontal1; Linha++)
                 {
                     printf("#"); //Printf para imprimir as hashes da primeira piramide.
+                    SomadorHorizontal1++; //SomadorHorizontal deve aumentar, imprimir hashes e ficar alinhado à direita.
                 }
                 printf("  "); //Printf para fazer o espaçamento entre as duas piramides.
-                SomadorHorizontal1++; //SomadorHorizontal deve aumentar, imprimir hashes e ficar alinhado à direita.
-                SubtratorHorizontal--; //SubtratorHorizontal deve diminuir e imprimir espaços vazios.
-                
-                for (int Linha2 = 0; Linha2 < SomadorHorizontal2; Linha2++)
+                for (int Linha = 0; Linha < SomadorHorizontal2; Linha++)
                 {
                     printf("#"); //Printf para imprimir as hashes da segunda piramide.
+                    SomadorHorizontal2++; //SomadorHorizontal2 deve aumentar, imprimir hashes e ficar alinhado à esquerda.
                 }
                 printf("\n"); //Printf para quebrar a linha.
                 system("sleep 0.5"); //delay na construção da piramide pra ficar legal KAKAKA.
-                SomadorHorizontal2++; //SomadorHorizontal2 deve aumentar, imprimir hashes e ficar alinhado à esquerda.
             }
             printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
             scanf("%i", &Resposta); //Resposta do usuário.
