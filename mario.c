@@ -8,20 +8,18 @@
 
 int main(void) //Usei o mesmo código do Mario Less, mas com algumas alterações.
 {
-    int SomadorHorizontal1, SomadorHorizontal2, SubtratorHorizontal, Resposta; //Declaração de variáveis.
-
+    int SomadorHorizontal1, SomadorHorizontal2, SubtratorHorizontal, Resposta, AlturaPiramide; //Declaração de variáveis.
+    
     do //Do while foi utilizado para repetir para o usuário o procedimento de construção da piramide caso o mesmo queira ou caso tenha errado e queria fazer certo.
     {
-        int AlturaPiramide = get_int("Digite a altura da piramide entre 1 e 8.\n"); //Pergunta para o usuário a altura da piramide.
-        system("clear"); //Comando de limpar a tela.
+        printf("Digite a altura da piramide entre 1 e 8.\n"); //Pergunta para o usuário a altura da piramide.
+        scanf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", &AlturaPiramide); //Prinft para mostrar a altura escolhida.
         SubtratorHorizontal = AlturaPiramide - 1;
         SomadorHorizontal1 = 1;
         SomadorHorizontal2 = 1;
         
         if (AlturaPiramide >= 1 && AlturaPiramide <= 8) //If que varia de acordo com a escolha do usuário.
         {
-            printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", AlturaPiramide); //Prinft para mostrar a altura escolhida.
-
             for (int Coluna = 0; Coluna < AlturaPiramide; Coluna++) //Laço For utilizado para determinar a altura da piramide.
             {
                 for (int Linha = 0; Linha < SubtratorHorizontal; Linha++)
@@ -40,8 +38,8 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
                     printf("#"); //Printf para imprimir as hashes da segunda piramide.
                 }
                 SomadorHorizontal2++; //SomadorHorizontal2 deve aumentar, imprimir hashes e ficar alinhado à esquerda.
-                printf("\n"); //Printf para quebrar a linha.
                 system("sleep 0.5"); //delay na construção da piramide pra ficar legal KAKAKA.
+                printf("\n"); //Printf para quebrar a linha.
             }
             printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n"); //Pergunta para o usuário se o mesmo quer repetir o processo.
             scanf("%i", &Resposta); //Resposta do usuário.
@@ -49,7 +47,7 @@ int main(void) //Usei o mesmo código do Mario Less, mas com algumas alteraçõe
         }
         else //Else para as alturas inválidas.
         {
-            printf("Não foi inserido uma altura válida.\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
+            printf("Não foi inserido uma altura válida. Deseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
             scanf("%i", &Resposta);
             system("clear");
         }
