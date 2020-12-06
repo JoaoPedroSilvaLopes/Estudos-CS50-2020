@@ -11,22 +11,22 @@ int main(void)
     }
     while (Altura < 1 || Altura > 8);
 
-            int Y = Altura - 1;
-            int X1 = 1;
-            int X2 = 1;
-            for (int Coluna = 0; Coluna < Altura; Coluna++)
-            {
-                for (int Linha = 0; Linha < Y; Linha++)
-                {
-                    printf("  ");
-                }
-                Y--;
-                for (int Linha = 0; Linha < X1; Linha++)
-                {
-                    printf("#");
-                }
-                X1++;
-                printf("  ");
+    int Y = Altura - 1;
+    int X1 = 1;
+    int X2 = 1;
+    for (int Coluna = 0; Coluna < Altura; Coluna++)
+    {
+      for (int Linha = 0; Linha < Y; Linha++)
+      {
+          printf("  ");
+      }
+      Y--;
+      for (int Linha = 0; Linha < X1; Linha++)
+      {
+          printf("#");
+      }
+      X1++;
+      printf(" ");
     }
     return 0;
 }
