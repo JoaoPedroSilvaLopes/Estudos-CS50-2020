@@ -26,7 +26,7 @@ int main(void)
           printf("#");
       }
       X1++;
-      printf(" ");
+      printf("\n");
     }
     return 0;
 }
