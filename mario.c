@@ -26,7 +26,7 @@ int main(void)
                     printf("#");
                 }
                 X1++;
-                printf(" ");
+                printf("  ");
                 for (int Linha = 0; Linha < X2; Linha++)
                 {
                     printf("#");
