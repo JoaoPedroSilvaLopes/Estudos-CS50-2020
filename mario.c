@@ -11,7 +11,7 @@ int main(void)
     }
     while (Altura < 1 || Altura > 8);
 
-            int Y = Altura -1;
+            int Y = Altura - 1;
             int X1 = 1;
             int X2 = 1;
             for (int Coluna = 0; Coluna < Altura; Coluna++)
