@@ -10,8 +10,7 @@ int main(void)
         Altura = get_int("Digite a altura da piramide entre 1 e 8.\n");
     }
     while(Altura < 1 || Altura > 8);
-        
-            printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", Altura);
+
             for (int Coluna = 1; Coluna <= Altura; Coluna++)
             {
                 for (int Linha = (Altura - Coluna); Linha > 0; Linha--)
@@ -27,7 +26,8 @@ int main(void)
                 {
                     printf("#");
                 }
-                printf("\n"); 
+                printf("\n");
+                system("sleep 0.5");
             }
 return 0;
 }
