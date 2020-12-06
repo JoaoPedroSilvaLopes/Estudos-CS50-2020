@@ -4,71 +4,30 @@
 
 int main(void)
 {
-    int Resposta = 1;
-    
-    while (Resposta == 1)
+    int Altura;
+    do
     {
-        int Altura = get_int("Digite a altura da piramide entre 1 e 8.\n");
+        Altura = get_int("Digite a altura da piramide entre 1 e 8.\n");
+    }
+    while(Altura < 1 || Altura > 8);
         
-        if (Altura > 0 && Altura < 9)
-        {
-            int Y = Altura - 1;
-            int X1 = 1;
-            int X2 = 1;
             printf("A altura escolhida para a piramide foi: %i ...estamos construindo...\n\n", Altura);
-            
-            
-            
-            
-            
-            
-            for (int Coluna = 0; Coluna < Altura; Coluna++)
+            for (int Coluna = 1; Coluna <= Altura; Coluna++)
             {
-             
-             
-             
-             
-             
-                for (int Linha = 0; Linha < Y; Linha++)
+                for (int Linha = (Altura - Coluna); Linha > 0; Linha--)
                 {
                     printf(" ");
                 }
-                Y--;
-                for (int Linha = 0; Linha < X1; Linha++)
+                for (int Linha = 0; Linha < Coluna; Linha++)
                 {
                     printf("#");
                 }
-                X1++;
                 printf("  ");
-                for (int Linha = 0; Linha < X2; Linha++)
+                for (int Linha = 0; Linha < Coluna; Linha++)
                 {
                     printf("#");
                 }
-                X2++;
                 printf("\n"); 
-                
-                
-                
-           
-           
-           
-                
-                
             }
-            
-            
-            
-            
-            
-            
-            printf("\nDeseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
-            scanf("%i", &Resposta); 
-        }
-        else
-        {
-            printf("Não foi inserido uma altura válida. Deseja escolher a altura novamente? Se sim pressione 1, se deseja sair pressione qualquer outra tecla.\n");
-            scanf("%i", &Resposta);
-        }
-    }
-    return 0;
+return 0;
 }
