@@ -27,7 +27,6 @@ int main(void)
                     printf("#");
                 }
                 printf("\n");
-                system("sleep 0.5");
             }
 return 0;
 }
