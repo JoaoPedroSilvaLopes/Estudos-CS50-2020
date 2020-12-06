@@ -18,7 +18,7 @@ int main(void)
     {
       for (int Linha = 0; Linha < Y; Linha++)
       {
-          printf("  ");
+          printf(" ");
       }
       Y--;
       for (int Linha = 0; Linha < X1; Linha++)
