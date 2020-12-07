@@ -13,7 +13,7 @@ int main(void)
     {
         Altura = get_int("Digite a altura da piramide entre 1 e 8.\n"); //Get_int() com a Altura
     }
-    while (Altura < 1 || Altura > 8); //Condição de repetição para o Do While aconteceça
+    while (Altura < 1 || Altura > 8); //Condição de repetição para o Do While aconteceça caso não insira uma altura correta
 
     int Y = Altura - 1; //Variável que irá dar o tamanho da impressão dos espaços vazios
     int X = 1; //Varável que irá dar o tamanho da impressão das hashes
