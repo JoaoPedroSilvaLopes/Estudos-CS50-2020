@@ -30,24 +30,21 @@ int MoedasTotal;
    
    do
    {
-      Money = get_double("Digite o saldo: ");
-      
-      M = round(Money*100);
-      N = M/100;
+      Money = get_float("Digite o saldo: ");
       // ------------------------------
-      QuantMoedas = round((N/0.25)*100);
+      QuantMoedas = round((Money/0.25)*100);
       M1 = (QuantMoedas/100);
       printf("%f\n\n", M1);
       // ------------------------------
-      QuantMoedas1 = round(((N - (M1*0.25))/0.10)*100);
+      QuantMoedas1 = round(((Money - (M1*0.25))/0.10)*100);
       M2 = (QuantMoedas1/100);
       printf("%f\n\n", M2);
       // ------------------------------
-      QuantMoedas2 = round(((N - (M1*0.25) - (M2*0.10))/0.05)*100);
+      QuantMoedas2 = round(((Money - (M1*0.25) - (M2*0.10))/0.05)*100);
       M3 = (QuantMoedas2/100);
       printf("%f\n\n", M3);
       // ------------------------------
-      QuantMoedas3 = round(((N - (M1*0.25) - (M2*0.10) - (M3*0.05))/0.01)*100);
+      QuantMoedas3 = round(((Money - (M1*0.25) - (M2*0.10) - (M3*0.05))/0.01)*100);
       M4 = (QuantMoedas3/100);
       printf("%f\n\n", M4);
       // ------------------------------
