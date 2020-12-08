@@ -29,10 +29,10 @@ float M7;
 float N7;
 float M8;
 float N8;
-int QuantMoedas;
+float QuantMoedas;
 float QuantMoedas1;
-int QuantMoedas2;
-int QuantMoedas3;
+float QuantMoedas2;
+float QuantMoedas3;
 int MoedasTotal;
    
    do
@@ -57,7 +57,6 @@ int MoedasTotal;
       printf("%f\n\n", N1);
       // ------------------------------
       QuantMoedas1 = (N - (N1*N5))/N6;
-      printf("%f\n", QuantMoedas1);
       M2 = round(QuantMoedas1*100);
       printf("%f\n", M2);
       N2 = M2/100;
