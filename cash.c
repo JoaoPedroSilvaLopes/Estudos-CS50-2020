@@ -15,6 +15,7 @@ int QuantMoedas;
 int QuantMoedas1;
 int QuantMoedas2;
 int QuantMoedas3;
+int MoedasTotal;
    
    do
    {
@@ -31,6 +32,8 @@ int QuantMoedas3;
       
       QuantMoedas3 = (Money - (QuantMoedas*0.25) - (QuantMoedas1*0.10) - (QuantMoedas2*0.05))/0.01;
       printf("%d\n\n", QuantMoedas3);
+      
+      MoedasTotal = QuantMoedas + QuantMoedas1 + QuantMoedas2 + QuantMoedas3;
 
 
    }
