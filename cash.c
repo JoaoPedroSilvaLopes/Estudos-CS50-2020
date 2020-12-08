@@ -11,6 +11,24 @@
 int main(void)
 {
 float Money;
+float M;
+float N;
+float M1;
+float N1;
+float M2;
+float N2;
+float M3;
+float N3;
+float M4;
+float N4;
+float M5;
+float N5;
+float M6;
+float N6;
+float M7;
+float N7;
+float M8;
+float N8;
 int QuantMoedas;
 int QuantMoedas1;
 int QuantMoedas2;
@@ -21,19 +39,58 @@ int MoedasTotal;
    {
       Money = get_float("Digite o saldo: ");
       
-      QuantMoedas = Money/0.25;
-      printf("%d\n\n", QuantMoedas);
-
-      QuantMoedas1 = (Money - (QuantMoedas*0.25))/0.10;
-      printf("%d\n\n", QuantMoedas1);
-
-      QuantMoedas2 = (Money - (QuantMoedas*0.25) - (QuantMoedas1*0.10))/0.05;
-      printf("%d\n\n", QuantMoedas2);
+      M = round(Money*100);
+      printf("%f\n", M);
+      N = M/100;
+      printf("%f\n", N);
       
-      QuantMoedas3 = (Money - (QuantMoedas*0.25) - (QuantMoedas1*0.10) - (QuantMoedas2*0.05))/0.01;
-      printf("%d\n\n", QuantMoedas3);
+      M5 = round(0.25*100);
+      printf("%f\n", M5);
+      N5 = M5/100;
+      printf("%f\n", N5);
       
-      MoedasTotal = QuantMoedas + QuantMoedas1 + QuantMoedas2 + QuantMoedas3;
+      M6 = round(0.10*100);
+      printf("%f\n", M6);
+      N6 = M6/100;
+      printf("%f\n", N6);
+      
+      M7 = round(0.05*100);
+      printf("%f\n", M7);
+      N7 = M7/100;
+      printf("%f\n", N7);
+      
+      M8 = round(0.01*100);
+      printf("%f\n", M8);
+      N8 = M8/100;
+      printf("%f\n\n", N8);
+      
+      // ------------------------------
+      QuantMoedas = N/N5;
+      M1 = round(QuantMoedas*100);
+      printf("%f\n", M1);
+      N1 = M1/100;
+      printf("%f\n\n", N1);
+      // ------------------------------
+      QuantMoedas1 = (N - (N1*N5))/N6;
+      M2 = round(QuantMoedas1*100);
+      printf("%f\n", M2);
+      N2 = M2/100;
+      printf("%f\n\n", N2);
+      // ------------------------------
+      QuantMoedas2 = (N - (N1*N5) - (N2*N6))/N7;
+      M3 = round(QuantMoedas2*100);
+      printf("%f\n", M3);
+      N3 = M3/100;
+      printf("%F\n\n", N3);
+      // ------------------------------
+      QuantMoedas3 = (N - (N1*N5) - (N2*N6) - (N3*N7))/N8;
+      M4 = round(QuantMoedas3*100);
+      printf("%f\n", M4);
+      N4 = M4/100;
+      printf("%f\n\n", N4);
+      // ------------------------------
+      
+      MoedasTotal = N1 + N2 + N3 + N4;
       printf("%d\n", MoedasTotal);
 
    }
