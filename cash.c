@@ -30,9 +30,9 @@ float N7;
 float M8;
 float N8;
 int QuantMoedas;
-int QuantMoedas1;
-int QuantMoedas2;
-int QuantMoedas3;
+float QuantMoedas1;
+float QuantMoedas2;
+float QuantMoedas3;
 int MoedasTotal;
    
    do
@@ -40,30 +40,15 @@ int MoedasTotal;
       Money = get_float("Digite o saldo: ");
       
       M = round(Money*100);
-      printf("%f\n", M);
       N = M/100;
-      printf("%f\n", N);
-      
       M5 = round(0.25*100);
-      printf("%f\n", M5);
       N5 = M5/100;
-      printf("%f\n", N5);
-      
       M6 = round(0.10*100);
-      printf("%f\n", M6);
       N6 = M6/100;
-      printf("%f\n", N6);
-      
       M7 = round(0.05*100);
-      printf("%f\n", M7);
       N7 = M7/100;
-      printf("%f\n", N7);
-      
       M8 = round(0.01*100);
-      printf("%f\n", M8);
       N8 = M8/100;
-      printf("%f\n\n", N8);
-      
       // ------------------------------
       QuantMoedas = N/N5;
       M1 = round(QuantMoedas*100);
@@ -72,6 +57,7 @@ int MoedasTotal;
       printf("%f\n\n", N1);
       // ------------------------------
       QuantMoedas1 = (N - (N1*N5))/N6;
+      printf("%f\n", QuantMoedas1);
       M2 = round(QuantMoedas1*100);
       printf("%f\n", M2);
       N2 = M2/100;
@@ -89,10 +75,8 @@ int MoedasTotal;
       N4 = M4/100;
       printf("%f\n\n", N4);
       // ------------------------------
-      
       MoedasTotal = N1 + N2 + N3 + N4;
       printf("%d\n", MoedasTotal);
-
    }
    while(Money <= 0);
     
