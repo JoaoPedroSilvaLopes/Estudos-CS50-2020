@@ -50,25 +50,25 @@ int MoedasTotal;
       M8 = round(0.01*100);
       N8 = M8/100;
       // ------------------------------
-      QuantMoedas = N/N5;
+      QuantMoedas = floor(N/N5);
       M1 = round(QuantMoedas*100);
       printf("%f\n", M1);
       N1 = M1/100;
       printf("%f\n\n", N1);
       // ------------------------------
-      QuantMoedas1 = (N - (N1*N5))/N6;
+      QuantMoedas1 = floor((N - (N1*N5))/N6);
       M2 = round(QuantMoedas1*100);
       printf("%f\n", M2);
       N2 = M2/100;
       printf("%f\n\n", N2);
       // ------------------------------
-      QuantMoedas2 = (N - (N1*N5) - (N2*N6))/N7;
+      QuantMoedas2 = floor((N - (N1*N5) - (N2*N6))/N7);
       M3 = round(QuantMoedas2*100);
       printf("%f\n", M3);
       N3 = M3/100;
       printf("%F\n\n", N3);
       // ------------------------------
-      QuantMoedas3 = (N - (N1*N5) - (N2*N6) - (N3*N7))/N8;
+      QuantMoedas3 = floor((N - (N1*N5) - (N2*N6) - (N3*N7))/N8);
       M4 = round(QuantMoedas3*100);
       printf("%f\n", M4);
       N4 = M4/100;
