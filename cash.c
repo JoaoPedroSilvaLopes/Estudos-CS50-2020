@@ -31,7 +31,7 @@ float M8;
 float N8;
 int QuantMoedas;
 float QuantMoedas1;
-float QuantMoedas2;
+int QuantMoedas2;
 float QuantMoedas3;
 int MoedasTotal;
    
