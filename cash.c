@@ -32,7 +32,7 @@ float N8;
 int QuantMoedas;
 int QuantMoedas1;
 int QuantMoedas2;
-int QuantMoedas3;
+float QuantMoedas3;
 int MoedasTotal;
    
    do
