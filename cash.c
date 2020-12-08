@@ -29,10 +29,10 @@ float M7;
 float N7;
 float M8;
 float N8;
-float QuantMoedas;
-float QuantMoedas1;
-float QuantMoedas2;
-float QuantMoedas3;
+int QuantMoedas;
+int QuantMoedas1;
+int QuantMoedas2;
+int QuantMoedas3;
 int MoedasTotal;
    
    do
