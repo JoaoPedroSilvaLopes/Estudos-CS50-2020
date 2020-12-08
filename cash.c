@@ -34,7 +34,7 @@ int MoedasTotal;
       printf("%d\n\n", QuantMoedas3);
       
       MoedasTotal = QuantMoedas + QuantMoedas1 + QuantMoedas2 + QuantMoedas3;
-
+      printf("%d\n", MoedasTotal);
 
    }
    while(Money <= 0);
