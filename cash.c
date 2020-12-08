@@ -7,21 +7,13 @@
 #include <cs50.h>
 #include <math.h>
 
-
 int main(void)
 {
 float Money;
-float M;
-float N;
 float M1;
 float M2;
 float M3;
 float M4;
-float M5;
-float M6;
-float M7;
-float M8;
-
 int QuantMoedas;
 int QuantMoedas1;
 int QuantMoedas2;
