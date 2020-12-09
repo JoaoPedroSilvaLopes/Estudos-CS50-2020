@@ -10,8 +10,7 @@
 int main(void)
 {
     float Money;
-    int QuantMoedas[4];
-    int MoedasTotal;
+    int QuantMoedas[5];
     do
     {
         Money = get_float("Digite o saldo: ");
@@ -28,8 +27,8 @@ int main(void)
         QuantMoedas[3] = round(((Money - QuantMoedas[0] * 0.25 - QuantMoedas[1] * 0.10 - QuantMoedas[2] * 0.05) / 0.01) * 100) / 100;
         printf("Será preciso %d moeda(as) de 1 centavo.\n\n", QuantMoedas[3]);
         // ------------------------------
-        MoedasTotal = QuantMoedas[0] + QuantMoedas[1] + QuantMoedas[2] + QuantMoedas[3];
-        printf("%d\n", MoedasTotal);
+        QuantMoedas[4] = QuantMoedas[0] + QuantMoedas[1] + QuantMoedas[2] + QuantMoedas[3];
+        printf("A quantidade total de moedas necessárias são: %d\n", QuantMoedas[4]);
     }
     while (Money <= 0);
     return 0;    
