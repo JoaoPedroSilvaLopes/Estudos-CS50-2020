@@ -60,7 +60,7 @@ int main(void)
     
     else if ((NC >= 4*pow(10,12) && NC < 5*pow(10,12)) || (NC >= 16*pow(10,15) && NC < 5*pow(10,15)))
     {
-        for(int z = 13; z >= 0; z--)
+        for(int z = 12; z >= 0; z--)
         {
             NS[0] = NC/pow(10,z);
             Resto = NC % (long) pow(10,z);
