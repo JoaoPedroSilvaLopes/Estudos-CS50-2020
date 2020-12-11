@@ -32,7 +32,7 @@ int main(void)
         Resto1 = Soma % 10;
         if (Resto1 == 0)
         {
-            printf("AMERICANEXPRESS\n");
+            printf("AMEX\n");
         }
         else
         {
