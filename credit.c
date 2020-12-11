@@ -21,11 +21,13 @@ int main(void)
         for(int z = 14; z >= 0; z--)
         {
             NS[0] = NC/pow(10,z);
+            printf("%i\n\n", NS[0]);
             Resto = NC % (long) pow(10,z);
             NC = Resto;
             i++;
         }
-        Soma = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2 + NS[14]*2) + NS[1] + NS[3] +  NS[5] + NS[7] +  NS[9] + NS[11] +  NS[13];
+        Soma = (NS[1]*2 + NS[3]*2 + NS[5]*2 + NS[7]*2 + NS[9]*2 + NS[11]*2 + NS[13]*2) + NS[0] + NS[2] +  NS[4] + NS[6] +  NS[8] + NS[10] +  NS[12] + NS[14];
+        printf("%i\n", Soma);
         Resto1 = Soma % 10;
         if (Resto1 == 0)
         {
@@ -34,44 +36,6 @@ int main(void)
         else
         {
             printf("INVALID\n");
-        }
-    }
-    
-    else if (NC >= 51*pow(10,14) && NC < 56*pow(10,14))
-    {
-        for(int z = 15; z >= 0; z--)
-        {
-            NS[0] = NC/pow(10,z);
-            Resto = NC % (long) pow(10,z);
-            NC = Resto;
-            i++;
-        }
-        Soma = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2 + NS[14]*2) + NS[1] + NS[3] +  NS[5] + NS[7] +  NS[9] + NS[11] +  NS[13] + NS[15];
-        Resto1 = Soma % 10;
-        if (Resto1 == 0)
-        {
-            printf("MASTERCARD\n");
-        }
-        else
-        {
-            printf("INVALID\n");
-        }
-    }
-    
-    else if ((NC >= 4*pow(10,12) && NC < 5*pow(10,12)) || (NC >= 16*pow(10,15) && NC < 5*pow(10,15)))
-    {
-        for(int z = 12; z >= 0; z--)
-        {
-            NS[0] = NC/pow(10,z);
-            Resto = NC % (long) pow(10,z);
-            NC = Resto;
-            i++;
-        }
-        Soma = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2) + NS[1] + NS[3] +  NS[5] + NS[7] +  NS[9] + NS[11] +  NS[13];
-        Resto1 = Soma % 10;
-        if (Resto1 == 0)
-        {
-            printf("VISA\n");
         }
     }
     else
