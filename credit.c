@@ -25,8 +25,8 @@ int main(void)
             NC = Resto;
             i++;
         }
-        Soma = (((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
-               + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15]);
+        Soma = ((NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13]) * 2)
+               + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14];
         printf("%i\n", Soma);
         Resto1 = Soma % 10;
         if (Resto1 == 0)
@@ -48,8 +48,8 @@ int main(void)
             NC = Resto;
             i++;
         }
-        Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
-               + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
+        Soma = ((NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15]) * 2)
+               + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14];
         printf("%i\n", Soma);
         Resto1 = Soma % 10;
         if (Resto1 == 0)
@@ -72,8 +72,8 @@ int main(void)
                 NC = Resto;
                 i++;
             }
-            Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
-                   + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
+            Soma = ((NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15]) * 2)
+                   + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14];
             printf("%i\n", Soma);
             Resto1 = Soma % 10;
             if (Resto1 == 0)
@@ -94,8 +94,8 @@ int main(void)
                 NC = Resto;
                 i++;
             }
-            Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
-                   + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
+            Soma = ((NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11]) * 2)
+                   + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12];
             printf("%i\n", Soma);
             Resto1 = Soma % 10;
             if (Resto1 == 0)
