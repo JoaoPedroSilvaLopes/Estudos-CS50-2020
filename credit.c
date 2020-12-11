@@ -8,9 +8,11 @@
 
 int i = 0;
 int NS[17];
+int Soma[17];
 long Resto;
 int Resto1;
-int Soma;
+int Resto2;
+int Soma1;
 
 int main(void)
 {
@@ -27,12 +29,14 @@ int main(void)
             NC = Resto;
             i++;
         }
-        Soma = ((NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13]) * 2) 
-               + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14];
-               
-
-        printf("%i\n", Soma);
-        Resto1 = Soma % 10;
+        for(int w = 8; w >= 0; w--)
+        {
+            Resto2 = (NS[i]*2) % 10;
+            Soma[i] = NS[i] + Resto2;
+            i = i + 2;
+        }
+        Soma1 = (Soma[0] + Soma[2] + Soma[4] + Soma[6] + Soma[8] + Soma[10] + Soma[12] + Soma[14]) + NS[1] + NS[3] +  NS[5] + NS[7] +  NS[9] + NS[11] +  NS[13];
+        Resto1 = Soma1 % 10;
         if (Resto1 == 0)
         {
             printf("AMEX\n");
@@ -43,6 +47,26 @@ int main(void)
             printf("INVALID\n");
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     else if (NC >= 51 * pow(10, 14) && NC < 56 * pow(10, 14))
     {
         for (int z = 15; z >= 0; z--)
@@ -54,10 +78,10 @@ int main(void)
             NC = Resto;
             i++;
         }
-        Soma = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2 + NS[14]*2) 
+        Soma1 = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2 + NS[14]*2) 
                + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
-        printf("%i\n", Soma);
-        Resto1 = Soma % 10;
+        printf("%i\n", Soma1);
+        Resto1 = Soma1 % 10;
         if (Resto1 == 0)
         {
             printf("MASTERCARD\n");
@@ -80,10 +104,10 @@ int main(void)
                 NC = Resto;
                 i++;
             }
-            Soma = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2 + NS[14]*2) 
+            Soma1 = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2 + NS[14]*2) 
                    + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
-            printf("%i\n", Soma);
-            Resto1 = Soma % 10;
+            printf("%i\n", Soma1);
+            Resto1 = Soma1 % 10;
             if (Resto1 == 0)
             {
                 printf("VISA\n");
@@ -104,10 +128,10 @@ int main(void)
                 NC = Resto;
                 i++;
             }
-            Soma = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2) 
+            Soma1 = (NS[0]*2 + NS[2]*2 + NS[4]*2 + NS[6]*2 + NS[8]*2 + NS[10]*2 + NS[12]*2) 
                    + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11];
-            printf("%i\n", Soma);
-            Resto1 = Soma % 10;
+            printf("%i\n", Soma1);
+            Resto1 = Soma1 % 10;
             if (Resto1 == 0)
             {
                 printf("VISA\n");
