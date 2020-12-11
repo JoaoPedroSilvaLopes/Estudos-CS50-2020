@@ -60,7 +60,7 @@ int main(void)
             NC = Resto;
             i++;
         }
-        for(int w = 7; w >= 0; w--)
+        for(int w = 8; w >= 0; w--)
         {
             D = (NS[i]*2) / 10;
             Resto2 = (NS[i]*2) % 10;
