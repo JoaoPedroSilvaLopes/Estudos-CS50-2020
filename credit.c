@@ -20,7 +20,7 @@ int main(void)
     {
         for(int z = 14; z >= 0; z--)
         {
-            NS[0] = NC/pow(10,z);
+            NS[i] = NC/pow(10,z);
             Resto = NC % (long) pow(10,z);
             NC = Resto;
             i++;
