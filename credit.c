@@ -21,12 +21,26 @@ int main(void)
         for(int z = 14; z >= 0; z--)
         {
             NS[0] = NC/pow(10,z);
-            printf("%i\n\n", NS[0]);
             Resto = NC % (long) pow(10,z);
             NC = Resto;
             i++;
         }
         Soma = (NS[1]*2 + NS[3]*2 + NS[5]*2 + NS[7]*2 + NS[9]*2 + NS[11]*2 + NS[13]*2) + NS[0] + NS[2] +  NS[4] + NS[6] +  NS[8] + NS[10] +  NS[12] + NS[14];
+        printf("%i\n", NS[0]);
+        printf("%i\n", NS[1]*2);
+        printf("%i\n", NS[2]);
+        printf("%i\n", NS[3]*2);
+        printf("%i\n", NS[4]);
+        printf("%i\n", NS[5]*2);
+        printf("%i\n", NS[6]);
+        printf("%i\n", NS[7]*2);
+        printf("%i\n", NS[8]);
+        printf("%i\n", NS[9]*2);
+        printf("%i\n", NS[10]);
+        printf("%i\n", NS[11]*2);
+        printf("%i\n", NS[12]);
+        printf("%i\n", NS[13]*2);
+
         printf("%i\n", Soma);
         Resto1 = Soma % 10;
         if (Resto1 == 0)
