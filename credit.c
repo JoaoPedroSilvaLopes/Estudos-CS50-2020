@@ -15,7 +15,7 @@ int Soma;
 int main(void)
 {
     long NC = get_long("Insira o número do cartão: ");
-    
+
     if ((NC >= 34 * pow(10, 13) && NC < 35 * pow(10, 13)) || (NC >= 37 * pow(10, 13) && NC < 38 * pow(10, 13)))
     {
         for (int z = 14; z >= 0; z--)
@@ -25,7 +25,7 @@ int main(void)
             NC = Resto;
             i++;
         }
-        Soma = (((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2) 
+        Soma = (((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
                + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15]);
         printf("%i\n", Soma);
         Resto1 = Soma % 10;
@@ -33,7 +33,7 @@ int main(void)
         {
             printf("AMEX\n");
         }
-        
+
         else
         {
             printf("INVALID\n");
@@ -48,7 +48,7 @@ int main(void)
             NC = Resto;
             i++;
         }
-        Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2) 
+        Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
                + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
         printf("%i\n", Soma);
         Resto1 = Soma % 10;
@@ -72,7 +72,7 @@ int main(void)
                 NC = Resto;
                 i++;
             }
-            Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2) 
+            Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
                    + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
             printf("%i\n", Soma);
             Resto1 = Soma % 10;
@@ -94,7 +94,7 @@ int main(void)
                 NC = Resto;
                 i++;
             }
-            Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2) 
+            Soma = ((NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14]) * 2)
                    + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
             printf("%i\n", Soma);
             Resto1 = Soma % 10;
@@ -107,11 +107,11 @@ int main(void)
                 printf("INVALID\n");
             }
         }
-    }   
+    }
     else
     {
         printf("INVALID\n");
     }
-    
+
     return 0;
 }
