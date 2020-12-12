@@ -58,7 +58,6 @@ int main(void)
             NúmeroCartão = Resto;
             i++;
         }
-        i = 0;
         for (int w = 8; w >= 0; w--)
         {
             Divisão = (NS[i] * 2) / 10;
@@ -90,7 +89,6 @@ int main(void)
                 NúmeroCartão = Resto;
                 i++;
             }
-            i = 0;
             for (int w = 8; w >= 0; w--)
             {
                 Divisão = (NS[i] * 2) / 10;
