@@ -14,6 +14,7 @@ int main(void)
     do
     {
         Money = get_float("Digite o saldo: ");
+        printf("\n");
         // ------------------------------
         QuantMoedas[0] = round((Money / 0.25) * 100) / 100;
         printf("Será preciso %d moeda(as) de 25 centavos.\n\n", QuantMoedas[0]);
