@@ -8,37 +8,38 @@
 
 int i = 0;
 int NS[17];
-int Soma[17];
 long Resto;
-int Resto1;
 int Resto2;
-int Soma1;
-int D;
+int Divisão;
+int Validez;
+int SomaTotal;
+int SomaAlg[17];
 
 int main(void)
 {
-    long NC = get_long("Insira o número do cartão: ");
+    long NúmeroCartão = get_long("Insira o número do cartão: ");
     
-    if ((NC >= 34 * pow(10, 13) && NC < 35 * pow(10, 13)) || (NC >= 37 * pow(10, 13) && NC < 38 * pow(10, 13)))
+    if ((NúmeroCartão >= 34 * pow(10, 13) && NúmeroCartão < 35 * pow(10, 13)) || (NúmeroCartão >= 37 * pow(10, 13) && NúmeroCartão < 38 * pow(10, 13)))
     {
         for (int z = 14; z >= 0; z--)
         {
-            NS[i] = NC / pow(10, z);
-            Resto = NC % (long) pow(10, z);
-            NC = Resto;
+            NS[i] = NúmeroCartão / pow(10, z);
+            Resto = NúmeroCartão % (long) pow(10, z);
+            NúmeroCartão = Resto;
             i++;
         }
         i = 1;
-        for(int w = 7; w >= 0; w--)
+        for (int w = 7; w >= 0; w--)
         {
-            D = (NS[i]*2) / 10;
-            Resto2 = (NS[i]*2) % 10;
-            Soma[i] = D + Resto2;
+            Divisão = (NS[i] * 2) / 10;
+            Resto2 = (NS[i] * 2) % 10;
+            SomaAlg[i] = Divisão + Resto2;
             i = i + 2;
         }
-        Soma1 = (Soma[1] + Soma[3] + Soma[5] + Soma[7] + Soma[9] + Soma[11] + Soma[13]) + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] +  NS[10] + NS[12] +  NS[14];
-        Resto1 = Soma1 % 10;
-        if (Resto1 == 0)
+        SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11] + SomaAlg[13]) 
+                + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14];
+        Validez = SomaTotal % 10;
+        if (Validez == 0)
         {
             printf("AMEX\n");
         }
@@ -48,26 +49,27 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    else if (NC >= 51 * pow(10, 14) && NC < 56 * pow(10, 14))
+    else if (NúmeroCartão >= 51 * pow(10, 14) && NúmeroCartão < 56 * pow(10, 14))
     {
         for (int z = 15; z >= 0; z--)
         {
-            NS[i] = NC / pow(10, z);
-            Resto = NC % (long) pow(10, z);
-            NC = Resto;
+            NS[i] = NúmeroCartão / pow(10, z);
+            Resto = NúmeroCartão % (long) pow(10, z);
+            NúmeroCartão = Resto;
             i++;
         }
         i = 0;
-        for(int w = 8; w >= 0; w--)
+        for (int w = 8; w >= 0; w--)
         {
-            D = (NS[i]*2) / 10;
-            Resto2 = (NS[i]*2) % 10;
-            Soma[i] = D + Resto2;
+            Divisão = (NS[i] * 2) / 10;
+            Resto2 = (NS[i] * 2) % 10;
+            SomaAlg[i] = Divisão + Resto2;
             i = i + 2;
         }
-        Soma1 = (Soma[0] + Soma[2] + Soma[4] + Soma[6] + Soma[8] + Soma[10] + Soma[12] + Soma[14]) + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] +  NS[11] + NS[13] + NS[15];
-        Resto1 = Soma1 % 10;
-        if (Resto1 == 0)
+        SomaTotal = (SomaAlg[0] + SomaAlg[2] + SomaAlg[4] + SomaAlg[6] + SomaAlg[8] + SomaAlg[10] + SomaAlg[12] + SomaAlg[14]) 
+                + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] +  NS[11] + NS[13] + NS[15];
+        Validez = SomaTotal % 10;
+        if (Validez == 0)
         {
             printf("MASTERCARD\n");
         }
@@ -76,28 +78,30 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    else if ((NC >= 4 * (long) pow(10, 12) && NC < 5 * (long) pow(10, 12)) || (NC >= 4 * (long) pow(10, 15) && NC < 5 * (long) pow(10, 15)))
+    else if ((NúmeroCartão >= 4 * pow(10, 12) && NúmeroCartão < 5 * pow(10, 12)) || 
+             (NúmeroCartão >= 4 * pow(10, 15) && NúmeroCartão < 5 * pow(10, 15)))
     {
-        if (NC > 1 * pow(10, 15))
+        if (NúmeroCartão > 1 * pow(10, 15))
         {
             for (int z = 15; z >= 0; z--)
             {
-                NS[i] = NC / pow(10, z);
-                Resto = NC % (long) pow(10, z);
-                NC = Resto;
+                NS[i] = NúmeroCartão / pow(10, z);
+                Resto = NúmeroCartão % (long) pow(10, z);
+                NúmeroCartão = Resto;
                 i++;
             }
             i = 0;
-            for(int w = 8; w >= 0; w--)
+            for (int w = 8; w >= 0; w--)
             {
-                D = (NS[i]*2) / 10;
-                Resto2 = (NS[i]*2) % 10;
-                Soma[i] = D + Resto2;
+                Divisão = (NS[i] * 2) / 10;
+                Resto2 = (NS[i] * 2) % 10;
+                SomaAlg[i] = Divisão + Resto2;
                 i = i + 2;;
             }
-            Soma1 = (Soma[0] + Soma[2] + Soma[4] + Soma[6] + Soma[8] + Soma[10] + Soma[12] + Soma[14]) + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] +  NS[11] + NS[13] + NS[15];
-            Resto1 = Soma1 % 10;
-            if (Resto1 == 0)
+            SomaTotal = (SomaAlg[0] + SomaAlg[2] + SomaAlg[4] + SomaAlg[6] + SomaAlg[8] + SomaAlg[10] + SomaAlg[12] + SomaAlg[14]) 
+                    + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
+            Validez = SomaTotal % 10;
+            if (Validez == 0)
             {
                 printf("VISA\n");
             }
@@ -110,25 +114,23 @@ int main(void)
         {
             for (int z = 12; z >= 0; z--)
             {
-                NS[i] = NC / (long) pow(10, z);
-                printf("%i\n", NS[i]);
-                Resto = NC % (long) pow(10, z);
-                printf("%li\n", Resto);
-                NC = Resto;
+                NS[i] = NúmeroCartão / pow(10, z);
+                Resto = NúmeroCartão % (long) pow(10, z);
+                NúmeroCartão = Resto;
                 i++;
             }
             i = 1;
-            for(int w = 6; w >= 0; w--)
+            for (int w = 6; w >= 0; w--)
             {
-                D = (NS[i]*2) / 10;
-                Resto2 = (NS[i]*2) % 10;
-                Soma[i] = D + Resto2;
+                Divisão = (NS[i] * 2) / 10;
+                Resto2 = (NS[i] * 2) % 10;
+                SomaAlg[i] = Divisão + Resto2;
                 i = i + 2;
             }
-            Soma1 = (Soma[1] + Soma[3] + Soma[5] + Soma[7] + Soma[9] + Soma[11]) + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] +  NS[10] + NS[12];
-            Resto1 = Soma1 % 10;
-            Resto1 = Soma1 % 10;
-            if (Resto1 == 0)
+            SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11]) 
+                    + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12];
+            Validez = SomaTotal % 10;
+            if (Validez == 0)
             {
                 printf("VISA\n");
             }
