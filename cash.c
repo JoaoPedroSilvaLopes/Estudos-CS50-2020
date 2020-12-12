@@ -13,7 +13,7 @@ int main(void)
     int QuantMoedas[5]; //Vetor QuantMoedas é inteiro para as quantidades de moedas que também são inteiras.
     do
     {
-        Money = get_float("Digite o saldo: ");
+        Money = get_float("Digite o saldo: "); //get_float(""); para garantir que não seriam inseridas letras ou caracteres especiais.
         printf("\n"); //Printf para pular a linha.
         //QuantMoedas[0] está ligada ao valor da moeda de 25 centavos.
         QuantMoedas[0] = round((Money / 0.25) * 100) / 100; //Foi utilizado round para arredondar para o valor inteiro mais próximo.
