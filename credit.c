@@ -13,7 +13,7 @@ int SomaTotal;
 int SomaAlg[17];
 int Algarismo[17];
 int RestoAlg;
-int Resto;
+long Resto;
 
 int main(void)
 {
