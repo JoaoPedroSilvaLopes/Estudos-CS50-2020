@@ -6,7 +6,7 @@
 #include <cs50.h>
 #include <math.h>
 
-int i = 0;
+int i;
 int NS[17];
 long Resto;
 int Resto2;
