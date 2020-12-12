@@ -13,13 +13,14 @@ int SomaTotal;
 int SomaAlg[17];
 int Algarismo[17];
 int RestoAlg;
-long Resto;
+int Resto;
 
 int main(void)
 {
     long NúmeroCartão = get_long("Insira o número do cartão: ");
     
-    if ((NúmeroCartão >= 34 * pow(10, 13) && NúmeroCartão < 35 * pow(10, 13)) || (NúmeroCartão >= 37 * pow(10, 13) && NúmeroCartão < 38 * pow(10, 13)))
+    if ((NúmeroCartão >= 34 * pow(10, 13) && NúmeroCartão < 35 * pow(10, 13)) || 
+        (NúmeroCartão >= 37 * pow(10, 13) && NúmeroCartão < 38 * pow(10, 13)))
     {
         for (int z = 14; z >= 0; z--)
         {
@@ -37,7 +38,7 @@ int main(void)
             i = i + 2;
         }
         SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11] + SomaAlg[13]) 
-                + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12] + Algarismo[14];
+                    + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12] + Algarismo[14];
         Validez = SomaTotal % 10;
         if (Validez == 0)
         {
@@ -67,7 +68,7 @@ int main(void)
             i = i + 2;
         }
         SomaTotal = (SomaAlg[0] + SomaAlg[2] + SomaAlg[4] + SomaAlg[6] + SomaAlg[8] + SomaAlg[10] + SomaAlg[12] + SomaAlg[14]) 
-                + Algarismo[1] + Algarismo[3] + Algarismo[5] + Algarismo[7] + Algarismo[9] +  Algarismo[11] + Algarismo[13] + Algarismo[15];
+                    + Algarismo[1] + Algarismo[3] + Algarismo[5] + Algarismo[7] + Algarismo[9] +  Algarismo[11] + Algarismo[13] + Algarismo[15];
         Validez = SomaTotal % 10;
         if (Validez == 0)
         {
@@ -99,7 +100,7 @@ int main(void)
                 i = i + 2;;
             }
             SomaTotal = (SomaAlg[0] + SomaAlg[2] + SomaAlg[4] + SomaAlg[6] + SomaAlg[8] + SomaAlg[10] + SomaAlg[12] + SomaAlg[14]) 
-                    + Algarismo[1] + Algarismo[3] + Algarismo[5] + Algarismo[7] + Algarismo[9] + Algarismo[11] + Algarismo[13] + Algarismo[15];
+                        + Algarismo[1] + Algarismo[3] + Algarismo[5] + Algarismo[7] + Algarismo[9] + Algarismo[11] + Algarismo[13] + Algarismo[15];
             Validez = SomaTotal % 10;
             if (Validez == 0)
             {
@@ -128,7 +129,7 @@ int main(void)
                 i = i + 2;
             }
             SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11]) 
-                    + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12];
+                        + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12];
             Validez = SomaTotal % 10;
             if (Validez == 0)
             {
@@ -136,7 +137,7 @@ int main(void)
             }
             else
             {
-                printf("INVALID\n");
+                printf("INVALID\n"); 
             }
         }
     }   
