@@ -37,7 +37,6 @@ int main(void)
             i = i + 2;
         }
         Soma1 = (Soma[1] + Soma[3] + Soma[5] + Soma[7] + Soma[9] + Soma[11] + Soma[13]) + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] +  NS[10] + NS[12] +  NS[14];
-        printf("%i\n", Soma1);
         Resto1 = Soma1 % 10;
         if (Resto1 == 0)
         {
@@ -77,12 +76,6 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    
-    
-    
-    
-    
-    
     else if ((NC >= 4 * (long) pow(10, 12) && NC < 5 * (long) pow(10, 12)) || (NC >= 4 * (long) pow(10, 15) && NC < 5 * (long) pow(10, 15)))
     {
         if (NC > 1 * pow(10, 15))
@@ -97,12 +90,10 @@ int main(void)
             i = 0;
             for(int w = 8; w >= 0; w--)
             {
+                D = (NS[i]*2) / 10;
                 Resto2 = (NS[i]*2) % 10;
-                printf("%i\n", Resto2);
-                NS[i] = (NS[i]*2) / 10;
-                printf("%i\n", NS[i]);
-                Soma[i] = NS[i] + Resto2;
-                printf("%i\n", Soma[i]);
+                Soma[i] = D + Resto2;
+                i = i + 2;;
             }
             Soma1 = (Soma[0] + Soma[2] + Soma[4] + Soma[6] + Soma[8] + Soma[10] + Soma[12] + Soma[14]) + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] +  NS[11] + NS[13] + NS[15];
             Resto1 = Soma1 % 10;
@@ -115,17 +106,6 @@ int main(void)
                 printf("INVALID\n");
             }
         }
-        
-        
-        
-        
-        
-        
-        
-
-
-
-        
         else
         {
             for (int z = 12; z >= 0; z--)
@@ -146,7 +126,6 @@ int main(void)
                 i = i + 2;
             }
             Soma1 = (Soma[1] + Soma[3] + Soma[5] + Soma[7] + Soma[9] + Soma[11]) + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] +  NS[10] + NS[12];
-            printf("%i\n", Soma1);
             Resto1 = Soma1 % 10;
             Resto1 = Soma1 % 10;
             if (Resto1 == 0)
