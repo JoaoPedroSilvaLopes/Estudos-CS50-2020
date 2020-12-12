@@ -7,13 +7,13 @@
 #include <math.h>
 
 int i;
-int NS[17];
-long Resto;
-int Resto2;
 int Divisão;
 int Validez;
 int SomaTotal;
 int SomaAlg[17];
+int Algarismo[17];
+int RestoAlg;
+long Resto;
 
 int main(void)
 {
@@ -23,7 +23,7 @@ int main(void)
     {
         for (int z = 14; z >= 0; z--)
         {
-            NS[i] = NúmeroCartão / pow(10, z);
+            Algarismo[i] = NúmeroCartão / pow(10, z);
             Resto = NúmeroCartão % (long) pow(10, z);
             NúmeroCartão = Resto;
             i++;
@@ -31,13 +31,13 @@ int main(void)
         i = 1;
         for (int w = 7; w >= 0; w--)
         {
-            Divisão = (NS[i] * 2) / 10;
-            Resto2 = (NS[i] * 2) % 10;
-            SomaAlg[i] = Divisão + Resto2;
+            Divisão = (Algarismo[i] * 2) / 10;
+            RestoAlg = (Algarismo[i] * 2) % 10;
+            SomaAlg[i] = Divisão + RestoAlg;
             i = i + 2;
         }
         SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11] + SomaAlg[13]) 
-                + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12] + NS[14];
+                + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12] + Algarismo[14];
         Validez = SomaTotal % 10;
         if (Validez == 0)
         {
@@ -53,7 +53,7 @@ int main(void)
     {
         for (int z = 15; z >= 0; z--)
         {
-            NS[i] = NúmeroCartão / pow(10, z);
+            Algarismo[i] = NúmeroCartão / pow(10, z);
             Resto = NúmeroCartão % (long) pow(10, z);
             NúmeroCartão = Resto;
             i++;
@@ -61,13 +61,13 @@ int main(void)
         i = 0;
         for (int w = 8; w >= 0; w--)
         {
-            Divisão = (NS[i] * 2) / 10;
-            Resto2 = (NS[i] * 2) % 10;
-            SomaAlg[i] = Divisão + Resto2;
+            Divisão = (Algarismo[i] * 2) / 10;
+            RestoAlg = (Algarismo[i] * 2) % 10;
+            SomaAlg[i] = Divisão + RestoAlg;
             i = i + 2;
         }
         SomaTotal = (SomaAlg[0] + SomaAlg[2] + SomaAlg[4] + SomaAlg[6] + SomaAlg[8] + SomaAlg[10] + SomaAlg[12] + SomaAlg[14]) 
-                + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] +  NS[11] + NS[13] + NS[15];
+                + Algarismo[1] + Algarismo[3] + Algarismo[5] + Algarismo[7] + Algarismo[9] +  Algarismo[11] + Algarismo[13] + Algarismo[15];
         Validez = SomaTotal % 10;
         if (Validez == 0)
         {
@@ -85,7 +85,7 @@ int main(void)
         {
             for (int z = 15; z >= 0; z--)
             {
-                NS[i] = NúmeroCartão / pow(10, z);
+                Algarismo[i] = NúmeroCartão / pow(10, z);
                 Resto = NúmeroCartão % (long) pow(10, z);
                 NúmeroCartão = Resto;
                 i++;
@@ -93,13 +93,13 @@ int main(void)
             i = 0;
             for (int w = 8; w >= 0; w--)
             {
-                Divisão = (NS[i] * 2) / 10;
-                Resto2 = (NS[i] * 2) % 10;
-                SomaAlg[i] = Divisão + Resto2;
+                Divisão = (Algarismo[i] * 2) / 10;
+                RestoAlg = (Algarismo[i] * 2) % 10;
+                SomaAlg[i] = Divisão + RestoAlg;
                 i = i + 2;;
             }
             SomaTotal = (SomaAlg[0] + SomaAlg[2] + SomaAlg[4] + SomaAlg[6] + SomaAlg[8] + SomaAlg[10] + SomaAlg[12] + SomaAlg[14]) 
-                    + NS[1] + NS[3] + NS[5] + NS[7] + NS[9] + NS[11] + NS[13] + NS[15];
+                    + Algarismo[1] + Algarismo[3] + Algarismo[5] + Algarismo[7] + Algarismo[9] + Algarismo[11] + Algarismo[13] + Algarismo[15];
             Validez = SomaTotal % 10;
             if (Validez == 0)
             {
@@ -114,7 +114,7 @@ int main(void)
         {
             for (int z = 12; z >= 0; z--)
             {
-                NS[i] = NúmeroCartão / pow(10, z);
+                Algarismo[i] = NúmeroCartão / pow(10, z);
                 Resto = NúmeroCartão % (long) pow(10, z);
                 NúmeroCartão = Resto;
                 i++;
@@ -122,13 +122,13 @@ int main(void)
             i = 1;
             for (int w = 6; w >= 0; w--)
             {
-                Divisão = (NS[i] * 2) / 10;
-                Resto2 = (NS[i] * 2) % 10;
-                SomaAlg[i] = Divisão + Resto2;
+                Divisão = (Algarismo[i] * 2) / 10;
+                RestoAlg = (Algarismo[i] * 2) % 10;
+                SomaAlg[i] = Divisão + RestoAlg;
                 i = i + 2;
             }
             SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11]) 
-                    + NS[0] + NS[2] + NS[4] + NS[6] + NS[8] + NS[10] + NS[12];
+                    + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12];
             Validez = SomaTotal % 10;
             if (Validez == 0)
             {
