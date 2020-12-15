@@ -40,15 +40,18 @@ int main(void)
     }
     printf("%i\n", Espaços);
     printf("%i\n", Sentenças);
-    printf("%i\n", Caractere);
+    printf("%i\n\n", Caractere);
     
     Palavras = Espaços + 2;
     Letras = Caractere + 1;
     
     L = ((Letras * 100) / Palavras);
+    printf("%f\n", L);
     S = ((Sentenças * 100) / Palavras);
+    printf("%f\n", S);
     
     I = (0.0588 * L - 0.296 * S - 15.8);
+    printf("%f\n", I);
     if (I >= 16)
     {
         printf("Grade +16\n");
