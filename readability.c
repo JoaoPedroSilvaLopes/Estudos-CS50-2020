@@ -44,8 +44,8 @@ int main(void)
     Palavras = Espaços + 2;
     Letras = Caractere + 1;
     
-    L = round((Letras * 100) / Palavras);
-    S = round((Sentenças * 100) / Palavras);
+    L = ((Letras * 100) / Palavras);
+    S = ((Sentenças * 100) / Palavras);
     
     I = (0.0588 * L - 0.296 * S - 15.8);
     if (I >= 16)
