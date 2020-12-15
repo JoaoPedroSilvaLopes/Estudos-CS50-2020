@@ -8,10 +8,11 @@
 #include <ctype.h>
 #include <string.h>
 
-int Tamanho, Palavras, Caractere, L, S, I;
+int Tamanho, Palavras, Caractere;
 char espaço[] = " ";
 char Texto[2000];
 int Espaços, Letras, Sentenças = 0;
+float L, S, I;
 
 int main(void)
 {
@@ -58,7 +59,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %i\n", I);
+        printf("Grade %f\n", I);
     }
     
     
