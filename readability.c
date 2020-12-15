@@ -5,10 +5,10 @@
 #include <stdio.h> 
 #include <cs50.h> //Utilizar Get_string("");
 #include <math.h> //Utilizar Round
-#include <string.h>
+#include <string.h> //Utilizar strlen();
 
-int Tamanho, I; 
-float  L, S, Palavras, Espaços = 0, Letras = 0, Sentenças = 0;
+int Tamanho, I, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras
+float  L, S, Palavras;
 
 int main(void)
 {
