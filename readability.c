@@ -41,7 +41,7 @@ int main(void)
     printf("%i\n", Sentenças);
     printf("%i\n", Letras);
     
-    Palavras = Espaços + 1;
+    Palavras = Espaços + 2;
     
     L = (Letras * 100) / Palavras;
     S = (Sentenças * 100) / Palavras;
