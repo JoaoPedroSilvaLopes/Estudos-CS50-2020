@@ -57,7 +57,7 @@ int main(void)
     //printf("%d\n\n", S);
     
     I = ((0.0588 * L) - (0.296 * S) - 15.8);
-    printf("%f\n", I);
+    //printf("%f\n", I);
     if (I >= 16)
     {
         printf("Grade 16+\n");
