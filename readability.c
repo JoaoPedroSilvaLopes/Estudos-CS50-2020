@@ -7,8 +7,8 @@
 #include <math.h> //Utilizar Round
 #include <string.h> //Utilizar strlen();
 
-int Tamanho, I, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras
-float  L, S, Palavras;
+int Tamanho, I, Palavras, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras
+float  L, S;
 
 int main(void)
 {
