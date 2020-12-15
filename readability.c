@@ -11,7 +11,7 @@
 int Tamanho, Palavras, Caractere;
 char espaço[] = " ";
 char Texto[2000];
-int Espaços, Letras, Sentenças = 0;
+int Espaços, Letras, Sentenças, Lixo = 0;
 int L, S, I;
 
 int main(void)
@@ -32,15 +32,19 @@ int main(void)
         {
             Sentenças++;
         }
+        else if ((Texto[x] >= 'a' && Texto[x] <= 'z') || (Texto[x] >= 'A' && Texto[x] <= 'Z'))
+        {
+            Caractere++;
+        }
         else
         {
-
-            Caractere++;
+            Lixo++;
         }
     }
     printf("%i\n", Espaços);
     printf("%i\n", Sentenças);
-    printf("%i\n\n", Caractere);
+    printf("%i\n", Caractere);
+    printf("%i\n\n", Lixo);
     
     Palavras = Espaços + 2;
     printf("%d\n", Palavras);
