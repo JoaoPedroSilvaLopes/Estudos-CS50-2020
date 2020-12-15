@@ -20,7 +20,7 @@ int main(void)
     scanf("%s\n", Texto);
     fgets(Texto,2000,stdin);
     Tamanho = strlen(Texto);
-    printf("%i\n", Tamanho);
+    //printf("%i\n", Tamanho);
 
     for (int x = 0; x <= Tamanho; x++)
     {
