@@ -8,9 +8,8 @@
 #include <ctype.h>
 #include <string.h>
 
-int Tamanho, Palavras, I;
-int Espaços = 0, Letras = 0, Sentenças = 0;
-float  L, S;
+int Tamanho, I;
+float  L, S, Palavras, Espaços = 0, Letras = 0, Sentenças = 0;
 
 int main(void)
 {
@@ -37,19 +36,19 @@ int main(void)
 
         }
     }
-    printf("Espaços: %i\n", Espaços);
-    printf("Sentenças: %i\n", Sentenças);
-    printf("Letras: %i\n\n", Letras);
+    //printf("Espaços: %f\n", Espaços);
+    //printf("Sentenças: %f\n", Sentenças);
+    //printf("Letras: %f\n\n", Letras);
     
     Palavras = Espaços + 1;
-    printf("Palavras: %i\n\n", Palavras);
+    //printf("Palavras: %f\n\n", Palavras);
     
     L = (Letras * 100) / Palavras;
-    printf("%f\n", L);
+    //printf("%f\n", L);
     S = (Sentenças * 100) / Palavras;
-    printf("%f\n\n", S);
+    //printf("%f\n\n", S);
     
-    I = round(round(0.0588 * L) - round(0.296 * S) - 15.8);
+    I = round((0.0588 * L) - (0.296 * S) - 15.8);
     //printf("%i\n", I);
     if (I >= 16)
     {
