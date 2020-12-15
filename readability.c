@@ -8,7 +8,7 @@
 #include <ctype.h>
 #include <string.h>
 
-int Tamanho, Palavras, L, S, I;
+int Tamanho, Palavras, Caractere, L, S, I;
 char espaço[] = " ";
 char Texto[2000];
 int Espaços, Letras, Sentenças = 0;
@@ -34,22 +34,27 @@ int main(void)
         else
         {
 
-            Letras++;
+            Caractere++;
         }
     }
     printf("%i\n", Espaços);
     printf("%i\n", Sentenças);
-    printf("%i\n", Letras);
+    printf("%i\n", Caractere);
     
     Palavras = Espaços + 2;
+    Letras = Caractere + 1;
     
-    L = (Letras * 100) / Palavras;
-    S = (Sentenças * 100) / Palavras;
+    L = round((Letras * 100) / Palavras);
+    S = round((Sentenças * 100) / Palavras);
     
     I = round(0.0588 * L - 0.296 * S - 15.8);
     if (I >= 16)
     {
-        printf("Grade +16");
+        printf("Grade +16\n");
+    }
+    else if (I < 1)
+    {
+        printf("Grade 1\n");
     }
     else
     {
