@@ -9,8 +9,8 @@
 int Tamanho;
 int main(void)
 {
-    int x = get_int("Número\n");
-    string Frase = get_string("Frase\n");
+    int x = get_int("");
+    string Frase = get_string("");
     Tamanho = strlen(Frase);
     
     for(int y = 0; y < Tamanho; y++)
