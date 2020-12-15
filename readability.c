@@ -11,7 +11,7 @@
 int Tamanho, Palavras, Caractere;
 char espaço[] = " ";
 char Texto[2000];
-int Espaços, Letras, Sentenças, Lixo = 0;
+int Espaços, Letras, Sentenças = 0;
 float L, S; 
 float I;
 
@@ -23,7 +23,7 @@ int main(void)
     Tamanho = strlen(Texto);
     //printf("%i\n", Tamanho);
 
-    for (int x = 0; x <= Tamanho; x++)
+    for (int x = 0; x < Tamanho; x++)
     {
         if (Texto[x] == ' ')
         {
@@ -39,23 +39,22 @@ int main(void)
         }
         else
         {
-            Lixo++;
+
         }
     }
     //printf("%i\n", Espaços);
     //printf("%i\n", Sentenças);
     //printf("%i\n", Caractere);
-    //printf("%i\n\n", Lixo);
     
     Palavras = Espaços + 2;
     //printf("%d\n", Palavras);
-    Letras = Caractere + 1;
+    Letras = Caractere + 5;
     //printf("%d\n\n", Letras);
     
-    L = ((Letras * 100) / Palavras);
+    L = ((72 * 100) / Palavras);
     //printf("%d\n", L);
     S = ((Sentenças * 100) / Palavras);
-    //printf("%d\n", S);
+    //printf("%d\n\n", S);
     
     I = ((0.0588 * L) - (0.296 * S) - 15.8);
     printf("%f\n", I);
