@@ -64,11 +64,11 @@ int main(void)
     }
     else if (I < 1)
     {
-        printf("Grade 1\n");
+        printf("Before Grade 1\n");
     }
     else
     {
-        printf("Before Grade %d\n", I);
+        printf("Grade %d\n", I);
     }
     
     
