@@ -3,20 +3,17 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
-#include <cs50.h> 
-#include <math.h>
-#include <ctype.h>
+#include <cs50.h> //Utilizar Get_string("");
+#include <math.h> //Utilizar Round
 #include <string.h>
 
-int Tamanho, I;
+int Tamanho, I; 
 float  L, S, Palavras, Espaços = 0, Letras = 0, Sentenças = 0;
 
 int main(void)
 {
     string Texto = get_string("Insira o texto: \n");
     Tamanho = strlen(Texto);
-    
-    
     for (int x = 0; x < Tamanho; x++)
     {
         if (Texto[x] == ' ')
@@ -36,20 +33,10 @@ int main(void)
 
         }
     }
-    //printf("Espaços: %f\n", Espaços);
-    //printf("Sentenças: %f\n", Sentenças);
-    //printf("Letras: %f\n\n", Letras);
-    
     Palavras = Espaços + 1;
-    //printf("Palavras: %f\n\n", Palavras);
-    
     L = (Letras * 100) / Palavras;
-    //printf("%f\n", L);
     S = (Sentenças * 100) / Palavras;
-    //printf("%f\n\n", S);
-    
     I = round((0.0588 * L) - (0.296 * S) - 15.8);
-    //printf("%i\n", I);
     if (I >= 16)
     {
         printf("Grade 16+\n");
@@ -65,15 +52,3 @@ int main(void)
     
     return 0;
 }
-
-/*
-$$I = 0.0588 * L - 0.296 * S - 15.8$$
-L = número médio de letras a cada 100 palavras no texto.
-S = média do número de sentenças a cada 100 palavras no texto.
-isspace (verifica um espaço em branco)
-ispunct (verifica um ponto)
-islower (verifica um caractere minúsculo)
-isupper (verifica um caractere maiúculo)
-isalpha (verifica se o caractere é uma letra do alfabeto)
-strlen (verifica o tamanho de uma string)
-*/
