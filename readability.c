@@ -41,23 +41,23 @@ int main(void)
             Lixo++;
         }
     }
-    printf("%i\n", Espaços);
-    printf("%i\n", Sentenças);
-    printf("%i\n", Caractere);
-    printf("%i\n\n", Lixo);
+    //printf("%i\n", Espaços);
+    //printf("%i\n", Sentenças);
+    //printf("%i\n", Caractere);
+    //printf("%i\n\n", Lixo);
     
     Palavras = Espaços + 2;
-    printf("%d\n", Palavras);
+    //printf("%d\n", Palavras);
     Letras = Caractere + 1;
-    printf("%d\n\n", Letras);
+    //printf("%d\n\n", Letras);
     
-    L = round((Letras * 100) / Palavras);
-    printf("%d\n", L);
-    S = round((Sentenças * 100) / Palavras);
-    printf("%d\n", S);
+    L = ((Letras * 100) / Palavras);
+    //printf("%d\n", L);
+    S = ((Sentenças * 100) / Palavras);
+    //printf("%d\n", S);
     
-    I = round(round(0.0588 * L) - round(0.296 * S) - 15.8);
-    printf("%d\n", I);
+    I = round((0.0588 * L) - (0.296 * S) - 15.8);
+    //printf("%d\n", I);
     if (I >= 16)
     {
         printf("Grade +16\n");
