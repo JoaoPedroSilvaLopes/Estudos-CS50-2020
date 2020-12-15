@@ -4,19 +4,21 @@
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
 #include <cs50.h> 
+#include <string.h>
 
-
+int Tamanho;
 int main(void)
 {
-    int x = get_int("Insira um número: \n");
-    if (x > 0)
+    int x = get_int("Número\n");
+    string Frase = get_string("Frase\n");
+    Tamanho = strlen(Frase);
+    
+    for(int y = 0; y < Tamanho; y++)
     {
-        
+        Frase[y] = Frase[y] + x;
     }
-    else
-    {
-        return 1;
-    }
-   
+    printf("%s\n", Frase);
+
     return 0;
 }
+
