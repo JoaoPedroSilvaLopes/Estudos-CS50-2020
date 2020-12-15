@@ -37,19 +37,19 @@ int main(void)
 
         }
     }
-    printf("%i\n", Espaços);
-    printf("%i\n", Sentenças);
-    printf("%i\n\n", Letras);
+    //printf("%i\n", Espaços);
+    //printf("%i\n", Sentenças);
+    //printf("%i\n\n", Letras);
     
     Palavras = Espaços + 1;
-    printf("%d\n\n", Palavras);
+    //printf("%d\n\n", Palavras);
     
     L = ((Letras * 100) / Palavras);
     //printf("%d\n", L);
     S = ((Sentenças * 100) / Palavras);
     //printf("%d\n\n", S);
     
-    I = ((0.0588 * L) - (0.296 * S) - 15.8);
+    I = round((0.0588 * L) - (0.296 * S) - 15.8);
     //printf("%f\n", I);
     if (I >= 16)
     {
