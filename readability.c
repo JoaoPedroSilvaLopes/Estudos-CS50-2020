@@ -56,7 +56,7 @@ int main(void)
     S = ((Sentenças * 100) / Palavras);
     //printf("%d\n", S);
     
-    I = round((0.0588 * L) - (0.296 * S) - 15.8);
+    I = ((0.0588 * L) - (0.296 * S) - 15.8);
     //printf("%d\n", I);
     if (I >= 16)
     {
