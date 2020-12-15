@@ -8,21 +8,16 @@
 #include <ctype.h>
 #include <string.h>
 
-int Tamanho, Palavras, Caractere;
-char espaço[] = " ";
-char Texto[2000];
-int Espaços, Letras, Sentenças = 0;
-float L, S; 
-float I;
+int Tamanho, Palavras;
+int Espaços = 0, Letras = 0, Sentenças = 0;
+float  L, S, I;
 
 int main(void)
 {
-    printf("Insira a frase: \n");
-    scanf("%s\n", Texto);
-    fgets(Texto,2000,stdin);
+    string Texto = get_string("Insira o texto: \n");
     Tamanho = strlen(Texto);
-    //printf("%i\n", Tamanho);
-
+    
+    
     for (int x = 0; x < Tamanho; x++)
     {
         if (Texto[x] == ' ')
@@ -35,23 +30,21 @@ int main(void)
         }
         else if ((Texto[x] >= 'a' && Texto[x] <= 'z') || (Texto[x] >= 'A' && Texto[x] <= 'Z'))
         {
-            Caractere++;
+            Letras++;
         }
         else
         {
 
         }
     }
-    //printf("%i\n", Espaços);
-    //printf("%i\n", Sentenças);
-    //printf("%i\n", Caractere);
+    printf("%i\n", Espaços);
+    printf("%i\n", Sentenças);
+    printf("%i\n\n", Letras);
     
-    Palavras = Espaços + 2;
-    //printf("%d\n", Palavras);
-    Letras = Caractere + 5;
-    //printf("%d\n\n", Letras);
+    Palavras = Espaços + 1;
+    printf("%d\n\n", Palavras);
     
-    L = ((72 * 100) / Palavras);
+    L = ((Letras * 100) / Palavras);
     //printf("%d\n", L);
     S = ((Sentenças * 100) / Palavras);
     //printf("%d\n\n", S);
@@ -70,7 +63,6 @@ int main(void)
     {
         printf("Grade %f\n", I);
     }
-    
     
     return 0;
 }
