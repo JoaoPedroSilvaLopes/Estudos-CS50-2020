@@ -17,7 +17,7 @@ int main(void)
 {
     printf("Insira a frase: \n");
     scanf("%s\n", Texto);
-    fgets(Texto,1000,stdin);
+    fgets(Texto,2000,stdin);
     Tamanho = strlen(Texto);
     printf("%i\n", Tamanho);
 
@@ -47,7 +47,15 @@ int main(void)
     S = (Sentenças * 100) / Palavras;
     
     I = 0.0588 * L - 0.296 * S - 15.8;
-    printf("Grade %i\n", I);
+    if (I >= 16)
+    {
+        printf("Grade +16");
+    }
+    else
+    {
+        printf("Grade %i\n", I);
+    }
+    
     
     return 0;
 }
