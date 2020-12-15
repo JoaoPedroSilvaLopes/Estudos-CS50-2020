@@ -47,7 +47,7 @@ int main(void)
     L = round((Letras * 100) / Palavras);
     S = round((Sentenças * 100) / Palavras);
     
-    I = round(0.0588 * L - 0.296 * S - 15.8);
+    I = (0.0588 * L - 0.296 * S - 15.8);
     if (I >= 16)
     {
         printf("Grade +16\n");
