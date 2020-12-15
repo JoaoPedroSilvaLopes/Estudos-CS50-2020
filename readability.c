@@ -60,7 +60,7 @@ int main(void)
     //printf("%d\n", I);
     if (I >= 16)
     {
-        printf("Grade +16\n");
+        printf("Grade 16+\n");
     }
     else if (I < 1)
     {
@@ -68,7 +68,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %d\n", I);
+        printf("Before Grade %d\n", I);
     }
     
     
