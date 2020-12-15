@@ -12,7 +12,7 @@ int Tamanho, Palavras, Caractere;
 char espaço[] = " ";
 char Texto[2000];
 int Espaços, Letras, Sentenças = 0;
-float L, S, I;
+int L, S, I;
 
 int main(void)
 {
@@ -43,15 +43,17 @@ int main(void)
     printf("%i\n\n", Caractere);
     
     Palavras = Espaços + 2;
+    printf("%d\n", Palavras);
     Letras = Caractere + 1;
+    printf("%d\n\n", Letras);
     
-    L = ((Letras * 100) / Palavras);
-    printf("%f\n", L);
-    S = ((Sentenças * 100) / Palavras);
-    printf("%f\n", S);
+    L = round((Letras * 100) / Palavras);
+    printf("%d\n", L);
+    S = round((Sentenças * 100) / Palavras);
+    printf("%d\n", S);
     
-    I = (0.0588 * L - 0.296 * S - 15.8);
-    printf("%f\n", I);
+    I = round(round(0.0588 * L) - round(0.296 * S) - 15.8);
+    printf("%d\n", I);
     if (I >= 16)
     {
         printf("Grade +16\n");
@@ -62,7 +64,7 @@ int main(void)
     }
     else
     {
-        printf("Grade %f\n", I);
+        printf("Grade %d\n", I);
     }
     
     
