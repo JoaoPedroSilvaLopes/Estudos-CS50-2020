@@ -3,49 +3,47 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
-#include <stdlib.h>
+#include <ctype.h>
 #include <cs50.h> 
 #include <string.h>
-#include <math.h>
 
-int z, x;
 int Tamanho;
-int main()
+char array[100];
+
+int main(void)
 {
-    scanf("%i\n", &x);
-    if ( x >= 1)
-    {
-        z = 0;
-        printf("OK\n");
-    }
-    else
-    {
-        z = 1;
-        printf("Usage: ./caesar key");
-    }
-
-
-    return z;
-    exit(1);
-}
-
-
-/*int x = get_int("");
+    int Key = get_int("");
+    printf("plaintext: ");
     string Frase = get_string("");
     Tamanho = strlen(Frase);
     
-    for(int y = 0; y < Tamanho; y++)
+    for(int Posição = 0; Posição < Tamanho; Posição++)
     {
-        if((Frase[y] >= 'a' && Frase[y] <= 'z') || (Frase[y] >= 'A' && Frase[y] <= 'Z'))
+        if ((Frase[Posição] >= 'a' && Frase[Posição] <= 'z') || (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z'))
         {
-            Frase[y] = Frase[y] + x;
+            //printf("%s\n\n", Frase);
+            array[Posição] = (Frase[Posição] + Key);
+            
+            if ((array[Posição] >= 'a' && array[Posição] <= 'z') || (array[Posição] >= 'A' && array[Posição] <= 'Z'))
+            {
+                array[Posição] = array[Posição];
+                //printf("%s\n\n", array);
+            }
+            else
+            {
+                array[Posição] = 'a' + Key - (123 - (Frase[Posição]));
+                //printf("%s\n\n", array);
+            }
         }
         else
         {
-            
+            array[Posição] = Frase[Posição];
         }
     }
-    printf("%s\n", Frase);
-    //plaintext:
-    //ciphertext:
-*/
+    printf("ciphertext: ");
+    printf("%s\n", array);
+
+    return 0;
+}
+//isupper
+//islower
