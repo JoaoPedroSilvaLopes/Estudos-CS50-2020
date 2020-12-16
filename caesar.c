@@ -3,28 +3,30 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
+#include <stdlib.h>
 #include <cs50.h> 
 #include <string.h>
 #include <math.h>
 
-int z;
+int z, x;
 int Tamanho;
 int main()
 {
-    int x = get_int("");
+    scanf("%i\n", &x);
     if ( x >= 1)
     {
         z = 0;
-        printf("OK");
+        printf("OK\n");
     }
     else
     {
         z = 1;
-        printf("Uga");
+        printf("Usage: ./caesar key");
     }
 
 
     return z;
+    exit(1);
 }
 
 
@@ -44,4 +46,6 @@ int main()
         }
     }
     printf("%s\n", Frase);
+    //plaintext:
+    //ciphertext:
 */
