@@ -15,10 +15,12 @@ int main()
     if ( x >= 1)
     {
         z = 0;
+        printf("OK");
     }
     else
     {
         z = 1;
+        printf("Uga");
     }
 
 
