@@ -8,42 +8,30 @@
 #include <string.h>
 
 int Tamanho;
-char array[100];
+int Resto;
+int x = 0;
+char c = 'a';
+char C = 'A';
 
 int main(void)
 {
+
     int Key = get_int("");
     printf("plaintext: ");
     string Frase = get_string("");
-    Tamanho = strlen(Frase);
+    Tamanho = strlen(Frase);;
     
     for(int Posição = 0; Posição < Tamanho; Posição++)
     {
-        if ((Frase[Posição] >= 'a' && Frase[Posição] <= 'z') || (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z'))
+        if (Frase[Posição] != islower(Frase[Posição]) || Frase[Posição] != isupper(Frase[Posição]))
         {
-            //printf("%s\n\n", Frase);
-            array[Posição] = (Frase[Posição] + Key);
-            
-            if ((array[Posição] >= 'a' && array[Posição] <= 'z') || (array[Posição] >= 'A' && array[Posição] <= 'Z'))
-            {
-                array[Posição] = array[Posição];
-                //printf("%s\n\n", array);
-            }
-            else
-            {
-                array[Posição] = 'a' + Key - (123 - (Frase[Posição]));
-                //printf("%s\n\n", array);
-            }
+            Frase[Posição] = Frase[Posição] + (Key % 26);
         }
         else
         {
-            array[Posição] = Frase[Posição];
+            Frase[Posição] = Frase[Posição];
         }
     }
-    printf("ciphertext: ");
-    printf("%s\n", array);
-
+    printf("ciphertext: %s\n", Frase);
     return 0;
 }
-//isupper
-//islower
