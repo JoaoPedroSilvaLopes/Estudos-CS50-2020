@@ -5,6 +5,7 @@
 #include <stdio.h> 
 #include <cs50.h> 
 #include <string.h>
+#include <ctype.h>
 #include <stdlib.h>
 
 int Tamanho;
@@ -17,7 +18,7 @@ int main(int argc, string argv[])
     if (argc == 2)
     {
         Key = atoi(argv[1]);
-        printf("%d\n", Key);
+        //printf("%d\n", Key);
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
         
