@@ -11,13 +11,12 @@ int Tamanho;
 int Resto;
 int Key;
 int Retorno;
-int x;
 
 int main(int argc, string argv[])
 {
     Key = atoi(argv[1]);
     //printf("%d\n", Key);
-    if (argc == 2)
+    if (argc == 2 && (Key >= 0))
     {
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
