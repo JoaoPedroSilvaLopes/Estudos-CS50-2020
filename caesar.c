@@ -3,21 +3,22 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
-#include <ctype.h>
-#include <math.h>
 #include <cs50.h> 
 #include <string.h>
+#include <stdlib.h>
 
 int Tamanho;
 int Resto;
 int Key;
-int y;
+int Retorno;
+int x;
 
 int main(int argc, string argv[])
 {
+    Key = atoi(argv[1]);
+    //printf("%d\n", Key);
     if (argc == 2)
     {
-        int x = get_int("");
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
         
@@ -25,11 +26,11 @@ int main(int argc, string argv[])
         {
             if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
             {
-                Key = x;
+                Key = atoi(argv[1]);
                 Key = Key - (122 - Frase[Posição]);
                 if (Key < 0)
                 {
-                    Frase[Posição] = Frase[Posição] + x;
+                    Frase[Posição] = Frase[Posição] + atoi(argv[1]);
                 }
                 else
                 {
@@ -39,11 +40,11 @@ int main(int argc, string argv[])
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
             {
-                Key = x;
+                Key = atoi(argv[1]);
                 Key = Key - (90 - Frase[Posição]);
                 if (Key < 0)
                 {
-                    Frase[Posição] = Frase[Posição] + x;
+                    Frase[Posição] = Frase[Posição] + atoi(argv[1]);
                 }
                 else
                 {
@@ -57,12 +58,12 @@ int main(int argc, string argv[])
             }
         }
         printf("ciphertext: %s\n", Frase);
-        y = 0;
+        Retorno = 0;
     }
     else
     {
-        printf("Usage: ./caesar key\n");
-        y = 1;
+        printf("Usage: %s\n", argv[0]);
+        Retorno = 1;
     }
-    return y;
+    return Retorno;
 }
