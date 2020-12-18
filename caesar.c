@@ -19,7 +19,6 @@ int main (int argc, string argv[])
     
     if (argc == 2 && (y >= 0 && y <= 9))
     {
-        printf("Success\n");
         x = 0;
     }
     else
