@@ -9,50 +9,60 @@
 #include <string.h>
 
 int Tamanho;
-int Divisão;
-int x;
+int Resto;
+int Key;
 int y;
 
-int main (int argc, string argv[])
+int main(int argc, string argv[])
 {
-    y = (int)argv - '0';
-    
-    if (argc == 2 && (y >= 0 && y <= 9))
+    if (argc == 2)
     {
-        x = 0;
+        int x = get_int("");
+        string Frase = get_string("plaintext: ");
+        Tamanho = strlen(Frase);
+        
+        for (int Posição = 0; Posição < Tamanho; Posição++)
+        {
+            if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
+            {
+                Key = x;
+                Key = Key - (122 - Frase[Posição]);
+                if (Key < 0)
+                {
+                    Frase[Posição] = Frase[Posição] + x;
+                }
+                else
+                {
+                    Resto = Key % 26;
+                    Frase[Posição] = 96 + Resto;
+                }
+            }
+            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
+            {
+                Key = x;
+                Key = Key - (90 - Frase[Posição]);
+                if (Key < 0)
+                {
+                    Frase[Posição] = Frase[Posição] + x;
+                }
+                else
+                {
+                    Resto = Key % 26;
+                    Frase[Posição] = 64 + Resto;
+                }
+            }
+            else
+            {
+                Frase[Posição] = Frase[Posição];
+            }
+        }
+        printf("ciphertext: %s\n", Frase);
+        y = 0;
     }
     else
     {
         printf("Usage: ./caesar key\n");
-        x = 1;
+        y = 1;
     }
-    
-return x;
+    return y;
 }
-
-    /*int Key = get_int("");
-    printf("plaintext: ");
-    string Frase = get_string("");
-    Tamanho = strlen(Frase);;
-    
-    for(int Posição = 0; Posição < Tamanho; Posição++)
-    {
-        if (Frase[Posição] != islower(Frase[Posição]) || Frase[Posição] != isupper(Frase[Posição]))
-        {
-            Divisão = ceil(Key / 26);
-                do
-                {
-                   Key = Key - (122 - Frase[Posição]);
-                   printf("%i\n\n", Key);
-                   Frase[Posição] = 96;
-                   Divisão--;
-                }
-                while (Divisão + 1 > 0);
-                Frase[Posição] = Frase[Posição] - Key + 4;
-        }
-        else
-        {
-            Frase[Posição] = Frase[Posição];
-        }
-    }
-    printf("ciphertext: %s\n", Frase);*/
