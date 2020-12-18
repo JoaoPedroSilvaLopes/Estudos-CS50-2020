@@ -14,10 +14,10 @@ int Retorno;
 
 int main(int argc, string argv[])
 {
-    Key = atoi(argv[1]);
-    printf("%d\n", Key);
     if (argc == 2)
     {
+        Key = atoi(argv[1]);
+        printf("%d\n", Key);
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
         
