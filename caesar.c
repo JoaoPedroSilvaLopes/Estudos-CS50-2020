@@ -11,10 +11,13 @@
 int Tamanho;
 int Divisão;
 int x;
+int y;
 
 int main (int argc, string argv[])
 {
-    if (argc == 2)
+    y = (int)argv - '0';
+    
+    if (argc == 2 && (y >= 0 && y <= 9))
     {
         printf("Success\n");
         x = 0;
