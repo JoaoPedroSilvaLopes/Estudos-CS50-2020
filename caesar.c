@@ -9,13 +9,26 @@
 #include <string.h>
 
 int Tamanho;
-int Resto;
 int Divisão;
+int x;
 
-int main(void)
+int main (int argc, string argv[])
 {
+    if (argc == 2)
+    {
+        printf("Success\n");
+        x = 0;
+    }
+    else
+    {
+        printf("Usage: ./caesar key\n");
+        x = 1;
+    }
+    
+return x;
+}
 
-    int Key = get_int("");
+    /*int Key = get_int("");
     printf("plaintext: ");
     string Frase = get_string("");
     Tamanho = strlen(Frase);;
@@ -28,17 +41,16 @@ int main(void)
                 do
                 {
                    Key = Key - (122 - Frase[Posição]);
+                   printf("%i\n\n", Key);
                    Frase[Posição] = 96;
                    Divisão--;
                 }
-                while (Divisão > 0);
-                Frase[Posição] = Frase[Posição] + Key;
+                while (Divisão + 1 > 0);
+                Frase[Posição] = Frase[Posição] - Key + 4;
         }
         else
         {
             Frase[Posição] = Frase[Posição];
         }
     }
-    printf("ciphertext: %s\n", Frase);
-    return 0;
-}
+    printf("ciphertext: %s\n", Frase);*/
