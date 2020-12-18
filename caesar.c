@@ -4,14 +4,13 @@
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
 #include <ctype.h>
+#include <math.h>
 #include <cs50.h> 
 #include <string.h>
 
 int Tamanho;
 int Resto;
-int x = 0;
-char c = 'a';
-char C = 'A';
+int Divisão;
 
 int main(void)
 {
@@ -25,7 +24,15 @@ int main(void)
     {
         if (Frase[Posição] != islower(Frase[Posição]) || Frase[Posição] != isupper(Frase[Posição]))
         {
-            Frase[Posição] = Frase[Posição] + (Key % 26);
+            Divisão = ceil(Key / 26);
+                do
+                {
+                   Key = Key - (122 - Frase[Posição]);
+                   Frase[Posição] = 96;
+                   Divisão--;
+                }
+                while (Divisão > 0);
+                Frase[Posição] = Frase[Posição] + Key;
         }
         else
         {
