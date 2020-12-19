@@ -33,7 +33,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                 }
                 else
                 {
-                    Frase[Posição] = 96 + Resto;
+                    Frase[Posição] = 96 + (Key % 26);
                 }
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
@@ -46,7 +46,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                 }
                 else
                 {
-                    Frase[Posição] = 64 + Resto;
+                    Frase[Posição] = 64 + (Key % 26);
                 }
             }
             else
