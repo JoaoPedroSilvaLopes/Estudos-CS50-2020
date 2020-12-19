@@ -20,9 +20,6 @@ int w;
 
 int main(int argc, string argv[])
 {
-    Teste = strlen(argv[1]);
-    printf("%d\n", Teste);
-    
     if (argc == 2)
     {
         Key = atoi(argv[1]);
