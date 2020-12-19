@@ -9,7 +9,6 @@
 
 int Key; //Key de contagem
 int Retorno; //Variável de retorno;
-int Resto; //Resto de divisão.
 
 int main(int argc, string argv[]) //Declaração dos argumentos na função main
 {
@@ -22,7 +21,6 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
         {
             if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z') //If para caso o caractere seja uma letra minúscula.
             {
-                Resto = Key % 26; //Resto da divisão entre a Key de contagem dividido por 26.
                 Key = atoi(argv[1]);
                 Key = Key - ('z' - Frase[Posição]); //Key é a subtração de 'z' - o caractere de Frase[Posição].
                 if (Key < 0) //If para caso Key dê menor do que 0.
@@ -31,12 +29,11 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                 }
                 else //Else para caso Key seja igual ou maior que 0.
                 {
-                    Frase[Posição] = ('a' - 1) + (Resto); //O caractere será a soma de ('a' - 1) e o Resto.
+                    Frase[Posição] = ('a' - 1) + (Key % 26); //O caractere será a soma de ('a' - 1) e o resto de Key dividido por 26.
                 }
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z') //Else if para caso o caractere seja uma letra maiúscula.
             {
-                Resto = Key % 26; //Resto da divisão entre a Key de contagem dividido por 26.
                 Key = atoi(argv[1]);
                 Key = Key - ('Z' - Frase[Posição]); //Key é a subtração de 'Z' - o caractere de Frase[Posição].
                 if (Key < 0) //If para caso Key dê menor do que 0.
@@ -45,7 +42,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                 }
                 else //Else para caso Key seja igual ou maior que 0.
                 {
-                    Frase[Posição] = ('A' - 1) + (Resto); //O caractere será a soma de ('A' - 1) e o Resto.
+                    Frase[Posição] = ('A' - 1) + (Key % 26); //O caractere será a soma de ('A' - 1) e o resto de Key dividido por 26.
                 }
             }
             else //Else para caso o caractere não seja uma letra.
