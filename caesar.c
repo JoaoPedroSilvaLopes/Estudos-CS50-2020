@@ -9,6 +9,7 @@
 
 int Key; //Key de contagem
 int Retorno; //Variável de retorno;
+int Resto; //Resto da divisão entre a Key de contagem dividido por 26.
 
 int main(int argc, string argv[]) //Declaração dos argumentos na função main
 {
@@ -16,6 +17,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
     {
         Key = atoi(argv[1]); //Key é a conversão do argv[1] para inteiro.
         string Frase = get_string("plaintext: "); //Get_string("") para introduzir a frase a ser criptografada.
+        Resto = Key % 26;
         
         for (int Posição = 0; Posição < strlen(Frase); Posição++) //For para verificar cada um dos caracteres da string.
         {
@@ -29,7 +31,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                 }
                 else //Else para caso Key seja igual ou maior que 0.
                 {
-                    Frase[Posição] = ('a' - 1) + (Key % 26); //O caractere será a soma de ('a' - 1) e o resto de Key dividido por 26.
+                    Frase[Posição] = ('a' - 1) + (Resto); //O caractere será a soma de ('a' - 1) e o Resto.
                 }
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z') //Else if para caso o caractere seja uma letra maiúscula.
@@ -42,7 +44,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                 }
                 else //Else para caso Key seja igual ou maior que 0.
                 {
-                    Frase[Posição] = ('A' - 1) + (Key % 26); //O caractere será a soma de ('A' - 1) e o resto de Key dividido por 26.
+                    Frase[Posição] = ('A' - 1) + (Resto); //O caractere será a soma de ('A' - 1) e o Resto.
                 }
             }
             else //Else para caso o caractere não seja uma letra.
