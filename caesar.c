@@ -23,7 +23,7 @@ int main(int argc, string argv[])
             break;
         }
     }*/
-    if (argc == 2 && argv[1] == (void *)0)
+    if (argc == 2 /*&& argv[1] == (void *)0*/)
     {
         Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
