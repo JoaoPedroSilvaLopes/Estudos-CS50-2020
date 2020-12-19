@@ -12,18 +12,10 @@ int Tamanho;
 int Resto;
 int Key;
 int Retorno;
-string teste;
 
 int main(int argc, string argv[])
 {
-    /*for (int x = 0; argv[1] != (void *)0; x++)
-    {
-        if (argv < '0' || argv > '9')
-        {
-            break;
-        }
-    }*/
-    if (argc == 2 /*&& argv[1] == (void *)0*/)
+    if (argc == 2)
     {
         Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
