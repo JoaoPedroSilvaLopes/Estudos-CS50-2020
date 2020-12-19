@@ -3,22 +3,23 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
-#include <cs50.h> 
-#include <string.h>
-#include <stdlib.h>
+#include <cs50.h> //Usar get_string("");
+#include <string.h> //Usar strlen();
+#include <stdlib.h> //Usar atoi();
 
 int Tamanho;
-int Resto;
-int Key;
-int Retorno;
+int Resto; //Resto
+int Key; //Key de contagem
+int Retorno; //Variável de retorno;
 
-int main(int argc, string argv[])
+int main(int argc, string argv[]) //Declaração dos argumentos na função main
 {
     if (argc == 2)
     {
         Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
+        Resto = Key % 26;
         
         for (int Posição = 0; Posição < Tamanho; Posição++)
         {
@@ -32,7 +33,6 @@ int main(int argc, string argv[])
                 }
                 else
                 {
-                    Resto = Key % 26;
                     Frase[Posição] = 96 + Resto;
                 }
             }
@@ -46,7 +46,6 @@ int main(int argc, string argv[])
                 }
                 else
                 {
-                    Resto = Key % 26;
                     Frase[Posição] = 64 + Resto;
                 }
             }
