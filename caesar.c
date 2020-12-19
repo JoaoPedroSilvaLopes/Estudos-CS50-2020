@@ -60,3 +60,5 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
     }
     return Retorno; //Retorno.
 }
+
+//Não consegui achar uma solução para filtrar as letras e caracteres especiais nos argv[1], sinto muito.
