@@ -8,7 +8,6 @@
 #include <stdlib.h> //Usar atoi();
 
 int Tamanho;
-int Resto; //Resto
 int Key; //Key de contagem
 int Retorno; //Variável de retorno;
 
@@ -19,13 +18,11 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
         Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
-        Resto = Key % 26;
         
         for (int Posição = 0; Posição < Tamanho; Posição++)
         {
             if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
             {
-                Key = atoi(argv[1]);
                 Key = Key - (122 - Frase[Posição]);
                 if (Key < 0)
                 {
@@ -38,7 +35,6 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
             {
-                Key = atoi(argv[1]);
                 Key = Key - (90 - Frase[Posição]);
                 if (Key < 0)
                 {
