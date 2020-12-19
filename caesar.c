@@ -5,18 +5,12 @@
 #include <stdio.h> 
 #include <cs50.h> 
 #include <string.h>
-#include <ctype.h>
 #include <stdlib.h>
 
 int Tamanho;
 int Resto;
 int Key;
 int Retorno;
-int Teste;
-int Teste2;
-int x;
-int z;
-int w;
 
 int main(int argc, string argv[])
 {
