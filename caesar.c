@@ -38,7 +38,7 @@ int main(int argc, string argv[])
                     Frase[Posição] = 96 + Resto;
                 }
             }
-            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
+            else //(Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
             {
                 Key = atoi(argv[1]);
                 Key = Key - (90 - Frase[Posição]);
