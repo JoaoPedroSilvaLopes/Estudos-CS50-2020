@@ -19,49 +19,46 @@ int main(int argc, string argv[])
     if (argc == 2)
     {
         Key = atoi(argv[1]);
-        printf("%d\n", Key);
-        printf("%c\n", Key);
-        printf("%d\n", *argv[1]);
-            string Frase = get_string("plaintext: ");
-            Tamanho = strlen(Frase);
+        string Frase = get_string("plaintext: ");
+        Tamanho = strlen(Frase);
         
-            for (int Posição = 0; Posição < Tamanho; Posição++)
+        for (int Posição = 0; Posição < Tamanho; Posição++)
+        {
+            if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
             {
-                if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
+                Key = atoi(argv[1]);
+                Key = Key - (122 - Frase[Posição]);
+                if (Key < 0)
                 {
-                    Key = atoi(argv[1]);
-                    Key = Key - (122 - Frase[Posição]);
-                    if (Key < 0)
-                    {
-                        Frase[Posição] = Frase[Posição] + atoi(argv[1]);
-                    }
-                    else
-                    {
-                        Resto = Key % 26;
-                        Frase[Posição] = 96 + Resto;
-                    }
-                }
-                else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
-                {
-                    Key = atoi(argv[1]);
-                    Key = Key - (90 - Frase[Posição]);
-                    if (Key < 0)
-                    {
-                        Frase[Posição] = Frase[Posição] + atoi(argv[1]);
-                    }
-                    else
-                    {
-                        Resto = Key % 26;
-                        Frase[Posição] = 64 + Resto;
-                    }
+                    Frase[Posição] = Frase[Posição] + atoi(argv[1]);
                 }
                 else
                 {
-                    Frase[Posição] = Frase[Posição];
+                    Resto = Key % 26;
+                    Frase[Posição] = 96 + Resto;
                 }
             }
-            printf("ciphertext: %s\n", Frase);
-            Retorno = 0;
+            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
+            {
+                Key = atoi(argv[1]);
+                Key = Key - (90 - Frase[Posição]);
+                if (Key < 0)
+                {
+                    Frase[Posição] = Frase[Posição] + atoi(argv[1]);
+                }
+                else
+                {
+                    Resto = Key % 26;
+                    Frase[Posição] = 64 + Resto;
+                }
+            }
+            else
+            {
+                Frase[Posição] = Frase[Posição];
+            }
+        }
+        printf("ciphertext: %s\n", Frase);
+        Retorno = 0;
     }
     else
     {
