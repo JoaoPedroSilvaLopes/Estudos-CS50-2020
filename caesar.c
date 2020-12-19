@@ -23,6 +23,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
         {
             if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
             {
+                Key = atoi(argv[1]);
                 Key = Key - (122 - Frase[Posição]);
                 if (Key < 0)
                 {
@@ -35,6 +36,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
             {
+                Key = atoi(argv[1]);
                 Key = Key - (90 - Frase[Posição]);
                 if (Key < 0)
                 {
