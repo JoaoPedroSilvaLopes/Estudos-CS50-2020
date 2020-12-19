@@ -16,9 +16,9 @@ string teste;
 
 int main(int argc, string argv[])
 {
-    /*for (int x = 0; argv[x] != (void *)0; x++)
+    /*for (int x = 0; argv[1] != (void *)0; x++)
     {
-        if (argv[x] < '0' || argv[x] > '9')
+        if (argv < '0' || argv > '9')
         {
             break;
         }
