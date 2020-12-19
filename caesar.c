@@ -52,10 +52,10 @@ int main(int argc, string argv[])
                     Frase[Posição] = 64 + Resto;
                 }
             }
-            else
+            /*else
             {
                 Frase[Posição] = Frase[Posição];
-            }
+            }*/
         }
         printf("ciphertext: %s\n", Frase);
         Retorno = 0;
