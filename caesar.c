@@ -27,7 +27,7 @@ int main(int argc, string argv[])
         Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
         
-        for (int Posição = 0; Posição < '\0'; Posição++)
+        for (int Posição = 0; Posição <= '\0' ; Posição++)
         {
             if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
             {
