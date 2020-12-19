@@ -23,26 +23,26 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
             {
                 Key = atoi(argv[1]);
                 Key = Key - ('z' - Frase[Posição]); //Key é a subtração de 'z' - o caractere de Frase[Posição].
-                if (Key < 0)
+                if (Key < 0) //If para caso Key dê menor do que 0.
                 {
-                    Frase[Posição] = Frase[Posição] + atoi(argv[1]);
+                    Frase[Posição] = Frase[Posição] + atoi(argv[1]); //O caractere será a soma do próprio caractere + Atoi(argv[1]).
                 }
-                else
+                else //Else para caso Key seja igual ou maior que 0.
                 {
-                    Frase[Posição] = 96 + (Key % 26);
+                    Frase[Posição] = ('a' - 1) + (Key % 26); //O caractere será a soma de ('a' - 1) e o resto de Key dividido por 26.
                 }
             }
             else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z') //Else if para caso o caractere seja uma letra maiúscula.
             {
                 Key = atoi(argv[1]);
                 Key = Key - ('Z' - Frase[Posição]); //Key é a subtração de 'Z' - o caractere de Frase[Posição].
-                if (Key < 0)
+                if (Key < 0) //If para caso Key dê menor do que 0.
                 {
-                    Frase[Posição] = Frase[Posição] + atoi(argv[1]);
+                    Frase[Posição] = Frase[Posição] + atoi(argv[1]); //O caractere será a soma do próprio caractere + Atoi(argv[1]).
                 }
-                else
+                else //Else para caso Key seja igual ou maior que 0.
                 {
-                    Frase[Posição] = 64 + (Key % 26);
+                    Frase[Posição] = ('A' - 1) + (Key % 26); //O caractere será a soma de ('A' - 1) e o resto de Key dividido por 26.
                 }
             }
             else //Else para caso o caractere não seja uma letra.
