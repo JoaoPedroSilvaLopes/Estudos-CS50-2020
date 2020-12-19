@@ -8,6 +8,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+int Tamanho;
 int Resto;
 int Key;
 int Retorno;
@@ -22,12 +23,13 @@ int main(int argc, string argv[])
             break;
         }
     }*/
-    if (argc == 2 /*&& argv[1] == (void *)0*/)
+    if (argc == 2 && argv[1] == (void *)0)
     {
         Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
+        Tamanho = strlen(Frase);
         
-        for (int Posição = 0; Posição <= '\0' ; Posição++)
+        for (int Posição = 0; Posição < Tamanho; Posição++)
         {
             if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
             {
