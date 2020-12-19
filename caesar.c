@@ -27,7 +27,7 @@ int main(int argc, string argv[])
         Teste2 = (Key/10) + 1;
         printf("%d\n", Teste2);
         
-        for (x = 1;  x <= Teste; x++)
+        for (x = 0;  x < Teste; x++)
         {
             if (x > Teste2)
             {
@@ -38,6 +38,8 @@ int main(int argc, string argv[])
                 
             } 
         }
+        printf("%i\n", x);
+        printf("%i\n", Teste2);
 
     if (argc == 2 && x == Teste2)
     {
