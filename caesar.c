@@ -15,34 +15,17 @@ int Retorno;
 int Teste;
 int Teste2;
 int x;
+int z;
+int w;
 
 int main(int argc, string argv[])
 {
     Teste = strlen(argv[1]);
     printf("%d\n", Teste);
     
-    
-            Key = atoi(argv[1]);
-        
-        Teste2 = (Key/10) + 1;
-        printf("%d\n", Teste2);
-        
-        for (x = 0;  x < Teste; x++)
-        {
-            if (x > Teste2)
-            {
-                break;
-            }
-            else
-            {
-                
-            } 
-        }
-        printf("%i\n", x);
-        printf("%i\n", Teste2);
-
-    if (argc == 2 && x == Teste2)
+    if (argc == 2)
     {
+        Key = atoi(argv[1]);
         string Frase = get_string("plaintext: ");
         Tamanho = strlen(Frase);
         
