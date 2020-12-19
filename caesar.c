@@ -3,6 +3,7 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
+#include <ctype.h>
 #include <cs50.h> //Usar get_string("");
 #include <string.h> //Usar strlen();
 #include <stdlib.h> //Usar atoi();
@@ -19,7 +20,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
         
         for (int Posição = 0; Posição < strlen(Frase); Posição++)
         {
-            if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
+            if (Frase[Posição] == islower(Frase[Posição]))
             {
                 Key = atoi(argv[1]);
                 Key = Key - (122 - Frase[Posição]);
@@ -32,7 +33,7 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                     Frase[Posição] = 96 + (Key % 26);
                 }
             }
-            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
+            else if (Frase[Posição] == isupper(Frase[Posição]))
             {
                 Key = atoi(argv[1]);
                 Key = Key - (90 - Frase[Posição]);
