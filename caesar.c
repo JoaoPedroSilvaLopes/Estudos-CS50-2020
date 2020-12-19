@@ -12,17 +12,17 @@ int Retorno; //Variável de retorno;
 
 int main(int argc, string argv[]) //Declaração dos argumentos na função main
 {
-    if (argc == 2)
+    if (argc == 2) //If caso a quantidade de argumentos seja igual a 2.
     {
-        Key = atoi(argv[1]);
-        string Frase = get_string("plaintext: ");
+        Key = atoi(argv[1]); //Key é a conversão do argv[1] para inteiro.
+        string Frase = get_string("plaintext: "); //Get_string("") para introduzir a frase a ser criptografada.
         
-        for (int Posição = 0; Posição < strlen(Frase); Posição++)
+        for (int Posição = 0; Posição < strlen(Frase); Posição++) //For para verificar cada um dos caracteres da string.
         {
-            if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z')
+            if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z') //If para caso o caractere seja uma letra minúscula.
             {
                 Key = atoi(argv[1]);
-                Key = Key - (122 - Frase[Posição]);
+                Key = Key - ('z' - Frase[Posição]); //Key é a subtração de 'z' - o caractere de Frase[Posição].
                 if (Key < 0)
                 {
                     Frase[Posição] = Frase[Posição] + atoi(argv[1]);
@@ -32,10 +32,10 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                     Frase[Posição] = 96 + (Key % 26);
                 }
             }
-            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z')
+            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z') //Else if para caso o caractere seja uma letra maiúscula.
             {
                 Key = atoi(argv[1]);
-                Key = Key - (90 - Frase[Posição]);
+                Key = Key - ('Z' - Frase[Posição]); //Key é a subtração de 'Z' - o caractere de Frase[Posição].
                 if (Key < 0)
                 {
                     Frase[Posição] = Frase[Posição] + atoi(argv[1]);
@@ -45,18 +45,18 @@ int main(int argc, string argv[]) //Declaração dos argumentos na função main
                     Frase[Posição] = 64 + (Key % 26);
                 }
             }
-            else
+            else //Else para caso o caractere não seja uma letra.
             {
-                Frase[Posição] = Frase[Posição];
+                Frase[Posição] = Frase[Posição]; //Caso não seja uma letra, o caractere deverá permanecer o mesmo.
             }
         }
-        printf("ciphertext: %s\n", Frase);
-        Retorno = 0;
+        printf("ciphertext: %s\n", Frase); //Printf para imprimir ciphertext: Frase, sendo Frase ja esta criptografada.
+        Retorno = 0; //Retorno = 0, indicando que o programa funcionou normalmente.
     }
-    else
+    else //Else para caso tenha argumentos diferentes de 2.
     {
-        printf("Usage: %s\n", argv[0]);
-        Retorno = 1;
+        printf("Usage: %s\n", argv[0]); //Printf para imprimir Usage: ./caesar, sendo caesar = argv[0];.
+        Retorno = 1; //Retorno = 1, diz indicando o erro
     }
-    return Retorno;
+    return Retorno; //Retorno.
 }
