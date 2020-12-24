@@ -7,68 +7,95 @@
 #include <string.h>
 #include <ctype.h>
 
-const string Letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int Tamanho;
-int Retorno;
+void Substituir();
+void Letras(char z, string chave);
 
 int main(int argc, string argv[])
 {
-    //printf("%d\n", Tamanho);
-    
-    if (argc != 2 || !(isalpha(argv[1])))
+    if (argc == 2)
     {
-        printf("Usage: %s key\n", argv[0]);
-        return 1;
-    }
-    //Tamanho = strlen(argv[1]);
-    /*else if (Tamanho != 26 || !(isalpha(argv[1])))
-    {
-        printf("Usage: %s key\n", argv[0]);
-        return 1;
-    }*/
-
-    
-    
-    
-    
-    /*int Caracteres [X];
-    Número = strlen(argv[1]);
-
-    for (int x = 0; x < Número; x++)
-    if (!(isalpha(argv[1][x])))
-    {
-        printf("Usage: %s key\n", argv[0]);
-        return 1;
-    }
-    else if (isalpha(argv[1][x]))
-    {
-        argv[1][x] = toupper(argv[1][x]);
-    }
-    string Texto = get_string("plaintext: ");
-    int Y = strlen(Texto);
-    char TextoC[Y + 1];
-    
-    for (int x = 0; x < Y; x++)
-    if (isupper(Texto[x]) != 0)
-    {
-        for (int i = 0; i < X; i++)
-        if (Texto[x] == Letras[i])
+        if (strlen(argv[1]) == 26)
         {
-            TextoC[x] = argv[1][i];
-            break;
+            for (int i = 0; i < strlen(argv[1]); i++)
+            {
+                if (!(isalpha(argv[1][i])))
+                {
+                    printf("Usage: %s\n", argv[0]);
+                    return 1;
+                }
+                for (int j = i + 1; j < strlen(argv[1]); j++)
+                {
+                    if ((toupper(argv[1][i])) == (toupper(argv[1][i])))
+                    {
+                        printf("Usage: %s\n", argv[0]);
+                        return 1;
+                    }
+                }
+            }
+            Substituir(argv[1]);
+            
+        }
+        else
+        {
+            printf("Usage: %s\n", argv[0]);
+            return 1;
         }
     }
-    else if (islower(Texto[x]) != 0)
+    else
     {
-        for (int i = 0; i < Y; i++)
-        if (Texto[x] == tolower(Letras[i]))
+        printf("Usage: %s\n", argv[0]);
+        return 1;
+    }
+    
+    
+return 0;    
+}
+    
+void Substituir(string chave)
+{
+    string x = get_string("plaintext: ");
+    printf("ciphertext: ");
+        
+    for (int i = 0; i < strlen(x); i++)
+    {
+        if (isalpha(x[i]))
         {
-            TextoC[x] = tolower(argv[1][i]);
-            break;
+            char y = x[i];
+            if (islower(x[i]))
+            {
+                Letras(tolower(y), chave);
+            }
+            else
+            {
+                Letras(toupper(y), chave);
+            }
+        }
+        else
+        {
+            printf("%c\n", x[i]);
         }
     }
+}
 
-    printf("ciphertext: %s\n", TextoC);*/
-    
-    return 0;
+void Letras(char z, string chave)
+{
+    string Alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        
+    for (int i = 0; i < strlen(Alfabeto); i++)
+    {
+        if (islower(z))
+        {
+            if (z == tolower(Alfabeto[i]))
+            {
+                printf("%c", tolower(chave[i]));
+            }
+        }
+        else
+        {
+            if (z == toupper(Alfabeto[i]))
+            {
+                printf("%c", toupper(chave[i]));
+            }
+        }
+    }
 }
