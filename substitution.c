@@ -13,17 +13,21 @@ int Retorno;
 
 int main(int argc, string argv[])
 {
-    Tamanho = strlen(argv[1]);
     //printf("%d\n", Tamanho);
     
-    if (argc != 2 || Tamanho != 26)
+    if (argc != 2)
     {
         printf("Usage: %s key\n", argv[0]);
-        Retorno = 1;
+        return 1;
     }
     else
     {
-        Retorno = 0;
+        Tamanho = strlen(argv[1]);
+        if (Tamanho != 26)
+        {
+            printf("Usage: %s key\n", argv[0]);
+            return 1;
+        }
     }
     
     
@@ -68,5 +72,5 @@ int main(int argc, string argv[])
 
     printf("ciphertext: %s\n", TextoC);*/
     
-    return Retorno;
+    return 0;
 }
