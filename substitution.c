@@ -50,7 +50,7 @@ int main(int argc, string argv[])
 void Substituir(string chave)
 {
     string x = get_string("plaintext: ");
-    printf("ciphertext: %s\n");
+    printf("ciphertext: %s\n", x);
     
     for (int i = 0; i < strlen(x); i++)
     {
