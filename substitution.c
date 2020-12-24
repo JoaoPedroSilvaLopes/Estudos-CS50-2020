@@ -77,7 +77,6 @@ int main(int argc, string argv[])
             printf("%c", Frase[i]);
         }
     }
-    
-    printf("OLA");
+    printf("\n");
     return 0;    
 }
