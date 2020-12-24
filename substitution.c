@@ -7,8 +7,8 @@
 #include <string.h>
 #include <ctype.h>
 
-void Substituir();
-void Letras(char z, string chave);
+string Alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+int y;
 
 int main(int argc, string argv[])
 {
@@ -32,7 +32,6 @@ int main(int argc, string argv[])
                     }
                 }
             }
-            Substituir(argv[1]);
         }
         else
         {
@@ -45,52 +44,40 @@ int main(int argc, string argv[])
         printf("Usage: %s\n", argv[0]);
         return 1;
     }
+
+string Frase = get_string("plaintext: ");
+
+for (int i = 0; i < strlen(Frase); i++ )
+{
+    if (isalpha(Frase[i]))
+    {
+        char Letras = Frase[i];
+        if (islower(Frase[i]))
+        {
+            for (int j = 0; j < strlen(Alfabeto); j++)
+            {
+                if (Letras == tolower(Alfabeto[j]))
+                {
+                    printf("%c", tolower(argv[1][j]));
+                }
+            }
+        }
+        else
+        {
+            for (int j = 0; j < strlen(Alfabeto); j++)
+            {
+                if (Letras == toupper(Alfabeto[j]))
+                {
+                    printf("%c", toupper(argv[1][j]));
+                }
+            }
+        }
+    }
+    else
+    {
+        printf("%c", Frase[i]);
+    }
+
+}
     return 0;    
-}
-void Substituir(string chave)
-{
-    string x = get_string("plaintext: ");
-    printf("ciphertext: %s\n", x);
-    
-    for (int i = 0; i < strlen(x); i++)
-    {
-        if (isalpha(x[i]))
-        {
-            char y = x[i];
-            if (islower(x[i]))
-            {
-                Letras(tolower(y), chave);
-            }
-            else
-            {
-                Letras(toupper(y), chave);
-            }
-        }
-        else
-        {
-            printf("%c", x[i]);
-        }
-    }
-}
-void Letras(char z, string chave)
-{
-    string Alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        
-    for (int i = 0; i < strlen(Alfabeto); i++)
-    {
-        if (islower(z))
-        {
-            if (z == tolower(Alfabeto[i]))
-            {
-                printf("%c", tolower(chave[i]));
-            }
-        }
-        else
-        {
-            if (z == toupper(Alfabeto[i]))
-            {
-                printf("%c", toupper(chave[i]));
-            }
-        }
-    }
 }
