@@ -23,12 +23,18 @@ int main(int argc, string argv[])
     else
     {
         Tamanho = strlen(argv[1]);
-        if (Tamanho != 26 || !(isalpha(argv[1])))
+        if (Tamanho != 26)
+        {
+            printf("Usage: %s key\n", argv[0]);
+            return 1;
+        }
+        else if (!(isalpha(argv[1])))
         {
             printf("Usage: %s key\n", argv[0]);
             return 1;
         }
     }
+
     
     
     
