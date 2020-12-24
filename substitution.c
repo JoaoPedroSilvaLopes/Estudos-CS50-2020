@@ -10,6 +10,7 @@
 int const X = 26;
 const string Letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int Número;
+int x;
 
 int main(int argc, string argv[])
 {
@@ -22,37 +23,45 @@ int main(int argc, string argv[])
     int Caracteres [X];
     Número = strlen(argv[1]);
     
-    for (int x = 0; x < Número; x++)
+    for (int v = 0; v < Número; v++)
     if (!(isalpha(argv[1][x])))
     {
         printf("Usage: %s key\n", argv[0]);
         return 1;
     }
-    else if (isalpha(argv[1][x]))
+    else if (isalpha(argv[1][v]))
     {
-        argv[1][x] = toupper(argv[1][x]);
+        argv[1][v] = toupper(argv[1][v]);
     }
+    
+    
+    for (int y = 0; y < X; y++)
+    if (argv[1][x] == Caracteres[y])
+    {
+        printf("Usage: %s key\n", argv[0]);
+    }
+    Caracteres[x] = argv[1][x];
     
     string Texto = get_string("plaintext: ");
     int Y = strlen(Texto);
     char TextoC[Y + 1];
     
-    for (int x = 0; x < Y; x++)
-    if (isupper(Texto[x]) != 0)
+    for (int w = 0; w < Y; w++)
+    if (isupper(Texto[w]) != 0)
     {
         for (int i = 0; i < X; i++)
-        if (Texto[x] == Letras[i])
+        if (Texto[w] == Letras[i])
         {
-            TextoC[x] = argv[1][i];
+            TextoC[w] = argv[1][i];
             break;
         }
     }
-    else if (islower(Texto[x]) != 0)
+    else if (islower(Texto[w]) != 0)
     {
         for (int i = 0; i < Y; i++)
-        if (Texto[x] == tolower(Letras[i]))
+        if (Texto[w] == tolower(Letras[i]))
         {
-            TextoC[x] = tolower(argv[1][i]);
+            TextoC[w] = tolower(argv[1][i]);
             break;
         }
     }
