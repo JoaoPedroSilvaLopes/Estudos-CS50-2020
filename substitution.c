@@ -57,7 +57,7 @@ int main(int argc, string argv[])
                 {
                     if (Letras == tolower(Alfabeto[j]))
                     {
-                        printf("%c\n", tolower(argv[1][j]));
+                        printf("%c", tolower(argv[1][j]));
                     }
                 }
             }
@@ -67,7 +67,7 @@ int main(int argc, string argv[])
                 {
                     if (Letras == toupper(Alfabeto[j]))
                     {
-                        printf("%c\n", toupper(argv[1][j]));
+                        printf("%c", toupper(argv[1][j]));
                     }
                 }
             }
@@ -77,5 +77,7 @@ int main(int argc, string argv[])
             printf("%c", Frase[i]);
         }
     }
+    
+    printf("OLA");
     return 0;    
 }
