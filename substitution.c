@@ -72,7 +72,7 @@ void Substituir(string chave)
         }
         else
         {
-            printf("%c\n", x[i]);
+            printf("%c", x[i]);
         }
     }
 }
