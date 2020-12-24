@@ -8,7 +8,6 @@
 #include <ctype.h>
 
 string Alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-int y;
 
 int main(int argc, string argv[])
 {
@@ -58,7 +57,7 @@ for (int i = 0; i < strlen(Frase); i++ )
             {
                 if (Letras == tolower(Alfabeto[j]))
                 {
-                    printf("%c", tolower(argv[1][j]));
+                    Frase[j] = (tolower(argv[1][j]));
                 }
             }
         }
@@ -68,7 +67,7 @@ for (int i = 0; i < strlen(Frase); i++ )
             {
                 if (Letras == toupper(Alfabeto[j]))
                 {
-                    printf("%c", toupper(argv[1][j]));
+                    Frase[j] = (toupper(argv[1][j]));
                 }
             }
         }
@@ -79,5 +78,7 @@ for (int i = 0; i < strlen(Frase); i++ )
     }
 
 }
+printf("ciphertext: %s\n", Frase);
+
     return 0;    
 }
