@@ -33,7 +33,6 @@ int main(int argc, string argv[])
                 }
             }
             Substituir(argv[1]);
-            
         }
         else
         {
@@ -46,14 +45,12 @@ int main(int argc, string argv[])
         printf("Usage: %s\n", argv[0]);
         return 1;
     }
-    
-    
-return 0;    
+    return 0;    
 }
-    
 void Substituir(string chave)
 {
     string x = get_string("plaintext: ");
+    printf("ciphertext:  ");
         
     for (int i = 0; i < strlen(x); i++)
     {
@@ -74,10 +71,7 @@ void Substituir(string chave)
             printf("%c", x[i]);
         }
     }
-    
-    printf("ciphertext: ");
 }
-
 void Letras(char z, string chave)
 {
     string Alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
