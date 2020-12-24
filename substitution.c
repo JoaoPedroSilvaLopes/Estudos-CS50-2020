@@ -9,6 +9,7 @@
 
 const string Letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int Tamanho;
+int Retorno;
 
 int main(int argc, string argv[])
 {
@@ -18,9 +19,12 @@ int main(int argc, string argv[])
     if (argc != 2 || Tamanho != 26)
     {
         printf("Usage: %s key\n", argv[0]);
-        return 1;
+        Retorno = 1;
     }
-    
+    else
+    {
+        Retorno = 0;
+    }
     
     
     
@@ -64,5 +68,5 @@ int main(int argc, string argv[])
 
     printf("ciphertext: %s\n", TextoC);*/
     
-    return 0;
+    return Retorno;
 }
