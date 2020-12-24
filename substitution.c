@@ -20,14 +20,14 @@ int main(int argc, string argv[])
             {
                 if (!(isalpha(argv[1][i])))
                 {
-                    printf("Usage: %s\n", argv[0]);
+                    printf("Usage1: %s\n", argv[0]);
                     return 1;
                 }
                 for (int j = i + 1; j < strlen(argv[1]); j++)
                 {
-                    if ((toupper(argv[1][i])) == (toupper(argv[1][i])))
+                    if ((toupper(argv[1][j])) == (toupper(argv[1][i])))
                     {
-                        printf("Usage: %s\n", argv[0]);
+                        printf("Usage2: %s\n", argv[0]);
                         return 1;
                     }
                 }
@@ -37,13 +37,13 @@ int main(int argc, string argv[])
         }
         else
         {
-            printf("Usage: %s\n", argv[0]);
+            printf("Usage3: %s\n", argv[0]);
             return 1;
         }
     }
     else
     {
-        printf("Usage: %s\n", argv[0]);
+        printf("Usage4: %s\n", argv[0]);
         return 1;
     }
     
@@ -54,7 +54,7 @@ return 0;
 void Substituir(string chave)
 {
     string x = get_string("plaintext: ");
-    printf("ciphertext: ");
+    printf("ciphertext: \n");
         
     for (int i = 0; i < strlen(x); i++)
     {
