@@ -48,6 +48,7 @@ string Frase = get_string("plaintext: ");
 
 for (int i = 0; i < strlen(Frase); i++ )
 {
+    printf("ciphertext: ");
     if (isalpha(Frase[i]))
     {
         char Letras = Frase[i];
@@ -76,9 +77,6 @@ for (int i = 0; i < strlen(Frase); i++ )
     {
         printf("%c", Frase[i]);
     }
-    
-    printf("ciphertext: ");
-
 }
     return 0;    
 }
