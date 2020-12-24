@@ -45,10 +45,10 @@ int main(int argc, string argv[])
     }
 
 string Frase = get_string("plaintext: ");
+printf("ciphertext: ");
 
 for (int i = 0; i < strlen(Frase); i++ )
 {
-    printf("ciphertext: ");
     if (isalpha(Frase[i]))
     {
         char Letras = Frase[i];
