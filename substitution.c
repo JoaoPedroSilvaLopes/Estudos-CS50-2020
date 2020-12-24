@@ -55,7 +55,6 @@ void Substituir(string chave)
 {
     string x = get_string("plaintext: ");
     printf("ciphertext: ");
-    printf("\n");
         
     for (int i = 0; i < strlen(x); i++)
     {
