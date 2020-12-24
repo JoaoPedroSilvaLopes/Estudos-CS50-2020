@@ -43,40 +43,39 @@ int main(int argc, string argv[])
         printf("Usage: %s\n", argv[0]);
         return 1;
     }
-
-string Frase = get_string("plaintext: ");
-printf("ciphertext: ");
-
-for (int i = 0; i < strlen(Frase); i++ )
-{
-    if (isalpha(Frase[i]))
+    string Frase = get_string("plaintext: ");
+    printf("ciphertext: ");
+    
+    for (int i = 0; i < strlen(Frase); i++)
     {
-        char Letras = Frase[i];
-        if (islower(Frase[i]))
+        if (isalpha(Frase[i]))
         {
-            for (int j = 0; j < strlen(Alfabeto); j++)
+            char Letras = Frase[i];
+            if (islower(Frase[i]))
             {
-                if (Letras == tolower(Alfabeto[j]))
+                for (int j = 0; j < strlen(Alfabeto); j++)
                 {
-                    printf("%c", tolower(argv[1][j]));
+                    if (Letras == tolower(Alfabeto[j]))
+                    {
+                            printf("%c", tolower(argv[1][j]));
+                    }
+                }
+            }
+            else
+            {
+                for (int j = 0; j < strlen(Alfabeto); j++)
+                {
+                    if (Letras == toupper(Alfabeto[j]))
+                    {
+                        printf("%c", toupper(argv[1][j]));
+                    }
                 }
             }
         }
         else
         {
-            for (int j = 0; j < strlen(Alfabeto); j++)
-            {
-                if (Letras == toupper(Alfabeto[j]))
-                {
-                    printf("%c", toupper(argv[1][j]));
-                }
-            }
+            printf("%c", Frase[i]);
         }
     }
-    else
-    {
-        printf("%c", Frase[i]);
-    }
-}
     return 0;    
 }
