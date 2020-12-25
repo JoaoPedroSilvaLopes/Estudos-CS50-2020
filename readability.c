@@ -6,7 +6,7 @@
 #include <cs50.h> //Utilizar Get_string("");
 #include <math.h> //Utilizar Round
 #include <string.h> //Utilizar strlen();
-#include <ctype.h>
+#include <ctype.h> //Utilizar islower(), isupper() e isspace().
 
 int I, Letras, Sentenças; //Declaração de variáveis inteiras.
 float  L, S, Espaços; //Declaração de variáveis decimais.
@@ -29,12 +29,9 @@ int main(void)
             Sentenças++; //Soma +1 a quantidade de senteças.
         }
     }
-    // L é (letras * 100) / palavras, palavras é float para o resultado não ser arredondado para inteiro.
-    L = (Letras * 100) / (Espaços + 1);
-    // S é (Sentenças * 100) / palavras, palavras é float para o resultado não ser arredondado para inteiro.
-    S = (Sentenças * 100) / (Espaços + 1);
-    // I é um número inteiro com o auxílio de round para dar o inteiro mais próximo do o arrondamento ser mais preciso.
-    I = round((0.0588 * L) - (0.296 * S) - 15.8);
+    L = (Letras * 100) / (Espaços + 1); // L é (letras * 100) / (Espaços + 1), L deve ser float.
+    S = (Sentenças * 100) / (Espaços + 1); // S é (Sentenças * 100) / (Espaços +1, S deve ser float.
+    I = (0.0588 * L) - (0.296 * S) - 15.8; // I é um número inteiro com o auxílio de round para dar o inteiro mais próximo.
     if (I >= 16) //If caso I seja maior ou igual a 16 como foi pedido.
     {
         printf("Grade 16+\n"); //Caso dê maior ou igual a 16 imprimirá Grade 16+.
@@ -47,6 +44,5 @@ int main(void)
     {
         printf("Grade %i\n", I); //Irá imprimir o próprio resultado da fórmula.
     }
-    
     return 0;
 }
