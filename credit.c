@@ -32,7 +32,6 @@ int main(void)
         if (!(isdigit(NC[i])) || i >= 16)
         {
             printf("INVALID\n");
-            return 1;
         }
     }
     if ((NC[0] == '3' && NC[1] == '7') || (NC[0] == '3' && NC[1] == '7'))
@@ -66,7 +65,6 @@ int main(void)
         else
         {
             printf("INVALID\n");
-            return 1;
         }
     }
     else if (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5'))
@@ -100,7 +98,6 @@ int main(void)
         else
         {
             printf("INVALID\n");
-            return 1;
         }
     }
     else if (NC[0] == '4')
@@ -136,7 +133,6 @@ int main(void)
             else
             {
                 printf("INVALID\n");
-                return 1;
             }
         }
         else
@@ -170,14 +166,12 @@ int main(void)
             else
             {
                 printf("INVALID\n");
-                return 1;
             }
         }
     }  
     else
     {
         printf("INVALID\n");
-        return 1;
     }
     
     return 0;
