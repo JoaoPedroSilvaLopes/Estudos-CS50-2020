@@ -55,10 +55,10 @@ int main(int argc, string argv[])
                 Frase[i] = 64 + (d % 26);
             }
         }
-        else
+        /*else
         {
             Frase[i] = Frase[i];
-        }
+        }*/
     }
     printf("ciphertext: %s\n", Frase);
     return 0;
