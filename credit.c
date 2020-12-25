@@ -18,14 +18,13 @@ int Algarismo[17];
 int RestoAlg;
 long Sobra;
 
-int Key;
-int d;
-int s;
+int D[16];
+int Soma;
+int S;
 
 int main(void)
 {
-    string NC = get_string("Insira o número do cartão: "); //Get_long para aceitar apenas números.
-    Key = strlen(NC);
+    string NC = get_string("Insira o número do cartão: ");
     
     for (int i = 0; i < strlen(NC); i++)
     {
@@ -35,48 +34,36 @@ int main(void)
             return 1;
         }
     }
-    
-    
-    if ((atoi(&NC[0]) == 3 && atoi(&NC[1]) == 4)  || (atoi(&NC[0]) == 3 && atoi(&NC[1]) == 7)) //Condição para verificar se o cartão é AMEX.
+    //------------------------------------------------------------------------
+    if ((NC[0] == '3' && NC[1] == '7') || (NC[0] == '3' && NC[1] == '7'))
     {
         for (int j = 0; j < strlen(NC); j++)
         {
-            d = 2 * atoi(&NC[j]) / 10;
-            if (d > 0)
+            S = j % 2;
+            if (S != 0)
             {
-                s = d + ((2 * atoi(&NC[j]) % 10));
+                D[j] = (2 * NC[j]) / 10;
+                printf("%i\n", NC[1]);
+                if (D > 0)
+                {
+                    D[j] = D[j] + ((2 * NC[j]) % 10);
+                }
             }
         }
-    }
-        /*i = 1; //i = 1, pois a quantidade de algarismos no número do cartão é ímpar.
-        //For para fazer a multiplicação dos algarismos alternados e somar os algarismos dos números multiplicados caso tenha 2 casa decimais.
-        for (int w = 7; w >= 0; w--) 
+        Soma = D[1] + D[3] + D[5] + D[7] + D[9] + D[11] + D[13];
+        printf("%i\n", Soma);
+        if (Soma % 10 == 0)
         {
-            //Divisão é a divisão de Algarismo[i] por 10 para ter o número da 2 casa decimal caso for necessário.
-            Divisão = (Algarismo[i] * 2) / 10;
-            //RestoAlg é o resto da divisão de Algarismo[i] por 10 para ter o valor da primeira casa decimal caso for necessário.
-            RestoAlg = (Algarismo[i] * 2) % 10; 
-            //SomaAlg[i] é a soma das variáveis anteriores que representa a soma da segunda e primeira casa decimal do Algarismo[i].
-            SomaAlg[i] = Divisão + RestoAlg; 
-            //i deve ser igual a i + 2 para garantir que os números utilizado será alternados.
-            i = i + 2;
+            printf("AMEX\n");
         }
-        //SomaTotal é a soma de todas as posições do vetor SomaAlg[i] e o que sobrou do vetor Algarimo[i].
-        SomaTotal = (SomaAlg[1] + SomaAlg[3] + SomaAlg[5] + SomaAlg[7] + SomaAlg[9] + SomaAlg[11] + SomaAlg[13]) 
-                    + Algarismo[0] + Algarismo[2] + Algarismo[4] + Algarismo[6] + Algarismo[8] + Algarismo[10] + Algarismo[12] + Algarismo[14]; 
-        //Validez é o resto da divisão entre SomaTotal e 10, serve para validar se o número do cartão é de fato valido ou não.
-        Validez = SomaTotal % 10; 
-        if (Validez == 0) //Caso o resto da divisão seja 0, o número do cartão é válido.
+        else
         {
-            printf("AMEX\n"); //Printf para mostrar o tipo do cartão.
-        }
-        
-        else //Caso o resto da divisão não seja 0, o número do cartão é inválido.
-        {
-            printf("INVALID\n"); //Printf para mostrar que o cartão é inválido.
+            printf("INVALID\n");
+            return 1;
         }
     }
-    //Condição para verificar se o cartão é MASTERCARD.
+    //-----------------------------------------------------------------------------------
+    /*//Condição para verificar se o cartão é MASTERCARD.
     else if (NC[0] == 5 && (NC[1] == 1 || NC[1] == 2 || NC[1] == 3 || NC[1] == 4 || NC[1] == 5))
     {
         for (int z = 15; z >= 0; z--) //For para quebrar o número do cartão em algarismos únicos.
