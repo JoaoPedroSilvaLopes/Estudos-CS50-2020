@@ -15,7 +15,23 @@ int main(int argc, string argv[])
         {
             if (isdigit(argv[1][i]))
             {
-                printf("OK\n");
+                string Frase = get_string("plaintext: ");
+                for (int j = 0; j < strlen(Frase); j++)
+                {
+                    if (islower(Frase[j]))
+                    {
+                        Frase[j] = Frase[j];
+                    }
+                    else if (isupper(Frase[i]))
+                    {
+                        Frase[j] = Frase[j];
+                    }
+                    else
+                    {
+                        Frase[j] = Frase[j];
+                    }
+                }
+                printf("%s\n", Frase);
             }
             else
             {
