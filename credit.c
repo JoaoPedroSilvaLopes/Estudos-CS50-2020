@@ -204,10 +204,10 @@ int main(void)
             }
         }
     }*/   
-    /*else //Else caso nenhum número inserido satisfaça as condições dos cartões AMEX, MASTERCARD e VISA.
+    else //Else caso nenhum número inserido satisfaça as condições dos cartões AMEX, MASTERCARD e VISA.
     {
         printf("INVALID\n"); //Printf para mostrar que o cartão é inválido.
-    }*/
+    }
     
     return 0;
 }
