@@ -18,12 +18,12 @@ int main(void)
     for (int x = 0; x < Tamanho; x++) //For para contar os caracteres, dividindo-os em letras, espaços e sentenças.
     {
         //If caso o caractere seja um espaço.
-        if (Texto[x] == ' ') 
+        if (isspace(Texto[x]))
         {
             Espaços++; //Soma +1 a quantidade de espaços.
         }
         //Else if caso o caractere seja uma das pontuações.
-        else if (ispunct(Texto[x])) 
+        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') 
         {
             Sentenças++; //Soma +1 a quantidade de senteças.
         }
