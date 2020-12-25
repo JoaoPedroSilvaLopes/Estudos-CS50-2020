@@ -32,11 +32,6 @@ int main(void)
         {
             Letras++; //Soma +1 a quantidade de letras.
         }
-        //Else para caso o caractere não seja nenhum dos casos acima.
-        else
-        {
-            //Não deve acontecer nada nesse caso.
-        }
     }
     //Números de palavras é o números de espaços +1, depois do último espaço certamente terá uma palavra.
     Palavras = Espaços + 1; 
