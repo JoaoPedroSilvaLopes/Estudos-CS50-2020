@@ -45,10 +45,10 @@ int main(void)
                         D[j] = d[j] * 2;
                     }
                 }
-                else
+                /*else
                 {
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
-                }
+                }*/
             }
             else
             {
@@ -66,10 +66,10 @@ int main(void)
                         D[j] = d[j] * 2;
                     }
                 }
-                else
+                /*else
                 {
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
-                }
+                }*/
             }
         }
         Soma = D[0] + D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9] + D[10] + D[11] + D[12] + D[13] + D[14] + D[15];
@@ -83,115 +83,13 @@ int main(void)
         }
         else if (Soma % 10 && (NC[0] == '4' && (strlen(NC) == 13 || strlen(NC) == 16)))
         {
-            
+            printf("VISA\n");
         }
         else
         {
             printf("INVALID\n");
         }
     }
-    /*else if (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5'))
-    {
-        for (int j = 0; j < strlen(NC); j++)
-        {
-            S = j % 2;
-            if (S == 0)
-            {
-                d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-                D[j] = (d[j] * 2) / 10;
-                if (D[j] > 0)
-                {
-                    D[j] = D[j] + ((2 * d[j]) % 10);
-                }
-                else
-                {
-                    D[j] = d[j] * 2;
-                }
-            }
-            else
-            {
-                D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-            }
-        }
-        Soma = D[0] + D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9] + D[10] + D[11] + D[12] + D[13] + D[14] + D[15];
-        if (Soma % 10 == 0)
-        {
-            printf("MASTERCARD\n");
-        }
-        else
-        {
-            printf("INVALID\n");
-        }
-    }
-    else if (NC[0] == '4')
-    {
-        if (strlen(NC) == 16)
-        {
-            for (int j = 0; j < strlen(NC); j++)
-            {
-                S = j % 2;
-                if (S == 0)
-                {
-                    d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-                    D[j] = (d[j] * 2) / 10;
-                    if (D[j] > 0)
-                    {
-                        D[j] = D[j] + ((2 * d[j]) % 10);
-                    }
-                    else
-                    {
-                        D[j] = d[j] * 2;
-                    }
-                }
-                else
-                {
-                    D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-                }
-            }
-            Soma = D[0] + D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9] + D[10] + D[11] + D[12] + D[13] + D[14] + D[15];
-            if (Soma % 10 == 0)
-            {
-                printf("VISA\n");
-            }
-            else
-            {
-                printf("INVALID\n");
-            }
-        }
-        else
-        {
-            for (int j = 0; j < strlen(NC); j++)
-            {
-                S = j % 2;
-                if (S != 0)
-                {
-                    d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-                    D[j] = (d[j] * 2) / 10;
-                    if (D[j] > 0)
-                    {
-                        D[j] = D[j] + ((2 * d[j]) % 10);
-                    }
-                    else
-                    {
-                        D[j] = d[j] * 2;
-                    }
-                }
-                else
-                {
-                    D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-                }
-            }
-            Soma = D[0] + D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9] + D[10] + D[11] + D[12];
-            if (Soma % 10 == 0)
-            {
-                printf("VISA\n");
-            }
-            else
-            {
-                printf("INVALID\n");
-            }
-        }
-    }*/  
     else
     {
         printf("INVALID\n");
