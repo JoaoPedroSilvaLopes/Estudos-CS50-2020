@@ -6,6 +6,7 @@
 #include <cs50.h> //Utilizar Get_string("");
 #include <math.h> //Utilizar Round
 #include <string.h> //Utilizar strlen();
+#include <ctype.h>
 
 int Tamanho, I, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras.
 float  L, S, Palavras; //Declaração de variáveis decimais.
@@ -27,7 +28,7 @@ int main(void)
             Sentenças++; //Soma +1 a quantidade de senteças.
         }
         //Else if caso o caractere uma letra maiúscula ou minúscula.
-        else if ((Texto[x] >= 'a' && Texto[x] <= 'z') || (Texto[x] >= 'A' && Texto[x] <= 'Z')) 
+        else if ((islower(Texto[x])) || (isupper(Texto[x]))) 
         {
             Letras++; //Soma +1 a quantidade de letras.
         }
