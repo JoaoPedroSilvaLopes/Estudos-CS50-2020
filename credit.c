@@ -5,8 +5,11 @@
 #include <stdio.h>
 #include <cs50.h> //Utilizar get_long("");
 #include <math.h> //Utilizar pow;
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h> 
 
-int i;
+//int i;
 int Divisão;
 int Validez;
 int SomaTotal;
@@ -15,23 +18,37 @@ int Algarismo[17];
 int RestoAlg;
 long Sobra;
 
+int Key;
+int d;
+int s;
+
 int main(void)
 {
-    //Get_long para garantir qua não será digitado letras ou caracteres especiais.
-    long NúmeroCartão = get_long("Insira o número do cartão: ");
+    string NC = get_string("Insira o número do cartão: "); //Get_long para aceitar apenas números.
+    Key = strlen(NC);
     
-    //Condição para verificar se o cartão é AMEX.
-    if ((NúmeroCartão >= 34 * pow(10, 13) && NúmeroCartão < 35 * pow(10, 13)) || 
-        (NúmeroCartão >= 37 * pow(10, 13) && NúmeroCartão < 38 * pow(10, 13)))
+    for (int i = 0; i < strlen(NC); i++)
     {
-        for (int z = 14; z >= 0; z--) //For para quebrar o número do cartão em algarismos únicos.
+        if (!(isdigit(NC[i])) || i >= 16)
         {
-            Algarismo[i] = NúmeroCartão / pow(10, z); //Algarismo[i] é o número do cartão dividido por 10^Z.
-            Sobra = NúmeroCartão % (long) pow(10, z); //Sobra é o resto da divisão entre NúmeroCartão e 10^Z.
-            NúmeroCartão = Sobra; //NúmeroCartão se torna a sobra, para garantir que as casas decimais irem diminuindo até 10^0.
-            i++; //i deve ir aumentando para garantir que os algarismos sejam alocados em diferentes posições do vetor Algarismo[i].
+            printf("INVALID\n");
+            return 1;
         }
-        i = 1; //i = 1, pois a quantidade de algarismos no número do cartão é ímpar.
+    }
+    
+    
+    if ((atoi(&NC[0]) == 3 && atoi(&NC[1]) == 4)  || (atoi(&NC[0]) == 3 && atoi(&NC[1]) == 7)) //Condição para verificar se o cartão é AMEX.
+    {
+        for (int j = 0; j < strlen(NC); j++)
+        {
+            d = 2 * atoi(&NC[j]) / 10;
+            if (d > 0)
+            {
+                s = d + ((2 * atoi(&NC[j]) % 10));
+            }
+        }
+    }
+        /*i = 1; //i = 1, pois a quantidade de algarismos no número do cartão é ímpar.
         //For para fazer a multiplicação dos algarismos alternados e somar os algarismos dos números multiplicados caso tenha 2 casa decimais.
         for (int w = 7; w >= 0; w--) 
         {
@@ -60,13 +77,13 @@ int main(void)
         }
     }
     //Condição para verificar se o cartão é MASTERCARD.
-    else if (NúmeroCartão >= 51 * pow(10, 14) && NúmeroCartão < 56 * pow(10, 14))
+    else if (NC[0] == 5 && (NC[1] == 1 || NC[1] == 2 || NC[1] == 3 || NC[1] == 4 || NC[1] == 5))
     {
         for (int z = 15; z >= 0; z--) //For para quebrar o número do cartão em algarismos únicos.
         {
-            Algarismo[i] = NúmeroCartão / pow(10, z); //Algarismo[i] é o número do cartão dividido por 10^Z.
-            Sobra = NúmeroCartão % (long) pow(10, z); //Sobra é o resto da divisão entre NúmeroCartão e 10^Z.
-            NúmeroCartão = Sobra; //NúmeroCartão se torna a sobra, para garantir que as casas decimais irem diminuindo até 10^0.
+            Algarismo[i] = NC / pow(10, z); //Algarismo[i] é o número do cartão dividido por 10^Z.
+            Sobra = NC % (long) pow(10, z); //Sobra é o resto da divisão entre NúmeroCartão e 10^Z.
+            NC = Sobra; //NúmeroCartão se torna a sobra, para garantir que as casas decimais irem diminuindo até 10^0.
             i++; //i deve ir aumentando para garantir que os algarismos sejam alocados em diferentes posições do vetor Algarismo[i].
         }
         i = 0; //i = 0, pois a quantidade de algarismos no número do cartão é par.
@@ -95,9 +112,8 @@ int main(void)
         {
             printf("INVALID\n"); //Printf para mostrar que o cartão é inválido.
         }
-    }
-    else if ((NúmeroCartão >= 4 * pow(10, 12) && NúmeroCartão < 5 * pow(10, 12)) || 
-             (NúmeroCartão >= 4 * pow(10, 15) && NúmeroCartão < 5 * pow(10, 15))) //Condição para verificar se o cartão é VISA.
+    }*/
+    /*else if (NC[0] == 4) //Condição para verificar se o cartão é VISA.
     {
         if (NúmeroCartão > 1 * pow(10, 15)) //If para caso o cartão VISA tenha 16 números.
         {
@@ -171,11 +187,11 @@ int main(void)
                 printf("INVALID\n");  //Printf para mostrar que o cartão é inválido.
             }
         }
-    }   
-    else //Else caso nenhum número inserido satisfaça as condições dos cartões AMEX, MASTERCARD e VISA.
+    }*/   
+    /*else //Else caso nenhum número inserido satisfaça as condições dos cartões AMEX, MASTERCARD e VISA.
     {
         printf("INVALID\n"); //Printf para mostrar que o cartão é inválido.
-    }
+    }*/
     
     return 0;
 }
