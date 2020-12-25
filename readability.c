@@ -23,7 +23,7 @@ int main(void)
             Espaços++; //Soma +1 a quantidade de espaços.
         }
         //Else if caso o caractere seja uma das pontuações.
-        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') 
+        else if (ispunct(Texto[x])) 
         {
             Sentenças++; //Soma +1 a quantidade de senteças.
         }
