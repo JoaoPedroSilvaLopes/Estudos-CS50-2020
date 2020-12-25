@@ -177,6 +177,7 @@ int main(void)
     else
     {
         printf("INVALID\n");
+        return 1;
     }
     
     return 0;
