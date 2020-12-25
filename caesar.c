@@ -7,6 +7,8 @@
 #include <string.h>
 #include <ctype.h>
 
+int d;
+
 int main(int argc, string argv[])
 {
     if (argc == 2)
@@ -25,17 +27,32 @@ int main(int argc, string argv[])
         printf("Usage: %s\n", argv[0]);
         return 1;
     }
-    
     string Frase = get_string("plaintext: ");
     for (int i = 0; i < strlen(Frase); i++)
     {
         if (islower(Frase[i]))
         {
-            Frase[i] = Frase[i] + 1;
+            d = strlen((argv[1]) - (122 - Frase[i]));
+            if (d < 0)
+            {
+                Frase[i] = Frase[i] + strlen(argv[1]);
+            }
+            else
+            {
+                Frase[i] = 96 + (d % 26);
+            }
         }
         else if (isupper(Frase[i]))
         {
-            Frase[i] = Frase[i] + 1;
+            d = strlen((argv[1]) - (90 - Frase[i]));
+            if (d < 0)
+            {
+                Frase[i] = Frase[i] + strlen(argv[1]);
+            }
+            else
+            {
+                Frase[i] = 64 + (d % 26);
+            }
         }
         else
         {
