@@ -31,11 +31,11 @@ int main(int argc, string argv[])
     {
         if (islower(Frase[i]))
         {
-            Frase[i] = Frase[i];
+            Frase[i] = Frase[i] + 1;
         }
         else if (isupper(Frase[i]))
         {
-            Frase[i] = Frase[i];
+            Frase[i] = Frase[i] + 1;
         }
         else
         {
