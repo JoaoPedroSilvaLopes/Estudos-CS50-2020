@@ -7,21 +7,27 @@
 #include <string.h>
 #include <ctype.h>
 
-int Key;
-
 int main(int argc, string argv[])
 {
-    for (int i = 0; i < strlen(argv[1]); i++)
+    if (argc == 2)
     {
-        if (isdigit(argv[1][i]))
+        for (int i = 0; i < strlen(argv[1]); i++)
         {
-            printf("OK\n");
+            if (isdigit(argv[1][i]))
+            {
+                printf("OK\n");
+            }
+            else
+            {
+                printf("Usage: %s\n", argv[0]);
+                return 1;
+            }
         }
-        else
-        {
-            printf("Usage: %s\n", argv[0]);
-            return 1;
-        }
+    }
+    else
+    {
+        printf("Usage: %s\n", argv[0]);
+        return 1;
     }
     return 0;
 }
