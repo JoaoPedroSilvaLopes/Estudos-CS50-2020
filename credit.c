@@ -3,20 +3,12 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h>
-#include <cs50.h> //Utilizar get_long("");
-#include <math.h> //Utilizar pow;
+#include <cs50.h>
+#include <math.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h> 
 
-//int i;
-int Divisão;
-int Validez;
-int SomaTotal;
-int SomaAlg[17];
-int Algarismo[17];
-int RestoAlg;
-long Sobra;
 
 int D[16];
 int d[16];
@@ -173,6 +165,5 @@ int main(void)
     {
         printf("INVALID\n");
     }
-    
     return 0;
 }
