@@ -9,7 +9,6 @@
 #include <ctype.h>
 #include <string.h> 
 
-
 int D[16];
 int d[16];
 int Soma;
@@ -26,7 +25,7 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    if ((NC[0] == '3' && NC[1] == '7') || (NC[0] == '3' && NC[1] == '7'))
+    if ((NC[0] == '3' && NC[1] == '7') || (NC[0] == '3' && NC[1] == '7') || (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')) || (NC[0] == '4'))
     {
         for (int j = 0; j < strlen(NC); j++)
         {
@@ -52,14 +51,14 @@ int main(void)
         Soma = D[0] + D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9] + D[10] + D[11] + D[12] + D[13] + D[14];
         if (Soma % 10 == 0)
         {
-            printf("AMEX\n");
+            printf("CARTÃO\n");
         }
         else
         {
             printf("INVALID\n");
         }
     }
-    else if (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5'))
+    /*else if (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5'))
     {
         for (int j = 0; j < strlen(NC); j++)
         {
@@ -160,7 +159,7 @@ int main(void)
                 printf("INVALID\n");
             }
         }
-    }  
+    }*/  
     else
     {
         printf("INVALID\n");
