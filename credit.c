@@ -77,6 +77,10 @@ int main(void)
         {
             printf("AMEX\n");
         }
+        else if (Soma % 10 && (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')))
+        {
+            printf("MASTERCARD\n");
+        }
         else
         {
             printf("INVALID\n");
