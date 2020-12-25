@@ -31,8 +31,7 @@ int main(void)
         {
             if ((strlen(NC) % 2) != 0) //ÍMPAR - 14 ou 12.
             {
-                S = j % 2;
-                if (S != 0)
+                if ((j % 2) != 0)
                 {
                     d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
                     D[j] = (d[j] * 2) / 10;
@@ -50,31 +49,24 @@ int main(void)
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
                 }
             }
-            else if ((strlen(NC) % 2) == 0) //PAR = 15
+            else if ((strlen(NC) % 2) == 0)
             {
-                S = j % 2;
-                //printf ("%i\n", S);
-                if (S == 0)
+                if ((j % 2) == 0)
                 {
                     d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
-                    //printf("%i\n", d[j]);
                     D[j] = (d[j] * 2) / 10;
-                    //printf("%i\n", D[j]);
                     if (D[j] > 0)
                     {
                         D[j] = D[j] + ((2 * d[j]) % 10);
-                        //printf("%i\n", D[j]);
                     }
                     else
                     {
                         D[j] = d[j] * 2;
-                        //printf("%i\n", D[j]);
                     }
                 }
                 else
                 {
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
-                    //printf("%i\n\n", D[j]);
                 }
             }
         }
@@ -84,7 +76,7 @@ int main(void)
         {
             printf("AMEX\n");
         }
-        else if ((Soma % 10) == 0&& (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')))
+        else if ((Soma % 10) == 0 && (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')))
         {
             printf("MASTERCARD\n");
         }
