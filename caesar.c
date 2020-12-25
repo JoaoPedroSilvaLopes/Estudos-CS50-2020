@@ -6,8 +6,10 @@
 #include <cs50.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 int d;
+int Key;
 
 int main(int argc, string argv[])
 {
@@ -27,15 +29,16 @@ int main(int argc, string argv[])
         printf("Usage: %s\n", argv[0]);
         return 1;
     }
+    Key = atoi(argv[1]);
     string Frase = get_string("plaintext: ");
     for (int i = 0; i < strlen(Frase); i++)
     {
         if (islower(Frase[i]))
         {
-            d = strlen(argv[1]) - (122 - Frase[i]);
+            d = Key - (122 - Frase[i]);
             if (d < 0)
             {
-                Frase[i] = Frase[i] + strlen(argv[1]);
+                Frase[i] = Frase[i] + Key;
             }
             else
             {
@@ -44,10 +47,10 @@ int main(int argc, string argv[])
         }
         else if (isupper(Frase[i]))
         {
-            d = strlen(argv[1]) - (90 - Frase[i]);
+            d = Key - (90 - Frase[i]);
             if (d < 0)
             {
-                Frase[i] = Frase[i] + strlen(argv[1]);
+                Frase[i] = Frase[i] + Key;
             }
             else
             {
