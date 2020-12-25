@@ -50,7 +50,7 @@ int main(void)
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
                 }*/
             }
-            else
+            else if (strlen(NC) % 2 != 0)
             {
                 S = j % 2;
                 if (S == 0)
