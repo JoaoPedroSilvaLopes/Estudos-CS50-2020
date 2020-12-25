@@ -8,27 +8,23 @@
 #include <string.h> //Utilizar strlen();
 #include <ctype.h>
 
-int Tamanho, I, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras.
+int I, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras.
 float  L, S, Palavras; //Declaração de variáveis decimais.
 
 int main(void)
 {
     string Texto = get_string("Insira o texto: \n"); //Get_string("") para inserir o texto a ser analisado.
-    Tamanho = strlen(Texto); //Tamanho é a contagem de caracteres do texto, que foi contado com strlen();.
-    for (int x = 0; x < Tamanho; x++) //For para contar os caracteres, dividindo-os em letras, espaços e sentenças.
+    for (int x = 0; x < strlen(Texto); x++) //For para contar os caracteres, dividindo-os em letras, espaços e sentenças.
     {
-        //If caso o caractere seja um espaço.
-        if (isspace(Texto[x]))
+        if (isspace(Texto[x])) //If caso o caractere seja um espaço.
         {
             Espaços++; //Soma +1 a quantidade de espaços.
         }
-        //Else if caso o caractere seja uma das pontuações.
-        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') 
+        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') //Else if caso o caractere seja uma das pontuações.
         {
             Sentenças++; //Soma +1 a quantidade de senteças.
         }
-        //Else if caso o caractere uma letra maiúscula ou minúscula.
-        else if ((islower(Texto[x])) || (isupper(Texto[x]))) 
+        else if ((islower(Texto[x])) || (isupper(Texto[x]))) //Else if caso o caractere uma letra maiúscula ou minúscula.
         {
             Letras++; //Soma +1 a quantidade de letras.
         }
