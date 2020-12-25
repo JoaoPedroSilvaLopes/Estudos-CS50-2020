@@ -45,7 +45,7 @@ int main(int argc, string argv[])
         }
         else if (isupper(Frase[i]))
         {
-            d = atoi(argv[1]) - (90 - Frase[i]);
+            d = atoi(argv[1]) - (95 - Frase[i]);
             if (d < 0)
             {
                 Frase[i] = Frase[i] + atoi(argv[1]);
