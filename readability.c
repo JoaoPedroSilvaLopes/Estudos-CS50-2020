@@ -8,29 +8,27 @@
 #include <string.h> //Utilizar strlen();
 #include <ctype.h>
 
-int I, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras.
-float  L, S, Espaços = 0; //Declaração de variáveis decimais.
+int I, Letras, Sentenças; //Declaração de variáveis inteiras.
+float  L, S, Espaços; //Declaração de variáveis decimais.
 
 int main(void)
 {
     string Texto = get_string("Insira o texto: \n"); //Get_string("") para inserir o texto a ser analisado.
-    for (int x = 0; x < strlen(Texto); x++) //For para contar os caracteres, dividindo-os em letras, espaços e sentenças.
+    for (int i = 0; i < strlen(Texto); i++) //For para contar os caracteres, dividindo-os em letras, espaços e sentenças.
     {
-        if (isspace(Texto[x])) //If caso o caractere seja um espaço.
+        if (isspace(Texto[i])) //If caso o caractere seja um espaço.
         {
             Espaços++; //Soma +1 a quantidade de espaços.
         }
-        else if ((islower(Texto[x])) || (isupper(Texto[x]))) //Else if caso o caractere uma letra maiúscula ou minúscula.
+        else if ((islower(Texto[i])) || (isupper(Texto[i]))) //Else if caso o caractere uma letra maiúscula ou minúscula.
         {
             Letras++; //Soma +1 a quantidade de letras.
         }
-        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') //Else if caso o caractere seja uma das pontuações.
+        else if (Texto[i] == '.' || Texto[i] == '!' || Texto[i] == '?') //Else if caso o caractere seja uma das pontuações.
         {
             Sentenças++; //Soma +1 a quantidade de senteças.
         }
     }
-    //Números de palavras é o números de espaços +1, depois do último espaço certamente terá uma palavra.
-    //Palavras = Espaços + 1; 
     // L é (letras * 100) / palavras, palavras é float para o resultado não ser arredondado para inteiro.
     L = (Letras * 100) / (Espaços + 1);
     // S é (Sentenças * 100) / palavras, palavras é float para o resultado não ser arredondado para inteiro.
