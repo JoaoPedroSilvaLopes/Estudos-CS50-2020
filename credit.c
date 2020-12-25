@@ -29,10 +29,10 @@ int main(void)
     {
         for (int j = 0; j < strlen(NC); j++)
         {
-            if (strlen(NC) % 2 != 0)
+            if ((strlen(NC) % 2) != 0) //ÍMPAR - 14 ou 12.
             {
                 S = j % 2;
-                if (S != 0)
+                if (S == 0)
                 {
                     d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
                     D[j] = (d[j] * 2) / 10;
@@ -50,10 +50,10 @@ int main(void)
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
                 }*/
             }
-            else if (strlen(NC) % 2 != 0)
+            else if ((strlen(NC) % 2) == 0) //PAR = 15
             {
                 S = j % 2;
-                if (S == 0)
+                if (S != 0)
                 {
                     d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
                     D[j] = (d[j] * 2) / 10;
