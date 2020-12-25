@@ -71,7 +71,7 @@ int main(void)
                 else
                 {
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
-                    printf("%i\n", D[j]);
+                    //printf("%i\n", D[j]);
                 }
             }
         }
