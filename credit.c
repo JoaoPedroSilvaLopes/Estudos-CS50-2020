@@ -17,7 +17,6 @@ int S;
 int main(void)
 {
     string NC = get_string("Insira o número do cartão: ");
-    
     for (int i = 0; i < strlen(NC); i++)
     {
         if (!(isdigit(NC[i])) || i >= 16)
@@ -27,8 +26,7 @@ int main(void)
     }
     for (int j = 0; j < strlen(NC); j++)
     {
-        S = strlen(NC) % 2;
-        if ((j % 2) == S)
+        if ((j % 2) == (strlen(NC) % 2))
         {
             d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
             D[j] = (d[j] * 2) / 10;
