@@ -32,7 +32,7 @@ int main(int argc, string argv[])
     {
         if (islower(Frase[i]))
         {
-            d = strlen((argv[1]) - (122 - Frase[i]));
+            d = strlen(argv[1]) - (122 - Frase[i]);
             if (d < 0)
             {
                 Frase[i] = Frase[i] + strlen(argv[1]);
@@ -44,7 +44,7 @@ int main(int argc, string argv[])
         }
         else if (isupper(Frase[i]))
         {
-            d = strlen((argv[1]) - (90 - Frase[i]));
+            d = strlen(argv[1]) - (90 - Frase[i]);
             if (d < 0)
             {
                 Frase[i] = Frase[i] + strlen(argv[1]);
