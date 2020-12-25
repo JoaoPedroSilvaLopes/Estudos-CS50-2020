@@ -22,7 +22,7 @@ int main(int argc, string argv[])
                     {
                         Frase[j] = Frase[j];
                     }
-                    else if (isupper(Frase[i]))
+                    else if (isupper(Frase[j]))
                     {
                         Frase[j] = Frase[j];
                     }
