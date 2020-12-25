@@ -8,8 +8,8 @@
 #include <string.h> //Utilizar strlen();
 #include <ctype.h>
 
-int I, Espaços = 0, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras.
-float  L, S, Palavras; //Declaração de variáveis decimais.
+int I, Letras = 0, Sentenças = 0; //Declaração de variáveis inteiras.
+float  L, S, Espaços = 0; //Declaração de variáveis decimais.
 
 int main(void)
 {
@@ -20,21 +20,21 @@ int main(void)
         {
             Espaços++; //Soma +1 a quantidade de espaços.
         }
-        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') //Else if caso o caractere seja uma das pontuações.
-        {
-            Sentenças++; //Soma +1 a quantidade de senteças.
-        }
         else if ((islower(Texto[x])) || (isupper(Texto[x]))) //Else if caso o caractere uma letra maiúscula ou minúscula.
         {
             Letras++; //Soma +1 a quantidade de letras.
         }
+        else if (Texto[x] == '.' || Texto[x] == '!' || Texto[x] == '?') //Else if caso o caractere seja uma das pontuações.
+        {
+            Sentenças++; //Soma +1 a quantidade de senteças.
+        }
     }
     //Números de palavras é o números de espaços +1, depois do último espaço certamente terá uma palavra.
-    Palavras = Espaços + 1; 
+    //Palavras = Espaços + 1; 
     // L é (letras * 100) / palavras, palavras é float para o resultado não ser arredondado para inteiro.
-    L = (Letras * 100) / Palavras;
+    L = (Letras * 100) / (Espaços + 1);
     // S é (Sentenças * 100) / palavras, palavras é float para o resultado não ser arredondado para inteiro.
-    S = (Sentenças * 100) / Palavras;
+    S = (Sentenças * 100) / (Espaços + 1);
     // I é um número inteiro com o auxílio de round para dar o inteiro mais próximo do o arrondamento ser mais preciso.
     I = round((0.0588 * L) - (0.296 * S) - 15.8);
     if (I >= 16) //If caso I seja maior ou igual a 16 como foi pedido.
