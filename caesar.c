@@ -13,27 +13,7 @@ int main(int argc, string argv[])
     {
         for (int i = 0; i < strlen(argv[1]); i++)
         {
-            if (isdigit(argv[1][i]))
-            {
-                string Frase = get_string("plaintext: ");
-                for (int j = 0; j < strlen(Frase); j++)
-                {
-                    if (islower(Frase[j]))
-                    {
-                        Frase[j] = Frase[j];
-                    }
-                    else if (isupper(Frase[j]))
-                    {
-                        Frase[j] = Frase[j];
-                    }
-                    else
-                    {
-                        Frase[j] = Frase[j];
-                    }
-                }
-                printf("%s\n", Frase);
-            }
-            else
+            if (!(isdigit(argv[1][i])))
             {
                 printf("Usage: %s\n", argv[0]);
                 return 1;
@@ -45,5 +25,23 @@ int main(int argc, string argv[])
         printf("Usage: %s\n", argv[0]);
         return 1;
     }
+    
+    string Frase = get_string("plaintext: ");
+    for (int i = 0; i < strlen(Frase); i++)
+    {
+        if (islower(Frase[i]))
+        {
+            Frase[i] = Frase[i];
+        }
+        else if (isupper(Frase[i]))
+        {
+            Frase[i] = Frase[i];
+        }
+        else
+        {
+            Frase[i] = Frase[i];
+        }
+    }
+    printf("ciphertext: %s\n", Frase);
     return 0;
 }
