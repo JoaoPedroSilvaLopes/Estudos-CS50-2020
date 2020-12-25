@@ -3,61 +3,59 @@
 //USUÁRIO: JoãoPedroSilvaLopes
 //EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <stdio.h> 
-#include <cs50.h> //Usar get_string("");
-#include <string.h> //Usar strlen();
-#include <stdlib.h> //Usar atoi();
+#include <cs50.h>
+#include <string.h>
+#include <ctype.h>
 
-int Key; //Key de contagem
-int Retorno; //Variável de retorno;
+int Key;
 
-int main(int argc, string argv[]) //Declaração dos argumentos na função main
+int main(int argc, string argv[])
 {
-    if (argc == 2) //If caso a quantidade de argumentos seja igual a 2.
+    if (argc == 2)
     {
-        Key = atoi(argv[1]); //Key é a conversão do argv[1] para inteiro.
-        string Frase = get_string("plaintext: "); //Get_string("") para introduzir a frase a ser criptografada.
+        Key = strlen(argv[1]);
+        string Frase = get_string("plaintext: ");
         
-        for (int Posição = 0; Posição < strlen(Frase); Posição++) //For para verificar cada um dos caracteres da string.
+        for (int i = 0; i < strlen(Frase); i++)
         {
-            if (Frase[Posição] >= 'a' && Frase[Posição] <= 'z') //If para caso o caractere seja uma letra minúscula.
+            if (isalpha(Frase[i]))
             {
-                Key = atoi(argv[1]);
-                Key = Key - ('z' - Frase[Posição]); //Key é a subtração de 'z' - o caractere de Frase[Posição].
-                if (Key < 0) //If para caso Key dê menor do que 0.
+                /*Key = strlen(argv[1]);
+                Key = Key - ('z' - Frase[i]);
+                if (islower(Frase[i]))
                 {
-                    Frase[Posição] = Frase[Posição] + atoi(argv[1]); //O caractere será a soma do próprio caractere + Atoi(argv[1]).
+                    Frase[i] = Frase[i] + strlen(argv[1]);
                 }
-                else //Else para caso Key seja igual ou maior que 0.
+                else if
                 {
-                    Frase[Posição] = ('a' - 1) + (Key % 26); //O caractere será a soma de ('a' - 1) e o resto de Key dividido por 26.
+                    Frase[i] = ('a' - 1) + (Key % 26);
                 }
+                else if (isupper(Frase[i]))
+                {
+                    Key = strlen(argv[1]);
+                    Key = Key - ('Z' - Frase[i]);
+                    if (Key < 0)
+                    {
+                        Frase[i] = Frase[i] + strlen(argv[1]);
+                    }
+                }
+                else
+                {
+                    Frase[i] = ('A' - 1) + (Key % 26);
+                }*/
             }
-            else if (Frase[Posição] >= 'A' && Frase[Posição] <= 'Z') //Else if para caso o caractere seja uma letra maiúscula.
+            else
             {
-                Key = atoi(argv[1]);
-                Key = Key - ('Z' - Frase[Posição]); //Key é a subtração de 'Z' - o caractere de Frase[Posição].
-                if (Key < 0) //If para caso Key dê menor do que 0.
-                {
-                    Frase[Posição] = Frase[Posição] + atoi(argv[1]); //O caractere será a soma do próprio caractere + Atoi(argv[1]).
-                }
-                else //Else para caso Key seja igual ou maior que 0.
-                {
-                    Frase[Posição] = ('A' - 1) + (Key % 26); //O caractere será a soma de ('A' - 1) e o resto de Key dividido por 26.
-                }
-            }
-            else //Else para caso o caractere não seja uma letra.
-            {
-                Frase[Posição] = Frase[Posição]; //Caso não seja uma letra, o caractere deverá permanecer o mesmo.
+                printf("Usage: %s\n", argv[0]);
+                return 1;
             }
         }
-        printf("ciphertext: %s\n", Frase); //Printf para imprimir ciphertext: Frase, sendo Frase ja esta criptografada.
-        Retorno = 0; //Retorno = 0, indicando que o programa funcionou normalmente.
+        printf("ciphertext: %s\n", Frase);
     }
-    else //Else para caso tenha argumentos diferentes de 2.
+    else
     {
-        printf("Usage: %s\n", argv[0]); //Printf para imprimir Usage: ./caesar, sendo caesar = argv[0];.
-        Retorno = 1; //Retorno = 1, diz indicando o erro
+        printf("Usage: %s\n", argv[0]);
+        return 1;
     }
-    return Retorno; //Retorno.
+    return 0;
 }
-//Não consegui achar uma solução para filtrar as letras e caracteres especiais nos argv[1], sinto muito.
