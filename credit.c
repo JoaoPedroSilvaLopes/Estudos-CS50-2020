@@ -81,6 +81,10 @@ int main(void)
         {
             printf("MASTERCARD\n");
         }
+        else if (Soma % 10 && (NC[0] == '4' && (strlen(NC) == 13 || strlen(NC) == 16)))
+        {
+            
+        }
         else
         {
             printf("INVALID\n");
