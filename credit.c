@@ -53,6 +53,7 @@ int main(void)
             else if ((strlen(NC) % 2) == 0) //PAR = 15
             {
                 S = j % 2;
+                //printf ("%i\n", S);
                 if (S == 0)
                 {
                     d[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1);
@@ -62,29 +63,32 @@ int main(void)
                     if (D[j] > 0)
                     {
                         D[j] = D[j] + ((2 * d[j]) % 10);
+                        //printf("%i\n", D[j]);
                     }
                     else
                     {
                         D[j] = d[j] * 2;
+                        //printf("%i\n", D[j]);
                     }
                 }
                 else
                 {
                     D[j] = atol(&NC[j]) / pow(10, strlen(&NC[j]) - 1); 
-                    //printf("%i\n", D[j]);
+                    //printf("%i\n\n", D[j]);
                 }
             }
         }
         Soma = D[0] + D[1] + D[2] + D[3] + D[4] + D[5] + D[6] + D[7] + D[8] + D[9] + D[10] + D[11] + D[12] + D[13] + D[14] + D[15];
-        if (Soma % 10 == 0 && ((NC[0] == '3' && NC[1] == '4') || (NC[0] == '3' && NC[1] == '7')))
+        printf("%i\n", Soma);
+        if (Soma % 10 == 0 && NC[0] == '3')
         {
             printf("AMEX\n");
         }
-        else if (Soma % 10 && (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')))
+        else if (Soma % 10 && NC[0] == '5')
         {
             printf("MASTERCARD\n");
         }
-        else if (Soma % 10 && (NC[0] == '4' && (strlen(NC) == 13 || strlen(NC) == 16)))
+        else if (Soma % 10 && NC[0] == '4' && (strlen(NC) == 13 || strlen(NC) == 16))
         {
             printf("VISA\n");
         }
