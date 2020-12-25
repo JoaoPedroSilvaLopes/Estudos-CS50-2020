@@ -24,8 +24,8 @@ int main(void)
             printf("INVALID\n");
         }
     }
-    if ((NC[0] == '3' && NC[1] == '4') || (NC[0] == '3' && NC[1] == '7') || (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')) || (NC[0] == '4'))
-    {
+    //if ((NC[0] == '3' && NC[1] == '4') || (NC[0] == '3' && NC[1] == '7') || (NC[0] == '5' && (NC[1] == '1' || NC[1] == '2' || NC[1] == '3' || NC[1] =='4' || NC[1] == '5')) || (NC[0] == '4'))
+    //{
         for (int j = 0; j < strlen(NC); j++)
         {
             if ((strlen(NC) % 2) != 0)
@@ -86,10 +86,10 @@ int main(void)
         {
             printf("INVALID\n");
         }
-    }
-    else
+    //}
+    /*else
     {
         printf("INVALID\n");
-    }
+    }*/
     return 0;
 }
