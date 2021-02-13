@@ -2,8 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Max number of candidates
-#define MAX 9
+#define MAX 9 //Número máximo de candidatos.
 
 // Candidates have name and vote count
 typedef struct
@@ -52,15 +51,13 @@ int main(int argc, string argv[])
     {
         string name = get_string("Vote: ");
 
-        // Check for invalid vote
-        if (!vote(name))
+        if (!vote(name)) //Checkar um voto inválido.
         {
             printf("Invalid vote.\n");
         }
     }
 
-    // Display winner of election
-    print_winner();
+    print_winner(); //Printar o vencedor.
 }
 
 // Update vote totals given a new vote
@@ -70,8 +67,7 @@ bool vote(string name)
     return false;
 }
 
-// Print the winner (or winners) of the election
-void print_winner(void)
+void print_winner(void) //Função para printar o vencedor(a/es/as).
 {
     // TODO
     return;
