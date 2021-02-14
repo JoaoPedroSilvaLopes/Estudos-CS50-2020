@@ -38,28 +38,14 @@ int main(int argc, string argv[]) //Função main
     }
     int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     for (int i = 0; i < voter_count; i++) //Loop de todos os votos
     {
         string name = get_string("Vote: "); //Indicar o nome do candidato para o voto
 
         if (!vote(name)) //Checkar um voto inválido
         {
-            vote(name);
             printf("Invalid vote.\n");
-            i--;
+            //i--;
         }
         else
         {
@@ -99,7 +85,8 @@ bool vote(string name)
 void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
     int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
-    for (int i = 0; i < voter_count; i++)
+    int vote1 = voter_count;
+    for (int i = 0; i < vote1; i++)
     {
         printf("%i\n", candidates[i].votes);
     }
