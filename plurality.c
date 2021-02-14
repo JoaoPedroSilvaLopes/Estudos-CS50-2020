@@ -83,7 +83,7 @@ bool vote(string name)
     }
 }
 
-void print_winner(void) //Função para printar o vencedor(a/es/as)
+void print_winner(candidate candidates[i].votes) //Função para printar o vencedor(a/es/as)
 {
     int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
     for (int i = 0; i < voter_count; i++)
