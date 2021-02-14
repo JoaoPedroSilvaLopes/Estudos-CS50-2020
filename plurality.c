@@ -7,7 +7,9 @@
 typedef struct //Nome e contagem de votos do candidato
 {
     string name;
+    string name2;
     int votes;
+    int votes2;
 }
 candidate;
 
@@ -44,12 +46,18 @@ int main(int argc, string argv[]) //Função main
 
 
 
+
+
+
+
+
     for (int i = 0; i < voter_count; i++) //Loop de todos os votos
     {
         string name = get_string("Vote: "); //Indicar o nome do candidato para o voto
 
         if (!vote(name)) //Checkar um voto inválido
         {
+            vote(name);
             printf("Invalid vote.\n");
             i--;
         }
@@ -71,19 +79,24 @@ int main(int argc, string argv[]) //Função main
 
 // Update vote totals given a new vote
 bool vote(string name)
-{  
-    string name2 = "Alice";
-    if (strcmp(name, name2) == 0)
+{
+    for (int i = 0; i < candidate_count; i++)
     {
-        return true;
+        string name2 = candidates[i].name;
+        if (strcmp(name, name2) == 0)
+        {
+            printf("%s\n", name2);
+            return true;
+        }
     }
-    else
-    {
-        return false;
-    }
+    return false;
 }
 
-void print_winner(candidate candidates[i].votes) //Função para printar o vencedor(a/es/as)
+
+
+
+
+void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
     int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
     for (int i = 0; i < voter_count; i++)
