@@ -45,18 +45,7 @@ int main(int argc, string argv[]) //Função main
         if (!vote(name)) //Checkar um voto inválido
         {
             printf("Invalid vote.\n");
-            //i--;
-        }
-        else
-        {
-            for (int j = 0; j < candidate_count; j++)
-            {
-                if (strcmp(name, candidates[j].name) == 0)
-                {
-                    candidates[j].votes++;
-                    break;
-                }
-            }
+            i--;
         }
     }
 
@@ -71,7 +60,8 @@ bool vote(string name)
         string name2 = candidates[i].name;
         if (strcmp(name, name2) == 0)
         {
-            printf("%s\n", name2);
+            candidates[i].votes++;
+            //printf("%i\n", candidates[i].votes);
             return true;
         }
     }
@@ -84,9 +74,7 @@ bool vote(string name)
 
 void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
-    int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
-    int vote1 = voter_count;
-    for (int i = 0; i < vote1; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         printf("%i\n", candidates[i].votes);
     }
