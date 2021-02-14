@@ -4,71 +4,91 @@
 
 #define MAX 9 //Número máximo de candidatos.
 
-// Candidates have name and vote count
-typedef struct
+typedef struct //Nome e contagem de votos do candidato
 {
     string name;
     int votes;
 }
 candidate;
 
-// Array of candidates
-candidate candidates[MAX];
+candidate candidates[MAX]; //Array dos candidatos
+int candidate_count; //Número de candidatos
+bool vote(string name); //Função vote
+void print_winner(void); //Função print_winner
 
-// Number of candidates
-int candidate_count;
-
-// Function prototypes
-bool vote(string name);
-void print_winner(void);
-
-int main(int argc, string argv[])
+int main(int argc, string argv[]) //Função main
 {
-    // Check for invalid usage
-    if (argc < 2)
+    if (argc < 2) //Checkar a iniciaização com a quantidade válida de argumentos.
     {
         printf("Usage: plurality [candidate ...]\n");
-        return 1;
+        return 0;
     }
-
-    // Populate array of candidates
-    candidate_count = argc - 1;
-    if (candidate_count > MAX)
+    candidate_count = argc - 1; //Contagem de candidatos
+    if (candidate_count > MAX) //Se a quantidade de candidatos for maior que 9
     {
         printf("Maximum number of candidates is %i\n", MAX);
-        return 2;
+        return 0; 
     }
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++) 
     {
         candidates[i].name = argv[i + 1];
         candidates[i].votes = 0;
     }
+    int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
 
-    int voter_count = get_int("Number of voters: ");
 
-    // Loop over all voters
-    for (int i = 0; i < voter_count; i++)
+
+
+
+
+
+
+
+    for (int i = 0; i < voter_count; i++) //Loop de todos os votos
     {
-        string name = get_string("Vote: ");
+        string name = get_string("Vote: "); //Indicar o nome do candidato para o voto
 
-        if (!vote(name)) //Checkar um voto inválido.
+        if (!vote(name)) //Checkar um voto inválido
         {
             printf("Invalid vote.\n");
+            i--;
+        }
+        else
+        {
+            for (int j = 0; j < candidate_count; j++)
+            {
+                if (strcmp(name, candidates[j].name) == 0)
+                {
+                    candidates[j].votes++;
+                    break;
+                }
+            }
         }
     }
 
-    print_winner(); //Printar o vencedor.
+    print_winner(); //Printar o vencedor
 }
 
 // Update vote totals given a new vote
 bool vote(string name)
-{
-    // TODO
-    return false;
+{  
+    string name2 = "Alice";
+    if (strcmp(name, name2) == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
-void print_winner(void) //Função para printar o vencedor(a/es/as).
+void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
-    // TODO
+    int voter_count = get_int("Number of voters: "); //Pedir a quantidade de votos
+    for (int i = 0; i < voter_count; i++)
+    {
+        printf("%i\n", candidates[i].votes);
+    }
     return;
 }
