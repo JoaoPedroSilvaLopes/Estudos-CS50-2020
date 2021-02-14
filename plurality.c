@@ -45,10 +45,9 @@ int main(int argc, string argv[]) //Função main
         if (!vote(name)) //Checkar um voto inválido
         {
             printf("Invalid vote.\n");
-            i--;
+            i--; // Condição para manter a quantidade de votos caso dê inválido
         }
     }
-
     print_winner(); //Printar o vencedor
 }
 bool vote(string name) //Função de updates de votos
@@ -59,7 +58,6 @@ bool vote(string name) //Função de updates de votos
         if (strcmp(name, name2) == 0)
         {
             candidates[i].votes++;
-            //printf("%i\n", candidates[i].votes);
             return true;
         }
     }
@@ -67,7 +65,7 @@ bool vote(string name) //Função de updates de votos
 }
 void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
-    int high = candidates[0].votes;
+    int high = candidates[0].votes; // Variável do maior número de votos
     for (int i = 1; i < candidate_count; i++)
     {
         if (candidates[i].votes > high)
@@ -75,14 +73,12 @@ void print_winner(void) //Função para printar o vencedor(a/es/as)
             high = candidates[i].votes;
         }
     }
-    //printf("%i\n", high);
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes == high)
+        if (candidates[i].votes == high) // Condição para pegar qualquer nome de candidato com o maior número
         {
             printf("%s\n", candidates[i].name);
         }
     }
-    
     return;
 }
