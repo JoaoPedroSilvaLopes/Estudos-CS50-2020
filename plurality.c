@@ -51,9 +51,7 @@ int main(int argc, string argv[]) //Função main
 
     print_winner(); //Printar o vencedor
 }
-
-// Update vote totals given a new vote
-bool vote(string name)
+bool vote(string name) //Função de updates de votos
 {
     for (int i = 0; i < candidate_count; i++)
     {
@@ -67,16 +65,19 @@ bool vote(string name)
     }
     return false;
 }
-
-
-
-
-
 void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
-    for (int i = 0; i < candidate_count; i++)
+    string high = candidates[0].name;
+    for (int i = 1; i < candidate_count; i++)
     {
-        printf("%i\n", candidates[i].votes);
+        if (candidates[i].votes > candidates[0].votes)
+        {
+            high = candidates[i].name;
+        }
+        printf("%s\n", high);
     }
+    
+    
+    
     return;
 }
