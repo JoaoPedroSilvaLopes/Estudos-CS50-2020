@@ -75,10 +75,10 @@ void print_winner(void) //Função para printar o vencedor(a/es/as)
             high = candidates[i].votes;
         }
     }
-    
+    //printf("%i\n", high);
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes > high)
+        if (candidates[i].votes == high)
         {
             printf("%s\n", candidates[i].name);
         }
