@@ -67,23 +67,22 @@ bool vote(string name) //Função de updates de votos
 }
 void print_winner(void) //Função para printar o vencedor(a/es/as)
 {
-    string high = candidates[0].name;
-    int high1 = candidates[0].votes;
+    int high = candidates[0].votes;
     for (int i = 1; i < candidate_count; i++)
     {
-        if (candidates[i].votes > high1)
+        if (candidates[i].votes > high)
         {
-            high = candidates[i].name;
-            high1 = candidates[i].votes;
-        }
-        if (candidates[i].votes == high1)
-        {
-            //high = candidates[i].name && high;
-            high1 = candidates[i].votes;
+            high = candidates[i].votes;
         }
     }
-    printf("%s\n", high);
     
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes > high)
+        {
+            printf("%s\n", candidates[i].name);
+        }
+    }
     
     return;
 }
