@@ -78,7 +78,7 @@ void print_winner(void) //Função para printar o vencedor(a/es/as)
         }
         if (candidates[i].votes == high1)
         {
-            high = candidates[i].name && high;
+            //high = candidates[i].name && high;
             high1 = candidates[i].votes;
         }
         printf("%s\n", high);
