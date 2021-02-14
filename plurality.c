@@ -1,3 +1,7 @@
+//MATRÍCULA: 20201045050643
+//NOME: João Pedro Silva Lopes
+//USUÁRIO: JoaoPedroSilvaLopes
+//EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
