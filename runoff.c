@@ -127,26 +127,20 @@ int main(int argc, string argv[])
 
 bool vote(int voter, int rank, string name) // Registro de votos para os candidatos não eliminados
 {
-    for (int i = 0; i < voter_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        string n[i];
+        if (strcmp(name, candidates[i].name) && candidates[i].eliminated == false)
         {
-            string n = candidates[j].name;
-            if ((strcmp(name, n) != 0))
+            n[i] = candidates[i].name;
+            for (int j = candidate_count; j == 0; j++)
             {
-                return false;
-            }
-            else if((strcmp(name, n) == 0))
-            {
-                if (j == 0)
+                if (candidates[j].name == n[j])
                 {
-                    candidates[j].votes++;
-                }
-                else
-                {
-                    candidates[j].votes = candidates[j].votes;    
+                    printf("%s\n", "repetido");
                 }
             }
+            return true;
         }
     }
     return false;
@@ -177,7 +171,7 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 
 bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
-    float sum = 0;
+    int sum = 0;
     int high;
     for (int i = 0; i < candidate_count; i++)
     {
