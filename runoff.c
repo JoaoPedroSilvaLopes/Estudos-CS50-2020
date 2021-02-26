@@ -177,7 +177,7 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 
 bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
-    int sum = 0;
+    float sum = 0;
     int high;
     for (int i = 0; i < candidate_count; i++)
     {
