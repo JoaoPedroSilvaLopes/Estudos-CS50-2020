@@ -75,7 +75,7 @@ int main(int argc, string argv[])
         }
         printf("\n");
     }
-/*
+
     while (true) // Continuar usando runoffs até existir um vencedor
     {
         tabulate(); // Calcular os votos dos candidatos restantes
@@ -109,7 +109,7 @@ int main(int argc, string argv[])
             candidates[i].votes = 0;
         }
     }
-    return 0*/
+    return 0;
 }
 
 
@@ -170,7 +170,7 @@ return false;
 
 
 
-/*
+
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
     for (int i = 0; i < candidate_count; i++)
@@ -266,4 +266,4 @@ void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
         }
     }
     return;
-}*/
+}
