@@ -112,30 +112,17 @@ int main(int argc, string argv[])
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 bool vote(int voter, int rank, string name) // Registro de votos para os candidatos não eliminados
 {
     // verificação da validez da palavra
     int x = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[x].name) == 0 && candidates[i].eliminated == false)
+        if (strcmp(name, candidates[x].name) == 0)
         {
                
         }
-        else if (i == candidate_count - 1 && !(strcmp(name, candidates[x].name) == 0 && candidates[i].eliminated == false))
+        else if (i == candidate_count - 1 && !(strcmp(name, candidates[x].name) == 0 ))
         {
             return false;
         }
@@ -174,8 +161,8 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             i--;
             preferences[i][j] = *candidates[x].name;
             candidates[x].votes++;
-            printf("%i\n", *candidates[x].name);
-            printf("%i\n", candidates[x].votes);
+            //printf("%i\n", *candidates[x].name);
+            //printf("%i\n", candidates[x].votes);
             return true;
         }
         else
@@ -188,8 +175,8 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             {
                 i--;
                 preferences[i][j] = *candidates[x].name;
-                printf("%i\n", *candidates[x].name);
-                printf("%i\n", candidates[x].votes);
+                //printf("%i\n", *candidates[x].name);
+                //printf("%i\n", candidates[x].votes);
                 return true;
             }
         }
@@ -200,8 +187,8 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
         {
             preferences[i][j] = *candidates[x].name;
             candidates[x].votes++;
-            printf("%i\n", preferences[i][j]);
-            printf("%i\n", candidates[x].votes);
+            //printf("%i\n", preferences[i][j]);
+            //printf("%i\n", candidates[x].votes);
             return true;    
         }
         else
@@ -213,8 +200,8 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             else
             { 
                 preferences[i][j] = *candidates[x].name; 
-                printf("%i\n", preferences[i][j]);
-                printf("%i\n", candidates[x].votes);
+                //printf("%i\n", preferences[i][j]);
+                //printf("%i\n", candidates[x].votes);
                 return true;
             }
         }
@@ -234,14 +221,33 @@ return false;
 
 
 
+
+
+
+
+
+
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
+    int x = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].eliminated == false)
         {
-            printf("%s\n", candidates[i].name);
-            printf("%i\n", candidates[i].votes);
+            x++;
+        }
+        else
+        {
+            break;
+        }
+    }
+    //printf("%i\n\n", x);
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].eliminated == true)
+        {
+            int j = 0;
+            printf("%s\n\n", candidates[i].name);
         }
     }
     return;
@@ -304,7 +310,8 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
     {
         if (candidates[i].votes == loss && candidates[i].eliminated == false)
         {
-            return candidates[i].votes;
+            printf("%i\n\n", loss);
+            return loss;
         }
     }
     return 0;
