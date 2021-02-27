@@ -161,16 +161,6 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
 return false;
 }
 
-
-
-
-
-
-
-
-
-
-
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
     for (int i = 0; i < candidate_count; i++)
@@ -184,16 +174,26 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
     return;
 }
 
+
+
+
+
+
+
+
 bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
     int sum = 0;
-    int high;
+    int high = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         int nv[i];
-        if (candidates[i].votes > high && candidates[i].eliminated == false)
+        if (candidates[i].eliminated == false)
         {
-            high = candidates[i].votes;
+            if (candidates[i].votes > high)
+            {
+                high = candidates[i].votes;
+            }
             nv[i] = candidates[i].votes;
             sum = sum + nv[i];
         }
@@ -203,8 +203,13 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
         if (candidates[i].votes == high && (high > (sum / 2)))
         {
             printf("%s\n", candidates[i].name);
+            printf("%s\n", "ok");
+            return true;
         }
-        return true;
+        else
+        {
+            break;
+        }
     }
     return false;
 }
@@ -224,7 +229,7 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
     {
         if (candidates[i].votes == loss && candidates[i].eliminated == false)
         {
-            printf("%d\n", candidates[i].votes);
+            return candidates[i].votes;
         }
     }
     return 0;
@@ -233,14 +238,20 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
 bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os candidatos, retornar FALSO caso o contrário
 { 
     int n = 0;
+    int n1 = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if (min == candidates[i].votes)
         {
-            n++;        
+            n++;  
+            n1++;
+        }
+        else
+        {
+            n1++;
         }
     }
-    if (n == min)
+    if (n == n1)
     {
         return true;
     }
