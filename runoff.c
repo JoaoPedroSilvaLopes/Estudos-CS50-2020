@@ -17,7 +17,7 @@ candidate;
 
 candidate candidates[MAX_CANDIDATES]; // Array dos candidatos
 
-int voter_count; // Número de votos
+int voter_count; // Número de eleitores
 int candidate_count; // Número de candidatos
 
 // Funções
@@ -127,39 +127,100 @@ int main(int argc, string argv[])
 
 bool vote(int voter, int rank, string name) // Registro de votos para os candidatos não eliminados
 {
+    // verificação da validez da palavra
+    int x = 0;
     for (int i = 0; i < candidate_count; i++)
     {
+        if (strcmp(name, candidates[x].name) == 0 && candidates[i].eliminated == false)
+        {
+               
+        }
+        else if (i == candidate_count - 1 && !(strcmp(name, candidates[x].name) == 0 && candidates[i].eliminated == false))
+        {
+            return false;
+        }
+        else
+        {
+            x++;
+        }
+    }
+    // verificação da validez da palavra
+    
+    // Descobrir a posição da matriz
+    int m;
+    int m1;
+    for (int i = 0; i < voter_count; i++)
+    {
         for (int j = 0; j < candidate_count; j++)
-        {  
-            if (strcmp(name, candidates[i].name) == 0 && candidates[i].eliminated == false)
-            {  
-                //preferences[i][j] = *candidates[i].name;
-                //printf("%i\n", preferences[0][j]);
-                //if (preferences[0][j] == preferences[i][j])
-                //{
-                    //candidates[i].votes++;
-                    //preferences[i][0] = *candidates[i].name;
-                    //printf("%i\n", candidates[i].votes);
-                    //printf("%s\n", "repetido");
-                    //return true;
-                //}
-                //else
-                //{
-                    candidates[i].votes++;
-                    //preferences[i][0] = *candidates[i].name;
-                    printf("%i\n", candidates[i].votes);
-                    //printf("%s\n", "repetido");
-                    return true;
-                //}
-            }
-            else
+        {
+            if(preferences[i][j] == 0)
             {
+                m = i;
+                m1 = j;
                 break;
             }
         }
     }
+    //printf("%i\n", m);
+    //printf("%i\n", m1);
+    // Descobrir a posição da matriz
+
+    // Designar os locais da cada voto na matriz
+    int i = m;
+    int j = m1;
+    printf("%i\n", preferences[i][candidate_count - 1]);
+    if (preferences[i][candidate_count - 1] != 0)
+    {
+        if (j == 0)
+        {
+            i--;
+            preferences[i][j] = *candidates[j].name;
+            candidates[j].votes++;
+            printf("%i\n", *candidates[j].name);
+            printf("%i\n", candidates[j].votes);
+            return true;
+        }
+        else
+        {   
+            i--;
+            preferences[i][j] = *candidates[j].name;
+            printf("%i\n", *candidates[j].name);
+            printf("%i\n", candidates[j].votes);
+            return true;
+        }
+    }
+    else
+    {  
+        if (j == 0)
+        {
+            preferences[i][j] = *candidates[j].name;
+            candidates[j].votes++;
+            printf("%i\n", preferences[i][j]);
+            printf("%i\n", candidates[j].votes);
+            return true;    
+        }
+        else
+        {  
+            preferences[i][j] = *candidates[j].name; 
+            printf("%i\n", preferences[i][j]);
+            printf("%i\n", candidates[j].votes);
+            return true;
+        }
+    }
+    // Designar os locais da cada voto na matriz
+
 return false;
 }
+
+
+
+
+
+
+
+
+
+
 
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
@@ -173,6 +234,8 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
     }
     return;
 }
+
+
 
 
 
@@ -203,7 +266,7 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
         if (candidates[i].votes == high && (high > (sum / 2)))
         {
             printf("%s\n", candidates[i].name);
-            printf("%s\n", "ok");
+            //printf("%s\n", "ok");
             return true;
         }
         else
