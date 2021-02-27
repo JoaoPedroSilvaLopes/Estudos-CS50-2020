@@ -174,18 +174,18 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
         if (j == 0)
         {
             i--;
-            preferences[i][j] = *candidates[j].name;
-            candidates[j].votes++;
-            printf("%i\n", *candidates[j].name);
-            printf("%i\n", candidates[j].votes);
+            preferences[i][j] = *candidates[x].name;
+            candidates[x].votes++;
+            printf("%i\n", *candidates[x].name);
+            printf("%i\n", candidates[x].votes);
             return true;
         }
         else
         {   
             i--;
-            preferences[i][j] = *candidates[j].name;
-            printf("%i\n", *candidates[j].name);
-            printf("%i\n", candidates[j].votes);
+            preferences[i][j] = *candidates[x].name;
+            printf("%i\n", *candidates[x].name);
+            printf("%i\n", candidates[x].votes);
             return true;
         }
     }
@@ -193,17 +193,17 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
     {  
         if (j == 0)
         {
-            preferences[i][j] = *candidates[j].name;
-            candidates[j].votes++;
+            preferences[i][j] = *candidates[x].name;
+            candidates[x].votes++;
             printf("%i\n", preferences[i][j]);
-            printf("%i\n", candidates[j].votes);
+            printf("%i\n", candidates[x].votes);
             return true;    
         }
         else
         {  
-            preferences[i][j] = *candidates[j].name; 
+            preferences[i][j] = *candidates[x].name; 
             printf("%i\n", preferences[i][j]);
-            printf("%i\n", candidates[j].votes);
+            printf("%i\n", candidates[x].votes);
             return true;
         }
     }
