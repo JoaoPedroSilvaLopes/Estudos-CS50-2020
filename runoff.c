@@ -161,14 +161,12 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             }
         }
     }
-    //printf("%i\n", m);
-    //printf("%i\n", m1);
-    // Descobrir a posição da matriz
 
     // Designar os locais da cada voto na matriz
+    int y = 0;
     int i = m;
     int j = m1;
-    printf("%i\n", preferences[i][candidate_count - 1]);
+    //printf("%i\n", preferences[i][candidate_count - 1]);
     if (preferences[i][candidate_count - 1] != 0)
     {
         if (j == 0)
@@ -181,12 +179,19 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             return true;
         }
         else
-        {   
-            i--;
-            preferences[i][j] = *candidates[x].name;
-            printf("%i\n", *candidates[x].name);
-            printf("%i\n", candidates[x].votes);
-            return true;
+        { 
+            if (preferences[i][0] == *candidates[x].name)
+            {
+                return false;   
+            }
+            else
+            {
+                i--;
+                preferences[i][j] = *candidates[x].name;
+                printf("%i\n", *candidates[x].name);
+                printf("%i\n", candidates[x].votes);
+                return true;
+            }
         }
     }
     else
@@ -200,11 +205,18 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             return true;    
         }
         else
-        {  
-            preferences[i][j] = *candidates[x].name; 
-            printf("%i\n", preferences[i][j]);
-            printf("%i\n", candidates[x].votes);
-            return true;
+        {
+            if (preferences[i][0] == *candidates[x].name)
+            {
+                return false;    
+            }
+            else
+            { 
+                preferences[i][j] = *candidates[x].name; 
+                printf("%i\n", preferences[i][j]);
+                printf("%i\n", candidates[x].votes);
+                return true;
+            }
         }
     }
     // Designar os locais da cada voto na matriz
