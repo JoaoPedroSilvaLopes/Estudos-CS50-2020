@@ -75,7 +75,7 @@ int main(int argc, string argv[])
         }
         printf("\n");
     }
-
+/*
     while (true) // Continuar usando runoffs até existir um vencedor
     {
         tabulate(); // Calcular os votos dos candidatos restantes
@@ -109,7 +109,7 @@ int main(int argc, string argv[])
             candidates[i].votes = 0;
         }
     }
-    return 0;
+    return 0*/
 }
 
 
@@ -129,21 +129,36 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        string n[i];
-        if (strcmp(name, candidates[i].name) && candidates[i].eliminated == false)
-        {
-            n[i] = candidates[i].name;
-            for (int j = candidate_count; j == 0; j++)
-            {
-                if (candidates[j].name == n[j])
-                {
-                    printf("%s\n", "repetido");
-                }
+        for (int j = 0; j < candidate_count; j++)
+        {  
+            if (strcmp(name, candidates[i].name) == 0 && candidates[i].eliminated == false)
+            {  
+                //preferences[i][j] = *candidates[i].name;
+                //printf("%i\n", preferences[0][j]);
+                //if (preferences[0][j] == preferences[i][j])
+                //{
+                    //candidates[i].votes++;
+                    //preferences[i][0] = *candidates[i].name;
+                    //printf("%i\n", candidates[i].votes);
+                    //printf("%s\n", "repetido");
+                    //return true;
+                //}
+                //else
+                //{
+                    candidates[i].votes++;
+                    //preferences[i][0] = *candidates[i].name;
+                    printf("%i\n", candidates[i].votes);
+                    //printf("%s\n", "repetido");
+                    return true;
+                //}
             }
-            return true;
+            else
+            {
+                break;
+            }
         }
     }
-    return false;
+return false;
 }
 
 
@@ -155,7 +170,7 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
 
 
 
-
+/*
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
     for (int i = 0; i < candidate_count; i++)
@@ -251,4 +266,4 @@ void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
         }
     }
     return;
-}
+}*/
