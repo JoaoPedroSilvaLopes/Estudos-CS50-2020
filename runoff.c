@@ -212,7 +212,7 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
                     // j != e ta tudo ok
                     if (preferences[i][j - 1] == 0)
                     {
-                        preferences[i][j - 1] = preferences[i][j];    
+                        preferences[i][j] = preferences[i][j - 1];    
                     }
                     else
                     {
