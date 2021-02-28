@@ -268,7 +268,7 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
     {
         if (candidates[i].votes == high && (high > (sum / 2)))
         {
-            //printf("%s\n", candidates[i].name);
+            printf("%s\n", candidates[i].name);
             //printf("%s\n", "ok");
             return true;
         }
