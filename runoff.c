@@ -277,14 +277,22 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
 bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os candidatos, retornar FALSO caso o contrário
 {
     int n = 0;
+    int m = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (min == candidates[i].votes)
+        if (candidates[i].eliminated == false)
         {
             n++;
         }
     }
-    if (n > 1)
+    for (int i = 0; i > candidate_count; i++)
+    {
+        if (candidates[i].votes == min)
+        {
+            m++;
+        }
+    }
+    if (m == n)
     {
         return true;
     }
