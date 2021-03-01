@@ -158,10 +158,6 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
                     }
                 }
                 preferences[i][j] = *candidates[x].name;
-                //printf("%i\n\n", preferences[0][0]);
-                //printf("%i\n\n", preferences[0][1]);
-                //printf("%i\n\n", preferences[1][0]);
-                //printf("%i\n\n", preferences[1][1]);
                 return true;
             }
         }
@@ -169,83 +165,51 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
 return false;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
+    for (int i = 0; i < voter_count; i++)
+    {
+        int j = 0;
+        //for (int j = 0; j < candidate_count; j++)
+        //{
+            printf("%i\n", preferences[i][j]);
+        //}
+    }
+    //------------------------
     for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
             for (int x = 0; x < candidate_count; x++)
             {
-                if (j == 0 && preferences[i][j] == *candidates[x].name && candidates[x].eliminated == false)
+                if (j == 0 && preferences[i][j] == *candidates[x].name)
                 {
-                    // j == 0 e ta tudo ok
-                    candidates[x].votes++;
-                }
-                else if (j == 0 && preferences[i][j] == *candidates[x].name && candidates[x].eliminated == true)
-                {
-                    // j == 0 e ta eliminado
-                    preferences[i][j] = preferences[i][j + 1];
-                    for (int y = 0; preferences[i][j] == *candidates[y].name; y++)
+                    if (candidates[x].eliminated == false)
                     {
-                        candidates[y].votes++;    
-                    }
-                }
-                else if (j != 0 && preferences[i][j] == *candidates[x].name && candidates[x].eliminated == false)
-                {
-                    // j != e ta tudo ok
-                    if (preferences[i][j - 1] == 0)
-                    {
-                        preferences[i][j] = preferences[i][j - 1];    
+                        candidates[x].votes++;    
                     }
                     else
                     {
-                        preferences[i][j] = preferences[i][j];    
+                        for (int y = 0; y < candidate_count; y++)
+                        {
+                            if (preferences[i][j + 1] == *candidates[y].name && candidates[y].eliminated == false)
+                            {
+                                candidates[y].votes++;
+                                break;
+                            }
+                        }   
                     }
-                }
-                else if (j != 0 && preferences[i][j] == *candidates[x].name && candidates[x].eliminated == true)
-                {
-                    // j != 0 e ta eliminado
-                    preferences[i][j] = 0;
-
                 }
             }
         }
     }
     
-    
-    /*for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
         printf("%i\n", candidates[i].votes);    
-    }*/
-    
+    }
     return;
 }
-
-
-
-
-
-
-
-
-
 
 bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
@@ -280,6 +244,13 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
     return false;
 }
 
+
+
+
+
+
+
+
 int find_min(void) // Retornar o número minimo de votos e os candidatos restantes
 {
     int loss;
@@ -296,7 +267,7 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
     {
         if (candidates[i].votes == loss && candidates[i].eliminated == false)
         {
-            //printf("%i\n\n", loss);
+            printf("%i\n\n", loss);
             return loss;
         }
     }
@@ -306,20 +277,14 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
 bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os candidatos, retornar FALSO caso o contrário
 {
     int n = 0;
-    int n1 = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if (min == candidates[i].votes)
         {
             n++;
-            n1++;
-        }
-        else
-        {
-            n1++;
         }
     }
-    if (n == n1)
+    if (n > 1)
     {
         return true;
     }
