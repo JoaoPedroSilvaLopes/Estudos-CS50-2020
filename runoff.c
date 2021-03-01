@@ -167,14 +167,14 @@ return false;
 
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
-    for (int i = 0; i < voter_count; i++)
+    /*for (int i = 0; i < voter_count; i++)
     {
         int j = 0;
         //for (int j = 0; j < candidate_count; j++)
         //{
             printf("%i\n", preferences[i][j]);
         //}
-    }
+    }*/
     //------------------------
     for (int i = 0; i < voter_count; i++)
     {
@@ -204,10 +204,10 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
         }
     }
     
-    for (int i = 0; i < candidate_count; i++)
+    /*for (int i = 0; i < candidate_count; i++)
     {
         printf("%i\n", candidates[i].votes);    
-    }
+    }*/
     return;
 }
 
@@ -232,7 +232,7 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
     {
         if (candidates[i].votes == high && (high > (sum / 2)))
         {
-            printf("%s\n", candidates[i].name);
+            //printf("%s\n", candidates[i].name);
             //printf("%s\n", "ok");
             return true;
         }
@@ -267,7 +267,7 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
     {
         if (candidates[i].votes == loss && candidates[i].eliminated == false)
         {
-            printf("%i\n\n", loss);
+            //printf("%i\n\n", loss);
             return loss;
         }
     }
