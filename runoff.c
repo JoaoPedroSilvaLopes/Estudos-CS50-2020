@@ -301,11 +301,11 @@ void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
         }
     }
     
-    if(n < m)
+    if(n > m)
     {
         for (int i = 0; i < candidate_count; i++)
         {
-            if(candidates[i].votes == n)
+            if(candidates[i].votes == min)
             {
                 candidates[i].eliminated = true;    
             }
