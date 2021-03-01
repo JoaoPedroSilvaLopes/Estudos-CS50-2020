@@ -167,15 +167,6 @@ return false;
 
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
-    /*for (int i = 0; i < voter_count; i++)
-    {
-        int j = 0;
-        //for (int j = 0; j < candidate_count; j++)
-        //{
-            printf("%i\n", preferences[i][j]);
-        //}
-    }*/
-    //------------------------
     for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -203,11 +194,6 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
             }
         }
     }
-    
-    /*for (int i = 0; i < candidate_count; i++)
-    {
-        printf("%i\n", candidates[i].votes);    
-    }*/
     return;
 }
 
@@ -232,8 +218,6 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
     {
         if (candidates[i].votes == high && (high > (sum / 2)))
         {
-            //printf("%s\n", candidates[i].name);
-            //printf("%s\n", "ok");
             return true;
         }
         else
@@ -302,20 +286,29 @@ bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os ca
 
 void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
 {
-    int loss;
+    int n = 0;
+    int m = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        int nv[i];
-        if (candidates[i].votes < loss  && candidates[i].eliminated == false)
+        if (candidates[i].votes == min)
         {
-            loss = candidates[i].votes;
+            n++;
+            m++;
+        }
+        else
+        {
+            n++;
         }
     }
-    for (int i = 0; i < candidate_count; i++)
+    
+    if(n < m)
     {
-        if (candidates[i].votes == loss && candidates[i].eliminated == false)
+        for (int i = 0; i < candidate_count; i++)
         {
-            candidates[i].eliminated = true;
+            if(candidates[i].votes == n)
+            {
+                candidates[i].eliminated = true;    
+            }
         }
     }
     return;
