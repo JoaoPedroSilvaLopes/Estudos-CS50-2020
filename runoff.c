@@ -282,14 +282,15 @@ bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os ca
     {
         if (candidates[i].eliminated == false)
         {
-            n++;
-        }
-    }
-    for (int i = 0; i > candidate_count; i++)
-    {
-        if (candidates[i].votes == min)
-        {
-            m++;
+            if (candidates[i].votes == min)
+            {
+                n++;
+                m++;
+            }
+            else
+            {
+                n++;
+            }
         }
     }
     if (m == n)
