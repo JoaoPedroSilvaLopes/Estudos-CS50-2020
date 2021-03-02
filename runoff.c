@@ -153,19 +153,6 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
     return;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
     int high = 0;
@@ -193,9 +180,16 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
     return min;
 }
 
+
+
+
+
+
+
+
+
 bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os candidatos, retornar FALSO caso o contrário
 {
-    int n = 0;
     int m = 0;
     for (int i = 0; i < candidate_count; i++)
     {
@@ -203,26 +197,26 @@ bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os ca
         {
             if (candidates[i].votes == min)
             {
-                n++;
                 m++;
-            }
-            else
-            {
-                n++;
             }
         }
     }
-    if (m == n)
+    if (m ==  candidate_count)
     {
         return true;
     }
     return false;
 }
 
+
+
+
+
+
+
+
 void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
 {
-    //int n = 0;
-    //int m = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == min)
@@ -230,24 +224,5 @@ void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
             candidates[i].eliminated = true;
         }
     }
-    /*if(n > m)
-    {
-        for (int i = 0; i < candidate_count; i++)
-        {
-            if(candidates[i].votes == min)
-            {
-                candidates[i].eliminated = true;    
-            }
-        }
-    }*/
-    
-    
-    
-    
-    
-    
-    
-    
-    
     return;
 }
