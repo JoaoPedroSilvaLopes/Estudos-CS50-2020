@@ -171,16 +171,15 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
     int high = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].eliminated == false)
+        if (candidates[i].votes > voter_count / 2)
         {
-            if (candidates[i].votes > high)
-            {
-                high = candidates[i].votes;
-            }
+            printf("%s\n", candidates[i].name);
+            return true;
         }
-
     }
-    for (int i = 0; i < candidate_count; i++)
+    return false;
+    
+    /*for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == high && (high > (voter_count / 2)))
         {
@@ -192,7 +191,7 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
             break;
         }
     }
-    return false;
+    return false;*/
 }
 
 int find_min(void) // Retornar o número minimo de votos e os candidatos restantes
