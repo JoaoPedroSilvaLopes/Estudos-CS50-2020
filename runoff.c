@@ -114,6 +114,7 @@ int main(int argc, string argv[])
 
 bool vote(int voter, int rank, string name) // Registro de votos para os candidatos não eliminados
 {
+    //printf("%i\n", preferences[0][0]);
     // verificação da validez da palavra
     int x = 0; // indice do candidatos digitado
     int z; // indice do total de candidatos
@@ -199,8 +200,8 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
                         {
                             if (preferences[i][j + 1] == (y + 1) && candidates[y].eliminated == false)
                             {
-                                //preferences[i][j] = preferences[i][j + 1];
-                                //preferences[i][j + 1] = 0;
+                                preferences[i][j] = preferences[i][j + 1];
+                                preferences[i][j + 1] = 0;
                                 candidates[y].votes++;
                                 //printf("%i\n", candidates[x].votes);
                                 break;
@@ -242,22 +243,25 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
     int sum = 0;
     int high = 0;
+    int n = 0;
     for (int i = 0; i < candidate_count; i++)
     {
-        int nv[i];
         if (candidates[i].eliminated == false)
         {
             if (candidates[i].votes > high)
             {
                 high = candidates[i].votes;
             }
-            nv[i] = candidates[i].votes;
-            sum = sum + nv[i];
+            sum = sum + candidates[i].votes;
+        }
+        else
+        {
+            n++;
         }
     }
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes == high && (high > (sum / 2)))
+        if (candidates[i].votes == high && (high > (n / 2)))
         {
             fprintf(stdout, "%s\n", candidates[i].name);
             return true;
