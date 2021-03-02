@@ -114,46 +114,12 @@ int main(int argc, string argv[])
 
 bool vote(int voter, int rank, string name) // Registro de votos para os candidatos não eliminados
 {
-    //printf("%i\n", preferences[0][0]);
-    // verificação da validez da palavra
-    int x = 0; // indice do candidatos digitado
-    int z; // indice do total de candidatos
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[x].name) == 0)
+        if (strcmp(name, candidates[i].name) == 0)
         {
-
-        }
-        else if (i == candidate_count - 1 && !(strcmp(name, candidates[x].name) == 0 ))
-        {
-            return false;
-        }
-        else
-        {
-            x++;
-        }
-    }
-    z = x + 1;
-    //printf("%i\n", z);
-    //printf("%i\n", x);
-
-    // Descobrir a posição da matriz
-    for (int i = 0; i < voter_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            if (preferences[i][j] == 0) // se uma preferencia estive vaga
-            {
-                for (int y = j; y > 0; y--) // condição;
-                {
-                    if (preferences[i][y - 1] == z) // se uma preferencia anterior estiver com o mesmo voto
-                    {
-                        return false; // retornar falso
-                    }
-                }
-                preferences[i][j] = z;
-                return true;
-            }
+            preferences[voter][rank] = i;
+            return true;
         }
     }
 return false;
@@ -218,11 +184,20 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
     }
     /*for (int i = 0; i < candidate_count; i++)
     {
-        //for (int j = 0; j < candidate_count; j++)
-        //{
-            printf("%i\n", candidates[i].votes);   
-        //}
+        for (int j = 0; j < candidate_count; j++)
+        {
+            if (candidates[(preferences[i][j] - 1)].eliminated == false)
+            {
+                printf("%i\n", preferences[i][j] - 1);    
+            }   
+            else
+            {
+                preferences[i][j] = 0;
+                printf("%i\n", preferences[i][j]);    
+            }
+        }
     }*/
+    
     return;
 }
 
