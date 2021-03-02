@@ -136,17 +136,6 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
 return false;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
     for (int i = 0; i < voter_count; i++)
@@ -161,69 +150,6 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
             }
         }
     }
-    
-    
-    
-    /*for (int i = 0; i < voter_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            printf("%i\n", preferences[i][j]);   
-        }
-    }
-    printf("\n\n\n");*/
-    /*for (int i = 0; i < voter_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            for (int x = 0; x < candidate_count; x++)
-            {
-                if (j == 0 && preferences[i][j] == (x + 1))
-                {
-                    if (candidates[x].eliminated == false)
-                    {
-                        //preferences[i][j] = (x + 1);
-                        candidates[x].votes++;
-                        //printf("%i\n", candidates[x].votes);
-                    }
-                    else
-                    {
-                        for (int y = 0; y < candidate_count; y++)
-                        {
-                            if (preferences[i][j + 1] == (y + 1) && candidates[y].eliminated == false)
-                            {
-                                preferences[i][j] = preferences[i][j + 1];
-                                preferences[i][j + 1] = 0;
-                                candidates[y].votes++;
-                                //printf("%i\n", candidates[x].votes);
-                                break;
-                            }
-                            else if (preferences[i][j + 1] == (y + 1) && candidates[y].eliminated == true)
-                            {
-                                   
-                            }
-                        }   
-                    }
-                }
-            }
-        }
-    }*/
-    /*for (int i = 0; i < candidate_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            if (candidates[(preferences[i][j] - 1)].eliminated == false)
-            {
-                printf("%i\n", preferences[i][j] - 1);    
-            }   
-            else
-            {
-                preferences[i][j] = 0;
-                printf("%i\n", preferences[i][j]);    
-            }
-        }
-    }*/
-    
     return;
 }
 
@@ -242,9 +168,7 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 
 bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
 {
-    int sum = 0;
     int high = 0;
-    int n = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].eliminated == false)
@@ -253,16 +177,12 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
             {
                 high = candidates[i].votes;
             }
-            sum = sum + candidates[i].votes;
         }
-        else
-        {
-            n++;
-        }
+
     }
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes == high && (high > (n / 2)))
+        if (candidates[i].votes == high && (high > (voter_count / 2)))
         {
             fprintf(stdout, "%s\n", candidates[i].name);
             return true;
