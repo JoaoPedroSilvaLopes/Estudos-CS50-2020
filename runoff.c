@@ -178,25 +178,10 @@ bool print_winner(void) // Printar o vencedor da eleição, caso seja apenas um
         }
     }
     return false;
-    
-    /*for (int i = 0; i < candidate_count; i++)
-    {
-        if (candidates[i].votes == high && (high > (voter_count / 2)))
-        {
-            fprintf(stdout, "%s\n", candidates[i].name);
-            return true;
-        }
-        else
-        {
-            break;
-        }
-    }
-    return false;*/
 }
 
 int find_min(void) // Retornar o número minimo de votos e os candidatos restantes
 {
-    int loss;
     int min = voter_count;
     for (int i = 0; i < candidate_count; i++)
     {
@@ -205,15 +190,15 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
             min = candidates[i].votes;
         }
     }
-    loss = min;
+    /*loss = min;
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == loss && candidates[i].eliminated == false)
         {
             return loss;
         }
-    }
-    return 0;
+    }*/
+    return min;
 }
 
 bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os candidatos, retornar FALSO caso o contrário
