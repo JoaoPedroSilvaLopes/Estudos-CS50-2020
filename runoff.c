@@ -133,25 +133,6 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             return true;
         }
     }
-    // Descobrir a posição da matriz
-    /*for (int i = 0; i < voter_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            if (preferences[i][j] == 0) // se uma preferencia estive vaga
-            {
-                for (int y = j; y > 0; y--) // condição;
-                {
-                    if (preferences[i][y - 1] == z) // se uma preferencia anterior estiver com o mesmo voto
-                    {
-                        return false; // retornar falso
-                    }
-                }
-                preferences[i][j] = z;
-                return true;
-            }
-        }
-    }*/
 return false;
 }
 
@@ -168,6 +149,21 @@ return false;
 
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
 {
+    for (int i = 0; i < voter_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            int x = preferences[i][j];
+            if (candidates[x].eliminated == false)
+            {
+                candidates[x].votes++;
+                break;
+            }
+        }
+    }
+    
+    
+    
     /*for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -176,7 +172,7 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
         }
     }
     printf("\n\n\n");*/
-    for (int i = 0; i < voter_count; i++)
+    /*for (int i = 0; i < voter_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
@@ -202,16 +198,16 @@ void tabulate(void) // Catalogar os votos dos candidatos não eliminados
                                 //printf("%i\n", candidates[x].votes);
                                 break;
                             }
-                            /*else if (preferences[i][j + 1] == (y + 1) && candidates[y].eliminated == true)
+                            else if (preferences[i][j + 1] == (y + 1) && candidates[y].eliminated == true)
                             {
                                    
-                            }*/
+                            }
                         }   
                     }
                 }
             }
         }
-    }
+    }*/
     /*for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
