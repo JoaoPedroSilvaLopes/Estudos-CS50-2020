@@ -1,3 +1,8 @@
+//MATRÍCULA: 20201045050643
+//NOME: João Pedro Silva Lopes
+//USUÁRIO: JoãoPedroSilvaLopes
+//EMAIL INSTITUCIONAL: joao.pedro.silva06@aluno.ifce.edu.br
+
 #include <cs50.h>
 #include <stdio.h>
 #include <string.h>
@@ -36,7 +41,7 @@ int main(int argc, string argv[])
         return 1;
     }
 
-    candidate_count = argc - 1; // Quantidade dos array dos candidatos
+    candidate_count = argc - 1; // Quantidade dos candidatos
 
     if (candidate_count > MAX_CANDIDATES) // Checka para não exceder a quantidade máxima de candidatos
     {
@@ -85,7 +90,7 @@ int main(int argc, string argv[])
         {
             break;
         }
-
+        
         // Eliminar o(s) último(s) candidato(s)
         int min = find_min();
         bool tie = is_tie(min);
@@ -101,9 +106,9 @@ int main(int argc, string argv[])
             }
             break;
         }
-
+        
         eliminate(min); // Eliminar alguém com o número mínimo de votos
-
+        
         for (int i = 0; i < candidate_count; i++) // Resetar a contagem de votos de volta para zero
         {
             candidates[i].votes = 0;
@@ -112,20 +117,9 @@ int main(int argc, string argv[])
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
 bool vote(int voter, int rank, string name) // Registro de votos para os candidatos não eliminados
 {
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++) 
     {
         if (strcmp(name, candidates[i].name) == 0)
         {
@@ -133,7 +127,7 @@ bool vote(int voter, int rank, string name) // Registro de votos para os candida
             return true;
         }
     }
-return false;
+    return false;
 }
 
 void tabulate(void) // Catalogar os votos dos candidatos não eliminados
@@ -180,19 +174,11 @@ int find_min(void) // Retornar o número minimo de votos e os candidatos restant
     return min;
 }
 
-
-
-
-
-
-
-
-
 bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os candidatos, retornar FALSO caso o contrário
 {
     int n = 0;
     int m = 0;
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++) // Contagem para verificar o candidato
     {
         if (candidates[i].eliminated == false)
         {
@@ -207,19 +193,12 @@ bool is_tie(int min) // Retornar TRUE se a eleição teve empate com todos os ca
             }
         }
     }
-    if (m == n)
+    if (m == n) // Se a contagem for igual entao significa que todos os candidatos tem o numero minimo de votos, entao empataram
     {
         return true;
     }
     return false;
 }
-
-
-
-
-
-
-
 
 void eliminate(int min) // Eliminar o candidato (ou candidatos) em último lugar
 {
