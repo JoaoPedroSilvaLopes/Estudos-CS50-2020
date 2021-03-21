@@ -27,7 +27,6 @@ pair pairs[MAX * (MAX - 1) / 2];
 
 int pair_count; // Número de pares
 int candidate_count; // Número de candidatos
-int voter_count;
 
 // Funções
 bool vote(int rank, string name, int ranks[]);
@@ -67,7 +66,7 @@ int main(int argc, string argv[])
     }
 
     pair_count = 0;
-    /*int*/ voter_count = get_int("Number of voters: ");
+    int voter_count = get_int("Number of voters: ");
 
     for (int i = 0; i < voter_count; i++) // Continuar perguntando os votos
     {
@@ -122,11 +121,18 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    for (int i = 0; i < voter_count; i++)
+    for (int i = 0; i < MAX; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            preferences[i][j] = ranks[j];
+            if (preferences[i - 1][1] == 0)
+            {
+                break;    
+            }
+            else 
+            {
+                preferences[i][j] = ranks[j];    
+            }
         }
     }
     return;
