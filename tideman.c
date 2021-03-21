@@ -167,8 +167,8 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     int x = 0;
-    int m;
-    int n;
+    //int m;
+    //int n;
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
@@ -193,6 +193,7 @@ void add_pairs(void)
             }
         }
     }
+    pair_count = pair_count / 2;
     printf("%i\n", pair_count);
     return;
 }
