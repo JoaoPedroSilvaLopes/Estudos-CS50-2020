@@ -135,13 +135,15 @@ void record_preferences(int ranks[])
                     if (ranks[x] == i)
                     {
                         m = x;
+                        //printf("%i\n", m);
                     }
                 }
                 for (int y = 0; y < candidate_count; y++)
                 {
-                    if (ranks[y] == i)
+                    if (ranks[y] == j)
                     {
                         n = y;
+                        //printf("%i\n", n);
                     }
                 }
                 
@@ -149,6 +151,7 @@ void record_preferences(int ranks[])
                 {
                     preferences[i][j]++;
                 }
+                //printf("%i\n", preferences[i][j]);
             }
         }
     }
