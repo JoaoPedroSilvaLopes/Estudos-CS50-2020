@@ -166,42 +166,42 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    int x = 0;
+    //int x = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
             if (preferences[i][j] > 0)
             {
-                if (preferences[i][j] > preferences[j][i])
+                if (preferences[i][j] != preferences[j][i])
                 {
-                    pairs[x].winner = preferences[i][j];
-                    pairs[x].loser = preferences[j][i];
-                    preferences[i][j] = 0;
-                    preferences[j][i] = 0;
+                    //pairs[x].winner = preferences[i][j];
+                    //pairs[x].loser = preferences[j][i];
+                    //preferences[i][j] = 0;
+                    //preferences[j][i] = 0;
                     pair_count++;
-                    x++;
+                    //x++;
                 }
-                else if (preferences[i][j] < preferences[j][i])
+                /*else if (preferences[i][j] < preferences[j][i])
                 {   
-                    pairs[x].winner = preferences[j][i];
-                    pairs[x].loser = preferences[i][j];
+                    //pairs[x].winner = preferences[j][i];
+                    //pairs[x].loser = preferences[i][j];
                     preferences[i][j] = 0;
                     preferences[j][i] = 0;
                     pair_count++;
-                    x++;
-                }
+                    //x++;
+                }*/
             }
         }
     }
-    //pair_count = pair_count / 2;
-    printf("%i\n", pair_count);
+    pair_count = pair_count / 2;
+    printf("%i\n\n", pair_count);
     
-    /*for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++)
     {
-        pairs[i].winner =
-        pairs[i].loser = 
-    }*/
+        printf("%i\n", pairs[i].winner);
+        printf("%i\n", pairs[i].loser);
+    }
     
     return;
 }
