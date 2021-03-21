@@ -167,23 +167,33 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     int x = 0;
+    int m;
+    int n;
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
             if (preferences[i][j] > 0)
             {
-                //if (preferences[i][j] != preferences[j][i])
-                //{
+                if (preferences[i][j] > preferences[j][i])
+                {
                     //printf("%s%s\n", candidates[i], candidates[j]); 
-                    pairs[x].winner = i;
-                    pairs[x].loser = j;
+                    pairs[x].winner = preferences[i][j];
+                    pairs[x].loser = preferences[j][i];
                     pair_count++;
                     x++;
-                //}
+                }
+                else if (preferences[i][j] < preferences[j][i])
+                {   
+                    pairs[x].winner = preferences[j][i];
+                    pairs[x].loser = preferences[i][j];
+                    pair_count++;
+                    x++;
+                }
             }
         }
     }
+    printf("%i\n", pair_count);
     return;
 }
 
