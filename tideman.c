@@ -180,7 +180,7 @@ void add_pairs(void)
             }
         }
     }
-    pair_count = pair_count - 1;
+    //pair_count = pair_count - 1;
     return;
 }
 
