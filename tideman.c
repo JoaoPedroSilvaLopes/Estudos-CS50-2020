@@ -70,7 +70,7 @@ int main(int argc, string argv[])
 
     for (int i = 0; i < voter_count; i++) // Continuar perguntando os votos
     {
-        int ranks[candidate_count]; // ranks[i] é o voto de ith preferencia
+        int ranks[candidate_count]; // ranks[j] é o voto de jth preferencia
         
         for (int j = 0; j < candidate_count; j++) // Consultar cada rank
         {
@@ -95,16 +95,23 @@ int main(int argc, string argv[])
     return 0;
 }
 
+
+
+
+
+
+
+
+
+
 // Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
-    int x = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         if (strcmp(name, candidates[i]) == 0)
         {
-            ranks[x] = i;
-            x++;
+            ranks[rank] = i;
             return true;
         }
     }
@@ -114,7 +121,13 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            preferences[i][j] = ranks[j];
+        }
+    }
     return;
 }
 
