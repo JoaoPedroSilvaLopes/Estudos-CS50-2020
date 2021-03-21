@@ -172,11 +172,11 @@ void add_pairs(void)
         {
             if (preferences[i][j] > 0)
             {
-                if (preferences[i][j] != preferences[j][i])
-                {
+                //if (preferences[i][j] != preferences[j][i])
+                //{
                     //printf("%s%s\n", candidates[i], candidates[j]); 
                     pair_count++;
-                }
+                //}
             }
         }
     }
