@@ -174,7 +174,7 @@ void add_pairs(void)
             {
                 if (preferences[i][j] != preferences[j][i])
                 {
-                    printf("%s%s\n", candidates[i], candidates[j]); 
+                    //printf("%s%s\n", candidates[i], candidates[j]); 
                     pair_count++;
                 }
             }
