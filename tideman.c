@@ -170,7 +170,7 @@ void add_pairs(void)
             {
                 if (preferences[i][j] != preferences[j][i])
                 {
-                    if (preferences[i][j] != preferences[j][i])
+                    if (preferences[i][j] > preferences[j][i])
                     {
                         pairs[pair_count].winner = preferences[i][j];
                         pairs[pair_count].loser = preferences[j][i];
@@ -178,14 +178,14 @@ void add_pairs(void)
                         preferences[j][i] = 0;
                         pair_count++;
                     }
-                    /*else if (preferences[i][j] < preferences[j][i])
+                    else if (preferences[i][j] < preferences[j][i])
                     {
                         pairs[pair_count].winner = preferences[j][i];
                         pairs[pair_count].loser = preferences[i][j];
                         preferences[i][j] = 0;
                         preferences[j][i] = 0;
                         pair_count++;    
-                    }*/
+                    }
                 }
             }
         }
@@ -196,7 +196,7 @@ void add_pairs(void)
     //{
         printf("%i - %i\n\n", pairs[0].winner, pairs[0].loser);
         printf("%i - %i\n\n", pairs[1].winner, pairs[1].loser);
-        printf("%i - %i\n\n", pairs[2].winner, pairs[2].loser);
+        printf("%i - %i\n\n\n", pairs[2].winner, pairs[2].loser);
     //}
     
     return;
@@ -205,7 +205,16 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    // TODO
+    for (int i = 1; i < pair_count + 1; i++)
+    {
+        pairs[i].winner = pairs[i].winner - pairs[i].loser;  
+        pairs[i].loser = 0;
+    }
+    
+    printf("%i - %i\n\n", pairs[0].winner, pairs[0].loser);
+    printf("%i - %i\n\n", pairs[1].winner, pairs[1].loser);
+    printf("%i - %i\n\n", pairs[2].winner, pairs[2].loser);
+
     return;
 }
 
