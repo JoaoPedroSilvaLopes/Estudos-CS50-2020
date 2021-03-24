@@ -129,14 +129,16 @@ void record_preferences(int ranks[])
                     {
                         n = x;
                     }
+                    
+                    if (m == n)
+                    {
+                        m = 0;
+                        n = 0;
+                    }
                 }
                 if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
                     preferences[i][j]++; // Aumentar a quantidade de preferências
-                }
-                else if (m == n)
-                {
-                    preferences[i][j] = 0;  
                 }
             //}
         }
