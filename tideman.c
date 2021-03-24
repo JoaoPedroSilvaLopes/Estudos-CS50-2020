@@ -111,14 +111,14 @@ bool vote(int rank, string name, int ranks[])
 // Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
-    int m;
-    int n;
+    int m = 0;
+    int n = 0;
     for (int i = 0; i < candidate_count; i++) // linha da matriz candidatos
     {
         for (int j = 0; j < candidate_count; j++) // coluna da matriz candidatos
         {
-            //if (candidates[i] != candidates[j]) // se a comparação for de candidatos diferentes
-            //{
+            if (candidates[i] != candidates[j]) // se a comparação for de candidatos diferentes
+            {
                 for (int x = 0; x < candidate_count; x++) // contagem do rank do primeiro candidato
                 {
                     if (ranks[x] == i)
@@ -129,18 +129,13 @@ void record_preferences(int ranks[])
                     {
                         n = x;
                     }
-                    
-                    if (m == n)
-                    {
-                        m = 0;
-                        n = 0;
-                    }
                 }
                 if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
                     preferences[i][j]++; // Aumentar a quantidade de preferências
+                    printf("%i\n", preferences[i][j]);
                 }
-            //}
+            }
         }
     }
 
