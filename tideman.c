@@ -213,16 +213,26 @@ void lock_pairs(void)
     
     for (int i = 0; i < pair_count; i++)
     {
-        if (pairs[pair_count - 1].winner == pairs[pair_count - 2].loser && pairs[pair_count - 1].loser == pairs[0].winner)
+        if ((i == pair_count - 1) && (pairs[i].loser == pairs[0].winner))
         {
             printf("%i - %i\n\n", pairs[i].winner, pairs[i].loser);
-            printf("%i - %i\n\n", pairs[i].loser, pairs[0].winner);
-            
-            locked[pairs[i].winner][pairs[i].loser] = false;            
+            locked[pairs[i].winner][pairs[i].loser] = false;
         }
         else
         {
             locked[pairs[i].winner][pairs[i].loser] = true;   
+        }
+    }
+    
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (locked[pairs[i].winner][pairs[i].loser] == true)
+        {
+            printf("TRUE: %i - %i\n", pairs[i].winner, pairs[i].loser);
+        }
+        else
+        {
+            printf("FALSE: %i - %i\n", pairs[i].winner, pairs[i].loser);
         }
     }
     
