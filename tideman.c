@@ -117,8 +117,8 @@ void record_preferences(int ranks[])
     {
         for (int j = 0; j < candidate_count; j++) // coluna da matriz candidatos
         {
-            if (candidates[i] != candidates[j]) // se a comparação for de candidatos diferentes
-            {
+            //if (candidates[i] != candidates[j]) // se a comparação for de candidatos diferentes
+            //{
                 for (int x = 0; x < candidate_count; x++) // contagem do rank do primeiro candidato
                 {
                     if (ranks[x] == i)
@@ -130,18 +130,11 @@ void record_preferences(int ranks[])
                         n = x;
                     }
                 }
-                /*for (int y = 0; y < candidate_count; y++) // contagem do rank do segundo candidato
-                {
-                    if (ranks[y] == j)
-                    {
-                        n = y;
-                    }
-                }*/
                 if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
                     preferences[i][j]++; // Aumentar a quantidade de preferências
                 }
-            }
+            //}
         }
     }
 
