@@ -94,7 +94,6 @@ int main(int argc, string argv[])
     return 0;
 }
 
-// Update ranks given a new vote
 bool vote(int rank, string name, int ranks[])
 {
     for (int i = 0; i < candidate_count; i++)
@@ -108,11 +107,11 @@ bool vote(int rank, string name, int ranks[])
     return false;
 }
 
-// Update preferences given one voter's ranks
 void record_preferences(int ranks[])
 {
     int m = 0;
     int n = 0;
+    
     for (int i = 0; i < candidate_count; i++) // linha da matriz candidatos
     {
         for (int j = 0; j < candidate_count; j++) // coluna da matriz candidatos
@@ -137,11 +136,10 @@ void record_preferences(int ranks[])
             }
         }
     }
-
+    
     return;
 }
 
-// Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
     for (int i = 0; i < candidate_count; i++) // Linha da matriz de candidatos
@@ -156,87 +154,82 @@ void add_pairs(void)
             }
         }
     }
-    printf("%i - %i\n", pairs[0].winner, pairs[0].loser);
-    printf("%i - %i\n", pairs[1].winner, pairs[1].loser);
-    printf("%i - %i\n", pairs[2].winner, pairs[2].loser);
+    
     return;
 }
 
-
-
-
-
-
-// Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    int m;
-    int n;
-    int diff[pair_count];
-
+    int m; // Variável auxiliar no pairs[].winner
+    int n; // Variável auxiliar no pairs[].loser
+    int diff[pair_count]; // Array para contar a força de vitória dos pares
     pair_count = 0; // Linkar pair_count a 0 de novo para contar preferences
-
+    
     for (int i = 0; i < candidate_count; i++) // Linha da matriz de candidatos
     {
         for (int j = 0; j < candidate_count; j++) // Coluna da matriz de candidatos
         {
-            if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i]) // Não pode ser empate e contar o vencedor
+            if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i])
             {
-                diff[pair_count] = preferences[i][j] - preferences[j][i]; // Linkar o preferences[i][j] no counts.winner - mais preferido
+                diff[pair_count] = preferences[i][j] - preferences[j][i]; // Achar o valor da força de vitória do par
                 pair_count++; // Aumentar contagem de pares novamente
             }
         }
     }
-    //printf("%i\n", pair_count);
-    printf("%i\n", diff[0]);
-    printf("%i\n", diff[1]);
-    printf("%i\n\n", diff[2]);
     
-    for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++) 
     {
         for (int j = 0; j < pair_count - 1; j++)
         {
-            printf("%i\n\n", j);
-            if (diff[j] < diff[j + 1])
+            if (diff[j] < diff[j + 1]) // Se a força de vitória for menor que a posterior do array
             {
-                m = diff[j];
-                diff[j] = diff[j + 1];
-                diff[j + 1] = m;
-                
-                
-                m = pairs[j].winner;
-                pairs[j].winner = pairs[j + 1].winner;
-                pairs[j + 1].winner = m;
-                
-                n = pairs[j].loser;
-                pairs[j].loser = pairs[j + 1].loser;
-                pairs[j + 1].loser = n;
+                m = pairs[j].winner; //
+                n = pairs[j].loser; // 
+                pairs[j].winner = pairs[j + 1].winner; //
+                pairs[j].loser = pairs[j + 1].loser; //
+                pairs[j + 1].winner = m; //
+                pairs[j + 1].loser = n; //
             }
         }
     }
-    printf("%i\n", diff[0]);
-    printf("%i\n", diff[1]);
-    printf("%i\n", diff[2]);
-    
-    printf("%i - %i\n", pairs[0].winner, pairs[0].loser);
-    printf("%i - %i\n", pairs[1].winner, pairs[1].loser);
-    printf("%i - %i\n", pairs[2].winner, pairs[2].loser);
-    
     
     return;
 }
 
-// Lock pairs into the candidate graph in order, without creating cycles
+
+
+
+
+
+
+
+
+
+
+
 void lock_pairs(void)
 {
-    // TODO
+    // mais fraco nao pode apontar pro mais forte, se não cria um ciclo
+    
+    for (int i = 0; i < pair_count; i++)
+    {
+        locked[pairs[i].winner][pairs[i].loser] = true;
+    }
+    //locked[MAX][MAX]
     return;
 }
 
-// Print the winner of the election
+
+
+
+
+
+
+
+
+
+
 void print_winner(void)
 {
-    // TODO
     return;
 }
-
