@@ -133,7 +133,6 @@ void record_preferences(int ranks[])
                 if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
                     preferences[i][j]++; // Aumentar a quantidade de preferências
-                    printf("%i\n", preferences[i][j]);
                 }
             }
         }
@@ -157,6 +156,9 @@ void add_pairs(void)
             }
         }
     }
+    printf("%i - %i\n", pairs[0].winner, pairs[0].loser);
+    printf("%i - %i\n", pairs[1].winner, pairs[1].loser);
+    printf("%i - %i\n", pairs[2].winner, pairs[2].loser);
     return;
 }
 
@@ -168,18 +170,10 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    int max = 0;
-    int m = 0;
+    int m;
+    int n;
     int diff[pair_count];
 
-    typedef struct
-    {
-        int winner;
-        int loser;
-    }
-    count;
-
-    count counts[pair_count];
     pair_count = 0; // Linkar pair_count a 0 de novo para contar preferences
 
     for (int i = 0; i < candidate_count; i++) // Linha da matriz de candidatos
@@ -188,41 +182,47 @@ void sort_pairs(void)
         {
             if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i]) // Não pode ser empate e contar o vencedor
             {
-                counts[pair_count].winner = preferences[i][j]; // Linkar o preferences[i][j] no counts.winner - mais preferido
-                counts[pair_count].loser = preferences[j][i]; // Linkar o preferences[j][i] no counts.loser - menos preferido
+                diff[pair_count] = preferences[i][j] - preferences[j][i]; // Linkar o preferences[i][j] no counts.winner - mais preferido
                 pair_count++; // Aumentar contagem de pares novamente
             }
         }
     }
-
-    printf("%i - %i\n", counts[0].winner, counts[0].loser);
-    printf("%i - %i\n", counts[1].winner, counts[1].loser);
-    printf("%i - %i\n\n", counts[2].winner, counts[2].loser);
-
+    //printf("%i\n", pair_count);
+    printf("%i\n", diff[0]);
+    printf("%i\n", diff[1]);
+    printf("%i\n\n", diff[2]);
+    
     for (int i = 0; i < pair_count; i++)
     {
-        diff[i] = counts[i].winner - counts[i].loser;
-        printf("%i\n", diff[i]);
-    }
-
-    for (int i = 0; i < pair_count; i++)
-    {
-        if (diff[i] > max)
+        for (int j = 0; j < pair_count - 1; j++)
         {
-            max = diff[i];
-            m++;
+            printf("%i\n\n", j);
+            if (diff[j] < diff[j + 1])
+            {
+                m = diff[j];
+                diff[j] = diff[j + 1];
+                diff[j + 1] = m;
+                
+                
+                m = pairs[j].winner;
+                pairs[j].winner = pairs[j + 1].winner;
+                pairs[j + 1].winner = m;
+                
+                n = pairs[j].loser;
+                pairs[j].loser = pairs[j + 1].loser;
+                pairs[j + 1].loser = n;
+            }
         }
     }
-
-    if (m <= pair_count / 2)
-    {
-        printf("Ordem importa\n");
-    }
-    else
-    {
-        printf("Ordem não importa\n");
-    }
-
+    printf("%i\n", diff[0]);
+    printf("%i\n", diff[1]);
+    printf("%i\n", diff[2]);
+    
+    printf("%i - %i\n", pairs[0].winner, pairs[0].loser);
+    printf("%i - %i\n", pairs[1].winner, pairs[1].loser);
+    printf("%i - %i\n", pairs[2].winner, pairs[2].loser);
+    
+    
     return;
 }
 
