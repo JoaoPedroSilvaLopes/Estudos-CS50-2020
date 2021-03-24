@@ -113,31 +113,32 @@ void record_preferences(int ranks[])
 {
     int m;
     int n;
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++) // linha da matriz candidatos
     {
-        for (int j = 0; j < candidate_count; j++)
+        for (int j = 0; j < candidate_count; j++) // coluna da matriz candidatos
         {
-            if (candidates[i] != candidates[j])
+            if (candidates[i] != candidates[j]) // se a comparação for de candidatos diferentes
             {
-                for (int x = 0; x < candidate_count; x++)
+                //printf("%s , %s\n", candidates[i], candidates[j]);
+                for (int x = 0; x < candidate_count; x++) // contagem do rank do primeiro candidato
                 {
                     if (ranks[x] == i)
                     {
                         m = x;
                     }
                 }
-                for (int y = 0; y < candidate_count; y++)
+                for (int y = 0; y < candidate_count; y++) // contagem do rank do segundo candidato
                 {
                     if (ranks[y] == j)
                     {
                         n = y;
                     }
                 }
-                if (m < n)
+                if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
-                    preferences[i][j]++;
+                    preferences[i][j]++; // Aumentar a quantidade de preferências
                 }
-                //printf("%i\n", preferences[i][j]);
+                printf("%i\n", preferences[i][j]);
             }
         }
     }
@@ -162,35 +163,23 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    //pair pairs[]
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            //if (preferences[i][j] > 0)
-            //{
-                if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i])
-                {
-                    //if (preferences[i][j] > preferences[j][i])
-                    //{
-                        pairs[pair_count].winner = preferences[i][j];
-                        pairs[pair_count].loser = preferences[j][i];
-                        preferences[i][j] = 0;
-                        preferences[j][i] = 0;
-                        pair_count++;
-                    //}
-                }
-            //}
+            if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i])
+            {
+                pairs[pair_count].winner = preferences[i][j];
+                pairs[pair_count].loser = preferences[j][i];
+                pair_count++;
+            }
         }
     }
-    //printf("%i\n\n", pair_count);
-    
-    //for (int i = 0; i < pair_count; i++)
-    //{
-        //printf("%i - %i\n\n", pairs[0].winner, pairs[0].loser);
-        //printf("%i - %i\n\n", pairs[1].winner, pairs[1].loser);
-        //printf("%i - %i\n\n\n", pairs[2].winner, pairs[2].loser);
-    //}
+    printf("%i\n\n", pair_count);
+
+    printf("%i - %i\n\n", pairs[0].winner, pairs[0].loser);
+    printf("%i - %i\n\n", pairs[1].winner, pairs[1].loser);
+    printf("%i - %i\n\n\n", pairs[2].winner, pairs[2].loser);
     
     return;
 }
