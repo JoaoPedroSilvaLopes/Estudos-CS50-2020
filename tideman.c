@@ -129,6 +129,11 @@ void record_preferences(int ranks[])
                     {
                         n = x;
                     }
+                    else if (ranks[x] == i && ranks[x] == j)
+                    {
+                        m = x;
+                        n = x;
+                    }
                 }
                 if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
