@@ -22,7 +22,7 @@ typedef struct
 pair;
 
 // Array dos candidatos
-string candidates[MAX]; 
+string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
 
 int pair_count; // Número de pares
@@ -45,18 +45,18 @@ int main(int argc, string argv[])
     }
 
     candidate_count = argc - 1; // Quantidade dos candidatos
-    
+
     if (candidate_count > MAX) // Checka para não exceder a quantidade máxima de candidatos
     {
         printf("Maximum number of candidates is %i\n", MAX);
         return 2;
     }
-    
+
     for (int i = 0; i < candidate_count; i++) //Disposição dos candidatos no array candidates[i]
     {
         candidates[i] = argv[i + 1];
     }
-    
+
     for (int i = 0; i < candidate_count; i++) // Limpar o grafico dos pares
     {
         for (int j = 0; j < candidate_count; j++)
@@ -71,7 +71,7 @@ int main(int argc, string argv[])
     for (int i = 0; i < voter_count; i++) // Continuar perguntando os votos
     {
         int ranks[candidate_count]; // ranks[j] é o voto de jth preferencia
-        
+
         for (int j = 0; j < candidate_count; j++) // Consultar cada rank
         {
             string name = get_string("Rank %i: ", j + 1);
@@ -82,7 +82,7 @@ int main(int argc, string argv[])
                 return 3;
             }
         }
-        
+
         record_preferences(ranks);
         printf("\n");
     }
@@ -119,110 +119,115 @@ void record_preferences(int ranks[])
         {
             if (candidates[i] != candidates[j]) // se a comparação for de candidatos diferentes
             {
-                //printf("%s , %s\n", candidates[i], candidates[j]);
                 for (int x = 0; x < candidate_count; x++) // contagem do rank do primeiro candidato
                 {
                     if (ranks[x] == i)
                     {
                         m = x;
                     }
+                    else if (ranks[x] == j)
+                    {
+                        n = x;
+                    }
                 }
-                for (int y = 0; y < candidate_count; y++) // contagem do rank do segundo candidato
+                /*for (int y = 0; y < candidate_count; y++) // contagem do rank do segundo candidato
                 {
                     if (ranks[y] == j)
                     {
                         n = y;
                     }
-                }
+                }*/
                 if (m < n) // se m for menor que n, então quer dizer que m é mais preferível que n
                 {
                     preferences[i][j]++; // Aumentar a quantidade de preferências
                 }
-                printf("%i\n", preferences[i][j]);
             }
         }
     }
-    
+
     return;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count; i++) // Linha da matriz de candidatos
     {
-        for (int j = 0; j < candidate_count; j++)
+        for (int j = 0; j < candidate_count; j++) // Coluna da matriz de candidatos
         {
-            if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i])
+            if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i]) // Não pode ser empate e contar o vencedor
             {
-                pairs[pair_count].winner = i;
-                pairs[pair_count].loser = j;
-                pair_count++;
+                pairs[pair_count].winner = i; // Linkar o i no pairs.winner - mais preferido
+                pairs[pair_count].loser = j; // Linkar o j no pairs.loser - menos preferido
+                pair_count++; // Aumentar contagem de pares
             }
-            /*else if (preferences[i][j] != preferences[j][i] && preferences[i][j] < preferences[j][i])
-            {
-                pairs[pair_count].winner = j;
-                pairs[pair_count].loser = i;
-                pair_count++;
-            }*/
         }
     }
-
-    printf("%i\n\n", pair_count);
-
-    printf("%i - %i\n\n", pairs[0].winner, pairs[0].loser);
-    printf("%i - %i\n\n", pairs[1].winner, pairs[1].loser);
-    printf("%i - %i\n\n\n", pairs[2].winner, pairs[2].loser);
-    
     return;
 }
+
+
+
+
+
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    /*int diff[pair_count];
-    int org[pair_count];
     int max = 0;
     int m = 0;
-    for (int i = 0; i < pair_count; i++)
+    int diff[pair_count];
+
+    typedef struct
     {
-        diff[i] = pairs[i].winner - pairs[i].loser;  
+        int winner;
+        int loser;
     }
-    
-    for (int i = 0; i < pair_count; i++)
+    count;
+
+    count counts[pair_count];
+    pair_count = 0; // Linkar pair_count a 0 de novo para contar preferences
+
+    for (int i = 0; i < candidate_count; i++) // Linha da matriz de candidatos
     {
-        if (diff[i] >= max)
+        for (int j = 0; j < candidate_count; j++) // Coluna da matriz de candidatos
         {
-            m++;
-            max = diff[i];
+            if (preferences[i][j] != preferences[j][i] && preferences[i][j] > preferences[j][i]) // Não pode ser empate e contar o vencedor
+            {
+                counts[pair_count].winner = preferences[i][j]; // Linkar o preferences[i][j] no counts.winner - mais preferido
+                counts[pair_count].loser = preferences[j][i]; // Linkar o preferences[j][i] no counts.loser - menos preferido
+                pair_count++; // Aumentar contagem de pares novamente
+            }
         }
     }
-    
-    if (m == pair_count)
+
+    printf("%i - %i\n", counts[0].winner, counts[0].loser);
+    printf("%i - %i\n", counts[1].winner, counts[1].loser);
+    printf("%i - %i\n\n", counts[2].winner, counts[2].loser);
+
+    for (int i = 0; i < pair_count; i++)
     {
-        printf("Empatou, a ordem não importa\n");
+        diff[i] = counts[i].winner - counts[i].loser;
+        printf("%i\n", diff[i]);
+    }
+
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (diff[i] > max)
+        {
+            max = diff[i];
+            m++;
+        }
+    }
+
+    if (m <= pair_count / 2)
+    {
+        printf("Ordem importa\n");
     }
     else
     {
-        printf("A ordem importa\n");    
+        printf("Ordem não importa\n");
     }
-    printf("%i\n", diff[0]);
-    printf("%i\n", diff[1]);
-    printf("%i\n", diff[2]);*/
 
     return;
 }
