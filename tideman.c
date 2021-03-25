@@ -231,7 +231,7 @@ void lock_pairs(void)
                 {
                     locked[pairs[j].winner][pairs[j].loser] = false;
                 }
-                else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
+                /*else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
                 {
                     n++;
                     for (int x = 0; x < candidate_count; x++)
@@ -251,7 +251,7 @@ void lock_pairs(void)
                             locked[pairs[i].winner][pairs[i].loser] = true;
                         }
                     }
-                }
+                }*/
             }
         }
     }
