@@ -243,7 +243,7 @@ void lock_pairs(void)
                         }
                         else if (n == pair_count)
                         {
-                            locked[pairs[i].winner][pairs[i].loser] = false;
+                            locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
                             break;
                         }
                         else // se não, ta ok
