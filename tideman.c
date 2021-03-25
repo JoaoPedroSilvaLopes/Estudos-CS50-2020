@@ -224,6 +224,15 @@ void lock_pairs(void)
     {
         if (locked[pairs[i].winner][pairs[i].loser] == true) // Só pode ser comparado se for true
         {
+            if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m) // o primeiro ja é a menor força, pode-se presumir que todos os outros tbm tem a menor força
+            {
+                if (locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] == locked[pairs[pair_count - 1].winner][pairs[0].winner])
+                {
+                    locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
+                    break;
+                }
+            }
+            
             for (int j = 0; j < pair_count; j++) // pares posteriores ao par comparado
             {
                 if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser)) // Se ouver um par mesmo candidato ligado a mais de um par, o par menos significativo será removido do locked
@@ -239,13 +248,6 @@ void lock_pairs(void)
                 }
             }
             // Caso todos estejam empatados
-            if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m) // o primeiro ja é a menor força, pode-se presumir que todos os outros tbm tem a menor força
-            {
-                if (locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] == locked[pairs[pair_count - 1].winner][pairs[0].winner])
-                {
-                    locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;    
-                }
-            }
         }
     }
 
