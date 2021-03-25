@@ -220,11 +220,18 @@ void lock_pairs(void)
         }
         else
         {
-            locked[pairs[i].winner][pairs[i].loser] = false;   
+            if (i == 0)
+            {
+                locked[pairs[i].winner][pairs[i].loser] = true;    
+            }
+            else
+            {
+                locked[pairs[i].winner][pairs[i].loser] = false;    
+            }
         }
     }
     
-    /*for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++)
     {
         if (locked[pairs[i].winner][pairs[i].loser] == true)
         {
@@ -234,7 +241,7 @@ void lock_pairs(void)
         {
             printf("FALSE: %i - %i\n", pairs[i].winner, pairs[i].loser);
         }
-    }*/
+    }
     
     return;
 }
