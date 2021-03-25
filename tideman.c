@@ -214,7 +214,7 @@ void lock_pairs(void)
 
     for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
     {
-        locked[pairs[i].winner][pairs[i].loser] = true;    
+        locked[pairs[i].winner][pairs[i].loser] = true;     
     }
 
     
@@ -276,14 +276,11 @@ void lock_pairs(void)
 
 void print_winner(void)
 {
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < pair_count; i++)
     {
-        for (int j = 0; j < candidate_count; j++)
+        if (locked[pairs[i].winner][pairs[i].loser] == false)
         {
-            if (/*pairs[0].winner == i && */locked[pairs[j].winner][pairs[i].loser] == true)
-            {
-                printf("Alguem aponta pro: %s\n", candidates[i]);
-            }
+            printf("%s\n", candidates[pairs[i].loser]);
         }
     }
     return;
