@@ -209,9 +209,10 @@ void sort_pairs(void)
 
 void lock_pairs(void)
 {
-    // mais fraco nao pode apontar pro mais forte, se não cria um ciclo
+    int m = preferences[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] - preferences[pairs[pair_count - 1].loser][pairs[pair_count - 1].winner]; // força mais fraca
+    printf("%i\n", m); 
 
-    for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
     {
         locked[pairs[i].winner][pairs[i].loser] = true;    
     }
@@ -219,19 +220,30 @@ void lock_pairs(void)
     
     
     
-    for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++) // Comparar o primeiro par
     {
-        for (int j = 0; j < pair_count; j++)
+        for (int j = 0; j < pair_count; j++) // pares posteriores ao par comparado
         {
-            if (locked[pairs[i].winner][pairs[i].loser] == true)
+            if (locked[pairs[i].winner][pairs[i].loser] == true) // Só pode ser comparado se for true
             {
-                if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser))
+                if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser)) // Se ouver um par mesmo candidato ligado a mais de um par, o par menos significativo será removido do locked
                 {
                     locked[pairs[j].winner][pairs[j].loser] = false;
                 }
-                else if (pairs[i].loser == pairs[0].winner)
+                else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
                 {
-                    locked[pairs[i].winner][pairs[i].loser] = false;    
+                    for (int x = 0; x < candidate_count; x++)
+                    {
+                        if (preferences[pairs[i].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[i].loser] > m)// se apontar pra um com a força maior q a dele
+                        {
+                            locked[pairs[i].winner][pairs[i].loser] = false; 
+                            break;
+                        }
+                        else // se não, ta ok
+                        {
+                            locked[pairs[i].winner][pairs[i].loser] = true;
+                        }
+                    }
                 }
             }
         }
@@ -295,9 +307,12 @@ void print_winner(void)
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (pairs[0].winner == i)
+        for (int j = 0; j < candidate_count; j++)
         {
-            printf("%s\n", candidates[i]);
+            if (/*pairs[0].winner == i && */locked[pairs[j].winner][pairs[i].loser] == true)
+            {
+                printf("Alguem aponta pro: %s\n", candidates[i]);
+            }
         }
     }
     return;
