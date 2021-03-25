@@ -213,17 +213,60 @@ void lock_pairs(void)
 
     for (int i = 0; i < pair_count; i++)
     {
+        locked[pairs[i].winner][pairs[i].loser] = true;    
+    }
+
+    
+    
+    
+    for (int i = 0; i < pair_count; i++)
+    {
+        for (int j = 0; j < pair_count; j++)
+        {
+            if (locked[pairs[i].winner][pairs[i].loser] == true)
+            {
+                if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser))
+                {
+                    locked[pairs[j].winner][pairs[j].loser] = false;
+                }
+                else if (pairs[i].loser == pairs[0].winner)
+                {
+                    locked[pairs[i].winner][pairs[i].loser] = false;    
+                }
+            }
+        }
+    }
+
+
+
+
+
+    /*for (int i = 0; i < pair_count; i++)
+    {
         if (pairs[i].loser == pairs[0].winner)
         {
             locked[pairs[i].winner][pairs[i].loser] = false;
         }
         else
         {
-            locked[pairs[i].winner][pairs[i].loser] = true;
+            for (int j = 0; j < pair_count; j++)
+            {
+                if ((pairs[i].winner == pairs[j].winner) && (locked[pairs[i].winner][pairs[i].loser] = true))
+                {
+                    if (pairs[i].loser != pairs[j].loser)
+                    {
+                        locked[pairs[j].winner][pairs[j].loser] = false;  
+                    }
+                    else
+                    {
+                        locked[pairs[i].winner][pairs[i].loser] = true;
+                    }
+                }
+            }
         }
-    }
+    }*/
 
-    /*for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < pair_count; i++)
     {
         if (locked[pairs[i].winner][pairs[i].loser] == true)
         {
@@ -233,8 +276,8 @@ void lock_pairs(void)
         {
             printf("FALSE: %i - %i\n", pairs[i].winner, pairs[i].loser);
         }
-    }*/
-
+    }
+    printf("\n");
     return;
 }
 
