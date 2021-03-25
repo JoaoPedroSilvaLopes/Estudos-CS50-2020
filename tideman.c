@@ -210,6 +210,7 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     int m = preferences[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] - preferences[pairs[pair_count - 1].loser][pairs[pair_count - 1].winner]; // força mais fraca
+    int n = 0;
     printf("%i\n", m); 
 
     for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
@@ -230,13 +231,19 @@ void lock_pairs(void)
                 {
                     locked[pairs[j].winner][pairs[j].loser] = false;
                 }
-                /*else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
+                else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
                 {
                     for (int x = 0; x < candidate_count; x++)
                     {
+                        n++;
                         if (preferences[pairs[i].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[i].loser] > m)// se apontar pra um com a força maior q a dele
                         {
                             locked[pairs[i].winner][pairs[i].loser] = false; 
+                            break;
+                        }
+                        else if (n == pair_count)
+                        {
+                            locked[pairs[i].winner][pairs[i].loser] = false;
                             break;
                         }
                         else // se não, ta ok
@@ -244,7 +251,7 @@ void lock_pairs(void)
                             locked[pairs[i].winner][pairs[i].loser] = true;
                         }
                     }
-                }*/
+                }
             }
         }
     }
