@@ -209,63 +209,58 @@ void sort_pairs(void)
 
 void lock_pairs(void)
 {
-    int m = preferences[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] - preferences[pairs[pair_count - 1].loser][pairs[pair_count - 1].winner]; // força mais fraca
-    int n = 0;
+    // verificar qual é ciclo
+    // para ser ciclo todos devem perder pelo menos uma vez
+    
+    int x = 0;
+    bool contagem[candidate_count];
 
     for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
     {
-        locked[pairs[i].winner][pairs[i].loser] = true;     
+        locked[pairs[i].winner][pairs[i].loser] = true;
+        contagem[i] = true;
     }
-
     
-    
-    
-    for (int i = 0; i < pair_count; i++) // Comparar o primeiro par
+    for (int i = 0; i < pair_count; i++) // Linha da matriz
     {
-        if (locked[pairs[i].winner][pairs[i].loser] == true) // Só pode ser comparado se for true
+        for (int j = 0; j < pair_count; j++) // Coluna da matriz
         {
-            if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m) // o primeiro ja é a menor força, pode-se presumir que todos os outros tbm tem a menor força
+            if ((locked[i][j] == true) && (contagem[j] == true)) // Se o elemento da matriz for true e tbm perder
             {
-                for (int j = 0; j < pair_count; j++)
-                {
-                    if (locked[pairs[j].winner][pairs[j].loser] == locked[pairs[j].winner][pairs[0].winner])
-                    {
-                        locked[pairs[j].winner][pairs[j].loser] = false;
-                    }
-                }
-                break;
+                contagem[j] = false; // Transformar em false para não se repetir
+                x++; // Adicionar contagem
             }
-            
-            for (int j = 0; j < pair_count; j++) // pares posteriores ao par comparado
-            {
-                if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser)) // Se ouver um par mesmo candidato ligado a mais de um par, o par menos significativo será removido do locked
-                {
-                    if (preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner] == m)
-                    {
-                        
-                    }
-                    else
-                    {
-                        locked[pairs[j].winner][pairs[j].loser] = true;  
-                    }
-                }
-            }
-            // Caso todos estejam empatados
         }
     }
 
-    for (int i = 0; i < pair_count; i++)
+
+
+
+
+
+    if (x == candidate_count) // Indica que possui um ciclo
     {
-        if (locked[pairs[i].winner][pairs[i].loser] == true)
+        printf("ciclo\n");
+    }
+    else // Indica que não possui um ciclo
+    {
+        // Se não é ciclico é so colocar a fonte do grafo
+        printf("aciclico\n");
+        
+        for (int i = 0; i < pair_count; i++)
         {
-            printf("TRUE: %i - %i\n", pairs[i].winner, pairs[i].loser);
-        }
-        else
-        {
-            printf("FALSE: %i - %i\n", pairs[i].winner, pairs[i].loser);
+            locked[pairs[i].winner][pairs[i].loser] = true;    
         }
     }
-    printf("\n");
+    
+    
+    
+    
+    
+    
+    
+    
+    
     return;
 }
 
@@ -279,14 +274,21 @@ void lock_pairs(void)
 
 
 
+
+
+
+
+
+
+
 void print_winner(void)
 {
-    for (int i = 0; i < pair_count; i++)
+    /*for (int i = 0; i < pair_count; i++)
     {
         if (locked[pairs[i].winner][pairs[i].loser] == false)
         {
             printf("%s\n", candidates[pairs[i].loser]);
         }
-    }
+    }*/
     return;
 }
