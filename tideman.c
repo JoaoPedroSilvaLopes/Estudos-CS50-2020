@@ -111,7 +111,7 @@ void record_preferences(int ranks[])
 {
     int m = 0;
     int n = 0;
-    
+
     for (int i = 0; i < candidate_count; i++) // linha da matriz candidatos
     {
         for (int j = 0; j < candidate_count; j++) // coluna da matriz candidatos
@@ -136,7 +136,7 @@ void record_preferences(int ranks[])
             }
         }
     }
-    
+
     return;
 }
 
@@ -154,7 +154,7 @@ void add_pairs(void)
             }
         }
     }
-    
+
     return;
 }
 
@@ -164,7 +164,7 @@ void sort_pairs(void)
     int n; // Variável auxiliar no pairs[].loser
     int diff[pair_count]; // Array para contar a força de vitória dos pares
     pair_count = 0; // Linkar pair_count a 0 de novo para contar preferences
-    
+
     for (int i = 0; i < candidate_count; i++) // Linha da matriz de candidatos
     {
         for (int j = 0; j < candidate_count; j++) // Coluna da matriz de candidatos
@@ -176,15 +176,15 @@ void sort_pairs(void)
             }
         }
     }
-    
-    for (int i = 0; i < pair_count; i++) 
+
+    for (int i = 0; i < pair_count; i++)
     {
         for (int j = 0; j < pair_count - 1; j++)
         {
             if (diff[j] < diff[j + 1]) // Se a força de vitória for menor que a posterior do array
             {
                 m = pairs[j].winner; //
-                n = pairs[j].loser; // 
+                n = pairs[j].loser; //
                 pairs[j].winner = pairs[j + 1].winner; //
                 pairs[j].loser = pairs[j + 1].loser; //
                 pairs[j + 1].winner = m; //
@@ -192,7 +192,7 @@ void sort_pairs(void)
             }
         }
     }
-    
+
     return;
 }
 
@@ -210,27 +210,19 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // mais fraco nao pode apontar pro mais forte, se não cria um ciclo
-    
+
     for (int i = 0; i < pair_count; i++)
     {
-        if ((i != 0) && (pairs[i].winner == pairs[i - 1].loser))
+        if (pairs[i].loser == pairs[0].winner)
         {
-            //printf("%i - %i\n\n", pairs[i].winner, pairs[i].loser);
-            locked[pairs[i].winner][pairs[i].loser] = true;
+            locked[pairs[i].winner][pairs[i].loser] = false;
         }
         else
         {
-            if (i == 0)
-            {
-                locked[pairs[i].winner][pairs[i].loser] = true;    
-            }
-            else
-            {
-                locked[pairs[i].winner][pairs[i].loser] = false;    
-            }
+            locked[pairs[i].winner][pairs[i].loser] = true;
         }
     }
-    
+
     for (int i = 0; i < pair_count; i++)
     {
         if (locked[pairs[i].winner][pairs[i].loser] == true)
@@ -242,7 +234,7 @@ void lock_pairs(void)
             printf("FALSE: %i - %i\n", pairs[i].winner, pairs[i].loser);
         }
     }
-    
+
     return;
 }
 
