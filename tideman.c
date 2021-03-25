@@ -211,7 +211,6 @@ void lock_pairs(void)
 {
     int m = preferences[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] - preferences[pairs[pair_count - 1].loser][pairs[pair_count - 1].winner]; // força mais fraca
     int n = 0;
-    printf("%i\n", m); 
 
     for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
     {
@@ -229,29 +228,23 @@ void lock_pairs(void)
             {
                 if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser)) // Se ouver um par mesmo candidato ligado a mais de um par, o par menos significativo será removido do locked
                 {
-                    locked[pairs[j].winner][pairs[j].loser] = false;
+                    if (preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner] == m)
+                    {
+                        
+                    }
+                    else
+                    {
+                        locked[pairs[j].winner][pairs[j].loser] = true;  
+                    }
                 }
             }
-            if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m)
+            // Caso todos estejam empatados
+            if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m) // o primeiro ja é a menor força, pode-se presumir que todos os outros tbm tem a menor força
             {
-                n++;
-                for (int x = 0; x < candidate_count; x++)
+                if (locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] == locked[pairs[pair_count - 1].winner][pairs[0].winner])
                 {
-                    if (preferences[pairs[i].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[i].loser] > m)// se apontar pra um com a força maior q a dele
-                    {
-                        locked[pairs[i].winner][pairs[i].loser] = false; 
-                        break;
-                    }
-                    else if (n == pair_count)
-                    {
-                        locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
-                        break;
-                    }
-                    else // se não, ta ok
-                    {
-                        locked[pairs[i].winner][pairs[i].loser] = true;
-                    }
-                }   
+                    locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;    
+                }
             }
         }
     }
