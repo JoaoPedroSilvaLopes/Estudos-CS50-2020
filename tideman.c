@@ -223,35 +223,47 @@ void lock_pairs(void)
     
     for (int i = 0; i < pair_count; i++) // Comparar o primeiro par
     {
-        for (int j = 0; j < pair_count; j++) // pares posteriores ao par comparado
+        if (locked[pairs[i].winner][pairs[i].loser] == true) // Só pode ser comparado se for true
         {
-            if (locked[pairs[i].winner][pairs[i].loser] == true) // Só pode ser comparado se for true
+            for (int j = 0; j < pair_count; j++) // pares posteriores ao par comparado
             {
-                if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser)) // Se ouver um par mesmo candidato ligado a mais de um par, o par menos significativo será removido do locked
-                {
-                    locked[pairs[j].winner][pairs[j].loser] = false;
-                }
-                /*else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
-                {
-                    n++;
-                    for (int x = 0; x < candidate_count; x++)
+                //if (locked[pairs[i].winner][pairs[i].loser] == true) // Só pode ser comparado se for true
+                //{
+                    if ((pairs[i].winner == pairs[j].winner) && (pairs[i].loser != pairs[j].loser)) // Se ouver um par mesmo candidato ligado a mais de um par, o par menos significativo será removido do locked
                     {
-                        if (preferences[pairs[i].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[i].loser] > m)// se apontar pra um com a força maior q a dele
-                        {
-                            locked[pairs[i].winner][pairs[i].loser] = false; 
-                            break;
-                        }
-                        else if (n == pair_count)
-                        {
-                            locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
-                            break;
-                        }
-                        else // se não, ta ok
-                        {
-                            locked[pairs[i].winner][pairs[i].loser] = true;
-                        }
+                        locked[pairs[j].winner][pairs[j].loser] = false;
+                        //if (preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner] == m)
+                        //{
+                                
+                        //}
+                        //else
+                        //{
+                        //}
                     }
-                }*/
+                    
+                    
+                    /*else if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner] == m) // verificar se o par tem a força mais fraca
+                    {
+                        n++;
+                        for (int x = 0; x < candidate_count; x++)
+                        {
+                            if (preferences[pairs[i].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[i].loser] > m)// se apontar pra um com a força maior q a dele
+                            {
+                                locked[pairs[i].winner][pairs[i].loser] = false; 
+                                break;
+                            }
+                            else if (n == pair_count)
+                            {
+                                locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
+                                break;
+                            }
+                            else // se não, ta ok
+                            {
+                                locked[pairs[i].winner][pairs[i].loser] = true;
+                            }
+                        }
+                    }*/
+                //}
             }
         }
     }
