@@ -250,5 +250,12 @@ void lock_pairs(void)
 
 void print_winner(void)
 {
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (pairs[0].winner == i)
+        {
+            printf("%s\n", candidates[i]);
+        }
+    }
     return;
 }
