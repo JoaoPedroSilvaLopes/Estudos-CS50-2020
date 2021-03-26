@@ -252,48 +252,37 @@ void lock_pairs(void)
     if (y == candidate_count) // Indica que possui um ciclo
     {
         // Identificar aonde se cria o ciclo e excluir
-        
         printf("ciclo\n");
-        
+        int n = 0;
         for (int i = 0; i < pair_count; i++)
         {
             for (int j = 0; j < pair_count; j++)
             {
-                /*else*/ if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m)
+                if (locked[pairs[i].winner][pairs[j].loser] == true)
                 {
-                    locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
-                }
-                //if (preferences[pairs[i].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[i].winner] == m)
-                //{
+                    n = preferences[pairs[i].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[i].winner];
+                    
+                    if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m)
+                    {
+                        locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
+                    }
+                    
                     for (int x = 0; x < pair_count; x++)
                     {
-                        if ((locked[pairs[j].loser][pairs[x].loser] == true) && (preferences[pairs[j].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[j].loser] > preferences[pairs[i].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[i].winner]))
+                        if ((locked[pairs[j].loser][pairs[x].loser] == true) && (preferences[pairs[j].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[j].loser] > n))
                         {
-                            printf("%i - %i\n", pairs[i].winner, pairs[j].loser);
-                            
                             for (int z = 0; z < pair_count; z++)
                             {
-                                if ((locked[pairs[z].winner][pairs[i].winner] == true) && (preferences[pairs[z].winner][pairs[i].winner] - preferences[pairs[i].winner][pairs[z].winner] > preferences[pairs[i].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[i].winner]))
+                                if ((locked[pairs[z].winner][pairs[i].winner] == true) && (preferences[pairs[z].winner][pairs[i].winner] - preferences[pairs[i].winner][pairs[z].winner] > n))
                                 {
-                                    printf("%i - %i\n", pairs[i].winner, pairs[j].loser);
-                                    locked[pairs[i].winner][pairs[j].loser] = false;       
+                                    locked[pairs[i].winner][pairs[j].loser] = false;  
                                 }
                             }
                         }
                     }
-                //}
-                // Caso o primeiro par tenha a menor força possivel, então os demais também tem menor força, já que é um ciclo, então o último par deve ser excluido
-                /*else if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m)
-                {
-                    locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
-                }*/
+                }
             }
         }
-        
-        
-        
-        
-        
     }
     
     
