@@ -215,7 +215,13 @@ void lock_pairs(void)
         {
             if (preferences[pairs[i].loser][pairs[j].loser] > preferences[pairs[i].winner][pairs[i].loser])
             {
-                locked[pairs[i].winner][pairs[i].loser] = false;     
+                for (int x = 0; x < pair_count; x++)
+                {
+                    if (preferences[pairs[x].winner][pairs[i].winner] > preferences[pairs[i].winner][pairs[i].loser])
+                    {
+                        locked[pairs[i].winner][pairs[i].loser] = false;
+                    }
+                }
             }
         }
     }
