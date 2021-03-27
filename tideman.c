@@ -209,121 +209,13 @@ void sort_pairs(void)
 
 void lock_pairs(void)
 {
-    // verificar qual é ciclo
-    // para ser ciclo todos devem perder pelo menos uma vez
-    
-    int y = 0;
-    bool contagem[candidate_count];
-    
-    int m = preferences[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] - preferences[pairs[pair_count - 1].loser][pairs[pair_count - 1].winner]; // força mais fraca
-
-    for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
-    {
-        locked[pairs[i].winner][pairs[i].loser] = true;
-        contagem[i] = true;
-    }
-    
-    for (int i = 0; i < pair_count; i++) // Linha da matriz
-    {
-        for (int j = 0; j < pair_count; j++) // Coluna da matriz
-        {
-            if ((locked[i][j] == true) && (contagem[j] == true)) // Se o elemento da matriz for true e tbm perder
-            {
-                contagem[j] = false; // Transformar em false para não se repetir
-                y++; // Adicionar contagem
-            }
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    if (y == candidate_count) // Indica que possui um ciclo
-    {
-        // Identificar aonde se cria o ciclo e excluir
-        printf("ciclo\n");
-        int n = 0;
-        for (int i = 0; i < pair_count; i++)
-        {
-            for (int j = 0; j < pair_count; j++)
-            {
-                if (locked[pairs[i].winner][pairs[j].loser] == true)
-                {
-                    n = preferences[pairs[i].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[i].winner];
-                    
-                    if (preferences[pairs[0].winner][pairs[0].loser] - preferences[pairs[0].loser][pairs[0].winner] == m)
-                    {
-                        locked[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] = false;
-                    }
-                    
-                    for (int x = 0; x < pair_count; x++)
-                    {
-                        if ((locked[pairs[j].loser][pairs[x].loser] == true) && (preferences[pairs[j].loser][pairs[x].loser] - preferences[pairs[x].loser][pairs[j].loser] > n))
-                        {
-                            for (int z = 0; z < pair_count; z++)
-                            {
-                                if ((locked[pairs[z].winner][pairs[i].winner] == true) && (preferences[pairs[z].winner][pairs[i].winner] - preferences[pairs[i].winner][pairs[z].winner] > n))
-                                {
-                                    locked[pairs[i].winner][pairs[j].loser] = false;  
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    else // Indica que não possui um ciclo
-    {
-        // Se não é ciclico é so colocar a fonte do grafo
-        printf("aciclico\n");
-        
-        for (int i = 0; i < pair_count; i++)
-        {
-            locked[pairs[i].winner][pairs[i].loser] = true;    
-        }
-    }
-    
-    // TESTE
     for (int i = 0; i < pair_count; i++)
     {
-        if (locked[pairs[i].winner][pairs[i].loser] == true)
+        if (locked[pairs[i + 1].winner][pairs[i + 1].loser] > locked[pairs[i].winner][pairs[i].loser])
         {
-            printf("TRUE: %i - %i\n", pairs[i].winner, pairs[i].loser);
-        }
-        else
-        {
-            printf("FALSE: %i - %i\n", pairs[i].winner, pairs[i].loser);
+            locked[pairs[i].winner][pairs[i].loser] = false;    
         }
     }
-    printf("\n");
 
     return;
 }
