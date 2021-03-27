@@ -209,6 +209,12 @@ void sort_pairs(void)
 
 void lock_pairs(void)
 {
+    for (int i = 0; i < pair_count; i++) // todos os locked serão true, para fazer uma peneira, do que é valido ou nao
+    {
+        locked[pairs[i].winner][pairs[i].loser] = true;
+    }
+    
+    
     int m = preferences[pairs[pair_count - 1].winner][pairs[pair_count - 1].loser] - preferences[pairs[pair_count - 1].loser][pairs[pair_count - 1].winner];
     
     for (int i = 0; i < pair_count; i++)
