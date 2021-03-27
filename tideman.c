@@ -211,16 +211,22 @@ void lock_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
-        if (locked[pairs[i + 1].winner][pairs[i + 1].loser] > locked[pairs[i].winner][pairs[i].loser])
+        for (int j = 0; j < pair_count; j++)
         {
-            locked[pairs[i].winner][pairs[i].loser] = false;    
+            if (preferences[pairs[i].loser][pairs[j].loser] > preferences[pairs[i].winner][pairs[i].loser])
+            {
+                locked[pairs[i].winner][pairs[i].loser] = false;     
+            }
         }
     }
 
     return;
 }
 
-
+/*if (locked[pairs[i + 1].winner][pairs[i + 1].loser] > locked[pairs[i].winner][pairs[i].loser])
+        {
+            locked[pairs[i].winner][pairs[i].loser] = false;    
+        }*/
 
 
 
