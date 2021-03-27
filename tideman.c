@@ -217,7 +217,7 @@ void lock_pairs(void)
             {
                 for (int x = 0; x < pair_count; x++)
                 {
-                    if (preferences[pairs[x].winner][pairs[i].winner] > preferences[pairs[i].winner][pairs[i].loser])
+                    if (preferences[pairs[x].winner][pairs[i].winner] > preferences[pairs[i].winner][pairs[i].loser] || preferences[pairs[x].winner][pairs[i].winner] == preferences[pairs[i].winner][pairs[i].loser])
                     {
                         locked[pairs[i].winner][pairs[i].loser] = false;
                     }
