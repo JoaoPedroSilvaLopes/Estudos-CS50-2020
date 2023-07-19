@@ -19,6 +19,6 @@
 
 ## :desktop_computer: Tecnologias
 As tecnologias utilizadas foram
-- <a href="https://www.w3schools.com/c/c_intro.php">C</a>
+- <a href="https://www.w3schools.com/c/c_intro.php">Linguagem C</a>
 
 ## Feito por <a href="https://www.linkedin.com/in/joao-pedro-silva-lopes/">João Pedro</a>
